@@ -22,7 +22,7 @@ import acme.roles.Paciente;
 import lombok.Getter;
 import lombok.Setter;
 
-// declarar que es una entidad
+// declarar que es una entidad :)
 @Entity
 //generar automaticamente esos metodos
 @Getter
