@@ -1,0 +1,12 @@
+
+VISTAS EN ACME-JOBS:
+Acmejobs/src/main/webapp/web-inf/views
+
+- Vista para listar anuncios:
+Acmejobs/src/main/webapp/web-inf/views/authenticated/announcement/list.jsp
+
+Controlador, sus servicios y repositorio:
+Acmejobs/src/main/java/acme/features
+
+- EJEMPLO Controlador, sus servicios y repositorio de anuncios:
+Acmejobs/src/main/java/acme/features/announcement/AythenticatedAnnouncementController.java
