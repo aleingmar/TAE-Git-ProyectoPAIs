@@ -13,3 +13,14 @@ Acmejobs/src/main/java/acme/features/announcement/AythenticatedAnnouncementContr
 
 - Dashboard inicial, con el menú y botones
 /TAE-PAIs-AleIsra-23.5.0/src/main/webapp/WEB-INF/views/fragments/menu.jsp
+
+///////////////////////////////////////////
+
+Vista nueva de medicos para el administrador,
+incorporada en el menu
+vista -> /TAE-PAIs-AleIsra-23.5.0/src/main/webapp/WEB-INF/views/administrator/medico/list.jsp
+
+lógica (controlador, repositorio, servicios) --> acme.features.administrator.medico
+
+/////////////////////////////////
+Cambiar puerto de la ejecución -> /TAE-PAIs-AleIsra-23.5.0/src/main/resources/profile-development.properties
