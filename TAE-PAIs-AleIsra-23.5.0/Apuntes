@@ -10,3 +10,6 @@ Acmejobs/src/main/java/acme/features
 
 - EJEMPLO Controlador, sus servicios y repositorio de anuncios:
 Acmejobs/src/main/java/acme/features/announcement/AythenticatedAnnouncementController.java
+
+- Dashboard inicial, con el menú y botones
+/TAE-PAIs-AleIsra-23.5.0/src/main/webapp/WEB-INF/views/fragments/menu.jsp
