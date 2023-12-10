@@ -13,7 +13,7 @@ authenticated.medico.form.label.status = Status:
 authenticated.medico.form.label.text = Text:
 authenticated.medico.form.label.moreInfo = More info: (Optional)
 
-authenticated.medico.list.label.moment = Moment
+authenticated.medico.list.label.especialidad = Especialidad
 authenticated.medico.list.label.status = Status
 authenticated.medico.list.label.title = Title
 authenticated.medico.list.label.text = Text

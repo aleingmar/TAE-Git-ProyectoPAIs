@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.medico.form.label.title = Title:
-authenticated.medico.form.label.status = Status:
-authenticated.medico.form.label.text = Text:
-authenticated.medico.form.label.moreInfo = More info: (Optional)
+administrator.medico.form.label.title = Title:
+administrator.medico.form.label.status = Status:
+administrator.medico.form.label.text = Text:
+administrator.medico.form.label.moreInfo = More info: (Optional)
 
-authenticated.medico.list.label.moment = Moment
-authenticated.medico.list.label.status = Status
-authenticated.medico.list.label.title = Title
-authenticated.medico.list.label.text = Text
+administrator.medico.list.label.nombre = Name
+administrator.medico.list.label.especialidad = Speciality
+administrator.medico.list.label.tipoMedico = Tipo Medico
+administrator.medico.list.label.text = Text

@@ -9,6 +9,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.announcement.list.label.especialidad" path="especialidad" width="10%"/>
+	<acme:list-column code="administrator.medico.list.label.nombre" path="username" width="10%"/>
+	<acme:list-column code="administrator.medico.list.label.tipoMedico" path="tipoMedico" width="10%"/>
+	<acme:list-column code="administrator.medico.list.label.especialidad" path="especialidad" width="10%"/>
 </acme:list>
 

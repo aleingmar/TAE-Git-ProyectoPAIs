@@ -65,11 +65,11 @@ public class AdministratorMedicoListService extends AbstractService<Administrato
 	//se incluyen en la respuesta a la petición. --> **pasa de objeto a texto**
 	@Override
 	public void unbind(final Medico object) {
+
 		//verifica que el objeto no sea nulo
 		assert object != null;
-
 		Tuple tuple;
-		tuple = super.unbind(object, "especialidad");
+		tuple = super.unbind(object, "username", "especialidad", "tipoMedico");
 
 		super.getResponse().setData(tuple);
 	}

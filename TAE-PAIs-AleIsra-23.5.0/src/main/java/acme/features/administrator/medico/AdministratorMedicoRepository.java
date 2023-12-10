@@ -26,7 +26,7 @@ public interface AdministratorMedicoRepository extends AbstractRepository {
 	@Query("select m from Medico m where m.id = :id")
 	Medico findOneMedicoById(int id);
 
-	@Query("select m from Medico m")
+	@Query("select m.userAccount.username, m.especialidad, m.tipoMedico from Medico m")
 	Collection<Medico> findMedicos();
 
 }

@@ -69,7 +69,7 @@ public class AuthenticatedMedicoListService extends AbstractService<Authenticate
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "especialidad");
+		tuple = super.unbind(object, "especialidad", "tipoMedico");
 
 		super.getResponse().setData(tuple);
 	}
