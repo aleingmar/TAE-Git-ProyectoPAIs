@@ -16,6 +16,6 @@ public class ExportDataService {
 
 
 	public List<Diagnostico> getAllData() {
-		return (List<Diagnostico>) this.exportDataRepository.findAll(); // Cambia según tus necesidades
+		return (List<Diagnostico>) this.exportDataRepository.findAllDiagnosticos(); // Cambia según tus necesidades
 	}
 }
