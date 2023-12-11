@@ -29,4 +29,7 @@ public interface AdministratorMedicoRepository extends AbstractRepository {
 	@Query("select m.userAccount.username, m.especialidad, m.tipoMedico from Medico m")
 	Collection<Medico> findMedicos();
 
+	@Query("select m from Medico m")
+	Collection<Medico> findMedicos2();
+
 }

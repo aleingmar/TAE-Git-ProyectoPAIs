@@ -56,7 +56,7 @@ public class AdministratorMedicoListService extends AbstractService<Administrato
 
 		Collection<Medico> objects;
 
-		objects = this.repository.findMedicos();
+		objects = this.repository.findMedicos2();
 
 		super.getBuffer().setData(objects);
 	}
@@ -69,7 +69,7 @@ public class AdministratorMedicoListService extends AbstractService<Administrato
 		//verifica que el objeto no sea nulo
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "username", "especialidad", "tipoMedico");
+		tuple = super.unbind(object, "especialidad");
 
 		super.getResponse().setData(tuple);
 	}
