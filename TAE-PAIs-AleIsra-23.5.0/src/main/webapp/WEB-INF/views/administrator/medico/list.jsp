@@ -10,5 +10,6 @@
 
 <acme:list>
 	<acme:list-column code="administrator.medico.list.label.especialidad" path="especialidad" width="10%"/>
+	<acme:list-column code="administrator.medico.list.label.tipoMedico" path="tipoMedico" width="10%"/>
 </acme:list>
 

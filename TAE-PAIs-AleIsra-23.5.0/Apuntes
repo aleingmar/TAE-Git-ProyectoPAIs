@@ -24,3 +24,7 @@ lógica (controlador, repositorio, servicios) --> acme.features.administrator.me
 
 /////////////////////////////////
 Cambiar puerto de la ejecución -> /TAE-PAIs-AleIsra-23.5.0/src/main/resources/profile-development.properties
+
+/////////////////////////
+BUSCAR CONTENIDO EN TODOS LOS FICHEROS -> CTROL+h
+BUSCAR FICHEROS POR NOMBRE -> CTROL+SHIFT+R

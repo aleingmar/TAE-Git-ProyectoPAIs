@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.roles.Medico;
+import acme.entities.cuidados.Diagnostico;
 
 @Service
 public class ExportDataService {
@@ -15,7 +15,7 @@ public class ExportDataService {
 	private ExportDataRepository exportDataRepository; // Cambia a tu repositorio real
 
 
-	public List<Medico> getAllData() {
-		return (List<Medico>) this.exportDataRepository.findAll(); // Cambia según tus necesidades
+	public List<Diagnostico> getAllData() {
+		return (List<Diagnostico>) this.exportDataRepository.findAll(); // Cambia según tus necesidades
 	}
 }
