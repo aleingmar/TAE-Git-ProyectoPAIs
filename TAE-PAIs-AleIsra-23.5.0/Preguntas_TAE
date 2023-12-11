@@ -1,0 +1,9 @@
+
+Preguntas TAE
+1. Crear registro con clave ajena q haga referencia a ese mismo registro
+2. Crear registro con claves ajenas nulas
+3. Elegir vista en función del rol conectado -> welcome
+	3.1etiqueta jsp con hasrole para q no va
+	3.2 atributo access no va tampoco
+4. Consulta repositorio medicos con nombre
+5. Debug
