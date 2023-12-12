@@ -13,7 +13,8 @@ administrator.medico.form.label.status = Status:
 administrator.medico.form.label.text = Text:
 administrator.medico.form.label.moreInfo = More info: (Optional)
 
-administrator.medico.list.label.nombre = Name
+administrator.medico.list.label.nombreUsuario = User Name
 administrator.medico.list.label.especialidad = Speciality
 administrator.medico.list.label.tipoMedico = Tipo Medico
+administrator.medico.list.label.email= Email
 administrator.medico.list.label.text = Text
