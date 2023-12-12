@@ -9,10 +9,10 @@ import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
+// @Proxy(lazy = false)
 @Entity
 @Getter
 @Setter
-
 public class Medico extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
