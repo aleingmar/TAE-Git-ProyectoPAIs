@@ -9,13 +9,18 @@
 - purposes.  The copyright owner does not offer any warranties or representations, nor do
 - they accept any liabilities with respect to them.
 --%>
-
-<%@page language="java"%>
-
-<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<div class="jumbotron">
-	<h1><acme:message code="master.welcome.title"/></h1>
-	<acme:message code="master.welcome.text"/>
-</div>
+<jstl:if test="${param.error != null}">
+	<acme:alert-error>
+		<acme:message code="master.sign-in.error.text"/>
+	</acme:alert-error>
+</jstl:if>
+
+<acme:form>
+	<acme:input-textbox code="master.sign-in.label.username" path="username"/>
+	<acme:input-password code="master.sign-in.label.password" path="password"/>
+	<acme:input-checkbox code="master.sign-in.label.remember-me" path="remember"/>
+	<acme:submit code="master.sign-in.button.sign-in" action="/master/sign-in"/>
+</acme:form>
