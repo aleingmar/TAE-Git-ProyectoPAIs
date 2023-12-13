@@ -4,14 +4,17 @@ package acme.entities.cuidados;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.asistencia.Ingreso;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -54,4 +57,8 @@ public class Diagnostico extends AbstractEntity {
 	//relacion con la clase ingreso, este atributo (clave ajena en BD)
 	//se pone de la clase de objeto con la que sea la relacion
 
+	@NotNull
+	@Valid
+	@OneToOne(optional = false)
+	protected Ingreso			ingreso;
 }
