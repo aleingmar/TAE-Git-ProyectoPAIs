@@ -13,6 +13,8 @@ import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
 import acme.entities.enumerados.TipoFaseProceso;
@@ -30,7 +32,8 @@ import lombok.Setter;
 @Setter
 //para que persista en la BD como una tabla
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-
+//si dejo esto, el controlador sin filtro no funciona
+@JsonFilter("miFiltro")
 public class Ingreso extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
