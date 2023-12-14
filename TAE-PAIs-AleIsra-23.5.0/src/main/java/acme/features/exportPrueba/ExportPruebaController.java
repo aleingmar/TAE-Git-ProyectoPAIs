@@ -26,32 +26,46 @@ public class ExportPruebaController {
 	//poniendo esto en la clave ajena parece que ha funcionado @JsonIgnore
 
 
+	/*
+	 * DOCUMENTACIÓN API
+	 * modoAPI:
+	 * true-> exclusión
+	 * false -> inclusión
+	 * Modo exclusión:
+	 * Atributo=true -> excluirlo
+	 * Modo inclusión
+	 * atributo=true -> incluirlo
+	 * 
+	 */
 	////////////////////////////////
 	@GetMapping("/ingresoPrueba")
-	public String exportAllData(@RequestParam(name = "excluirId", defaultValue = "false") final boolean excluirId, @RequestParam(name = "excluirPaciente", defaultValue = "false") final boolean excluirPaciente,
-		@RequestParam(name = "contraseña") final String contraseña) throws JsonProcessingException {
+	public String exportAllData(
 
-		String res = "Contraseña incorrecta, no tiene permiso para usarla";
+		////modoAPI=false -> inclusión
+		@RequestParam(name = "modoAPI", defaultValue = "true") final boolean modoAPI, @RequestParam(name = "Paciente", defaultValue = "false") final boolean Paciente, @RequestParam(name = "Id", defaultValue = "false") final boolean Id)
+		throws JsonProcessingException {
 
-		if ("TAE".equals(contraseña)) {
-			// Crear un ObjectMapper y configurar dinámicamente los filtros
+		// Crear un ObjectMapper y configurar dinámicamente los filtros
+		final ObjectMapper objectMapper = new ObjectMapper();
+		final SimpleFilterProvider filterProvider = new SimpleFilterProvider();
 
-			final ObjectMapper objectMapper = new ObjectMapper();
+		//filterOutAllExcept -> solo muestra los de la url
+		//serializeAllExcept -> todos, menos los de la url
+		if (modoAPI) {
 
-			final SimpleFilterProvider filterProvider = new SimpleFilterProvider();
-
-			//filterOutAllExcept -> solo muestra los de la url
-			//serializeAllExcept -> todos, menos los de la url
-			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.serializeAllExcept(excluirId ? "id" : "", excluirPaciente ? "paciente" : ""));
-
+			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.serializeAllExcept(Id ? "id" : "", Paciente ? "paciente" : ""));
 			objectMapper.setFilterProvider(filterProvider);
 
-			// Convertir el objeto a JSON
+		} else { //modo exclusión=false -> modo Inclusión
 
-			final List<Ingreso> ingresos = this.exportDataService.getAllIngresos2();
-			res = objectMapper.writer(filterProvider).writeValueAsString(ingresos);
+			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.filterOutAllExcept(Id ? "id" : "", Paciente ? "paciente" : ""));
+			objectMapper.setFilterProvider(filterProvider);
 		}
-		return res;
+
+		// Convertir el objeto a JSON
+		final List<Ingreso> ingresos = this.exportDataService.getAllIngresos2();
+
+		return objectMapper.writer(filterProvider).writeValueAsString(ingresos);
 
 	}
 }
