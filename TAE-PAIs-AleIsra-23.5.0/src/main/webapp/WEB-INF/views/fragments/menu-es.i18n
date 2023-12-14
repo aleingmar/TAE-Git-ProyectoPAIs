@@ -15,10 +15,10 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
-# master.menu.anonymous #######################################################
+# master.menu.medico ###################################################
 
-master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.medico = Médico
+master.menu.medico.pacientes = Pacientes
 
 # master.menu.administrator ###################################################
 
