@@ -19,6 +19,7 @@ medico.paciente.list.label.fechaNacimiento = Fecha de nacimiento
 medico.paciente.list.label.dni = dni
 medico.paciente.list.label.email= Email
 administrator.medico.list.label.text = Text
+medico.paciente.form.button.generarPdf = Generar PDF
 
 medico.paciente.form.label.nombreUsuario = Usuario del paciente
 medico.paciente.form.label.telefono = Teléfono

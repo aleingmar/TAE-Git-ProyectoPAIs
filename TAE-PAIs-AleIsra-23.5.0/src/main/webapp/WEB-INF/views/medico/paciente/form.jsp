@@ -14,6 +14,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <acme:form>
 	<acme:input-textbox code="medico.paciente.form.label.nombreUsuario" path="userAccount.username" readonly="true"/>
@@ -22,4 +23,9 @@
 	<acme:input-textbox code="medico.paciente.form.label.fechaNacimiento" path="fechaNacimiento" readonly="true"/>
 	<acme:input-textbox code="medico.paciente.form.label.dni" path="dni" readonly="true"/>
 
+	<a href="<spring:url value='/generatePdf/${id}'/>" target="_blank">
+        <button type="button">Generar PDF</button>
+    </a>
 </acme:form>
+
+

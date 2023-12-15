@@ -70,6 +70,22 @@ public class MedicoPacienteShowService extends AbstractService<Medico, Paciente>
 		tuple = super.unbind(object, "userAccount.username", "userAccount.identity.email", "telefono", "fechaNacimiento", "dni");
 
 		super.getResponse().setData(tuple);
+
 	}
 
+	//	public void generatePdf(final Paciente paciente) throws FileNotFoundException {
+	//		final Document document = new Document();
+	//		try {
+	//			PdfWriter.getInstance(document, new FileOutputStream("Paciente_" + paciente.getId() + ".pdf"));
+	//			document.open();
+	//			document.add(new Paragraph("Nombre del paciente: " + paciente.getUserAccount().getUsername()));
+	//			document.add(new Paragraph("Email del paciente: " + paciente.getUserAccount().getIdentity().getEmail()));
+	//			document.add(new Paragraph("Teléfono del paciente: " + paciente.getTelefono()));
+	//			document.add(new Paragraph("Fecha de nacimiento del paciente: " + paciente.getFechaNacimiento()));
+	//			document.add(new Paragraph("DNI del paciente: " + paciente.getDni()));
+	//			document.close();
+	//		} catch (DocumentException | IOException e) {
+	//			e.printStackTrace();
+	//		}
+	//	}
 }
