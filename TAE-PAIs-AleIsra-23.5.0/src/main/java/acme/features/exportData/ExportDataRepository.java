@@ -11,7 +11,7 @@ import acme.entities.asistencia.Ingreso;
 import acme.roles.Medico;
 
 @Repository
-public interface ExportDataRepository extends CrudRepository<Medico, Long> {
+public interface ExportDataRepository extends CrudRepository<Ingreso, Long> {
 
 	// Puedes agregar métodos personalizados de consulta si es necesario
 

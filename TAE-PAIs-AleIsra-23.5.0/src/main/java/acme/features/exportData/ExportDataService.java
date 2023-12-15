@@ -6,8 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+
 import acme.entities.asistencia.Ingreso;
-import acme.roles.Medico;
 
 @Service
 public class ExportDataService {
@@ -16,23 +20,28 @@ public class ExportDataService {
 	private ExportDataRepository exportDataRepository; // Cambia a tu repositorio real
 
 
-	public List<Ingreso> getAllIngresos() {
-		return (List<Ingreso>) this.exportDataRepository.findAllIngresos(); // Cambia según tus necesidades
-	}
+	public String getAllIngresos2(final Boolean modoAPI, final Boolean Paciente, final Boolean Id) throws JsonProcessingException {
 
-	public List<Ingreso> getAllIngresos2() {
-		final List<Ingreso> ingresos = (List<Ingreso>) this.exportDataRepository.findAllIngresos();
-		for (final Ingreso i : ingresos) {
-			System.out.println(i.getPaciente().getUserAccount());
-			System.out.println(i.getMedico().getUserAccount());
-			System.out.println(i.getAdministrativo().getUserAccount());
+		// Crear un ObjectMapper y configurar dinámicamente los filtros
+		final ObjectMapper objectMapper = new ObjectMapper();
+		final SimpleFilterProvider filterProvider = new SimpleFilterProvider();
+
+		//filterOutAllExcept -> solo muestra los de la url
+		//serializeAllExcept -> todos, menos los de la url
+		if (modoAPI) {
+
+			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.serializeAllExcept(Id ? "id" : "", Paciente ? "paciente" : ""));
+			objectMapper.setFilterProvider(filterProvider);
+
+		} else { //modo exclusión=false -> modo Inclusión
+
+			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.filterOutAllExcept(Id ? "id" : "", Paciente ? "paciente" : ""));
+			objectMapper.setFilterProvider(filterProvider);
 		}
-		return ingresos;
 
-	}
+		final List<Ingreso> ingresos = (List<Ingreso>) this.exportDataRepository.findAllIngresos();
+		return objectMapper.writer(filterProvider).writeValueAsString(ingresos);
 
-	public List<Medico> getAllMedicos() {
-		return (List<Medico>) this.exportDataRepository.findAllMedicos(); // Cambia según tus necesidades
 	}
 
 }
