@@ -18,7 +18,6 @@ public class ExportDataController {
 
 	//poniendo esto en la clave ajena parece que ha funcionado @JsonIgnore
 
-
 	/*
 	 * DOCUMENTACIÓN API
 	 * modoAPI:
@@ -34,11 +33,16 @@ public class ExportDataController {
 	@GetMapping("/ingresoData")
 	public String exportAllData(
 
-		////modoAPI=false -> inclusión
-		@RequestParam(name = "modoAPI", defaultValue = "true") final boolean modoAPI, @RequestParam(name = "Paciente", defaultValue = "false") final boolean Paciente, @RequestParam(name = "Id", defaultValue = "false") final boolean Id)
-		throws JsonProcessingException {
-
-		return this.exportDataService.getAllIngresos2(modoAPI, Paciente, Id);
+		////Parámetros para definir si el modo de la API es de exclusión o de inclusión: modoAPI=false -> inclusión
+		@RequestParam(name = "modoAPI", defaultValue = "true") final boolean modoAPI,
+		//Parámetro para manipular la respuesta de la API
+		@RequestParam(name = "paciente", defaultValue = "false") final boolean paciente, 
+		@RequestParam(name = "Id", defaultValue = "false") final boolean Id, 
+		@RequestParam(name = "medico", defaultValue = "false") final boolean medico,
+		@RequestParam(name = "centroIngreso", defaultValue = "false") final boolean centroIngreso, 
+		@RequestParam(name = "motivoIngreso", defaultValue = "false") final boolean motivoIngreso) throws JsonProcessingException {
+		//LLamada al método del servicio que implementa la lógica de la API, pasándole como parámetro los parámetros de la solícitud enviadas por el cliente
+		return this.exportDataService.getAllIngresos2(modoAPI, paciente, Id, medico, centroIngreso, motivoIngreso);
 
 	}
 }

@@ -250,7 +250,7 @@
 			<artifactId>opencsv</artifactId>
 			<version>5.4</version>
 		</dependency>
-		<!-- Dependencia para api -->
+		<!-- No sirven -->
 		<dependency> 
     		<groupId>javax</groupId> 
     		<artifactId>javaee-api</artifactId> 

@@ -20,7 +20,9 @@ public class ExportDataService {
 	private ExportDataRepository exportDataRepository; // Cambia a tu repositorio real
 
 
-	public String getAllIngresos2(final Boolean modoAPI, final Boolean Paciente, final Boolean Id) throws JsonProcessingException {
+	public String getAllIngresos2(final Boolean modoAPI, final Boolean paciente, final Boolean Id, 
+		final Boolean medico, final Boolean centroIngreso, final Boolean motivoIngreso) 
+		throws JsonProcessingException {
 
 		// Crear un ObjectMapper y configurar dinámicamente los filtros
 		final ObjectMapper objectMapper = new ObjectMapper();
@@ -28,14 +30,16 @@ public class ExportDataService {
 
 		//filterOutAllExcept -> solo muestra los de la url
 		//serializeAllExcept -> todos, menos los de la url
-		if (modoAPI) {
+		if (modoAPI) { //modo exclusión
 
-			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.serializeAllExcept(Id ? "id" : "", Paciente ? "paciente" : ""));
+			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.serializeAllExcept(Id ? "id" : "", paciente ? "paciente" : "",
+			medico ? "medico" : "", centroIngreso ? "centroIngreso" : "", motivoIngreso ? "motivoIngreso" : ""));
 			objectMapper.setFilterProvider(filterProvider);
 
 		} else { //modo exclusión=false -> modo Inclusión
 
-			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.filterOutAllExcept(Id ? "id" : "", Paciente ? "paciente" : ""));
+			filterProvider.addFilter("miFiltro", SimpleBeanPropertyFilter.filterOutAllExcept(Id ? "id" : "", paciente ? "paciente" : "",
+			medico ? "medico" : "", centroIngreso ? "centroIngreso" : "", motivoIngreso ? "motivoIngreso" : ""));
 			objectMapper.setFilterProvider(filterProvider);
 		}
 
