@@ -18,7 +18,7 @@
 
 <acme:form>
 	<acme:input-textbox code="medico.paciente.form.label.nombreUsuario" path="userAccount.username" readonly="true"/>
-	<acme:input-email code="medico.pacienteo.form.label.email" path="userAccount.identity.email" readonly="true"/>
+	<acme:input-email code="medico.paciente.form.label.email" path="userAccount.identity.email" readonly="true"/>
 	<acme:input-textbox code="medico.paciente.form.label.telefono" path="telefono" readonly="true"/>
 	<acme:input-textbox code="medico.paciente.form.label.fechaNacimiento" path="fechaNacimiento" readonly="true"/>
 	<acme:input-textbox code="medico.paciente.form.label.dni" path="dni" readonly="true"/>
