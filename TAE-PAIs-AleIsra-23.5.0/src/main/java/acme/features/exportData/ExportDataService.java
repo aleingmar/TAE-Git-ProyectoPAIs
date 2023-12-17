@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
@@ -13,11 +14,13 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
 import acme.entities.asistencia.Ingreso;
 
+
 @Service
 public class ExportDataService {
 
 	@Autowired
 	private ExportDataRepository exportDataRepository; // Cambia a tu repositorio real
+
 
 
 	public String getAllIngresos2(final Boolean modoAPI, final Boolean paciente, final Boolean Id, 
@@ -47,5 +50,6 @@ public class ExportDataService {
 		return objectMapper.writer(filterProvider).writeValueAsString(ingresos);
 
 	}
+
 
 }

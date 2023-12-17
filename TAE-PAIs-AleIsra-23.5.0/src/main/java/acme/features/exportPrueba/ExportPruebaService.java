@@ -6,13 +6,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import acme.entities.asistencia.Ingreso;
+
 
 @Service
 public class ExportPruebaService {
 
 	@Autowired
 	private ExportPruebaRepository exportPruebaRepository; // Cambia a tu repositorio real
+
 
 
 	public List<Ingreso> getAllIngresos() {
@@ -29,5 +32,6 @@ public class ExportPruebaService {
 		return ingresos;
 
 	}
+
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 // ESTE ES UNA API PARA PRUEBAS, LA API DEFNITIVA ESTA EN EL PAQUETE EXPORTDATA
 
 import acme.entities.asistencia.Ingreso;
+
 
 @RestController
 @RequestMapping("/api/export")
@@ -68,6 +70,7 @@ public class ExportPruebaController {
 		final List<Ingreso> ingresos = this.exportDataService.getAllIngresos2();
 
 		return objectMapper.writer(filterProvider).writeValueAsString(ingresos);
+
 
 	}
 }

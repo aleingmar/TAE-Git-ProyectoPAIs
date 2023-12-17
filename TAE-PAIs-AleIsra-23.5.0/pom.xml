@@ -39,6 +39,7 @@
 		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<itext.version>7.1.15</itext.version>
 	</properties>
 
 	<build>
@@ -250,7 +251,9 @@
 			<artifactId>opencsv</artifactId>
 			<version>5.4</version>
 		</dependency>
+
 		<!-- No sirven -->
+
 		<dependency> 
     		<groupId>javax</groupId> 
     		<artifactId>javaee-api</artifactId> 
@@ -269,6 +272,22 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
     </dependency>
+
+
+    
+	<dependency>
+    	<groupId>com.itextpdf</groupId>
+    	<artifactId>itextpdf</artifactId>
+    	<version>5.5.13</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>itext7-core</artifactId>
+        <version>${itext.version}</version>
+        <type>pom</type>
+    </dependency>
+
 	
 	</dependencies>
 	
