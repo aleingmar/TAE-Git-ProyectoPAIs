@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -14,7 +13,8 @@ import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.entities.cuidados.Diagnostico;
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
 import acme.entities.enumerados.TipoFaseProceso;
@@ -32,7 +32,8 @@ import lombok.Setter;
 @Setter
 //para que persista en la BD como una tabla
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-
+//si dejo esto, el controlador sin filtro no funciona
+@JsonFilter("miFiltro")
 public class Ingreso extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -103,22 +104,12 @@ public class Ingreso extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Administrativo	administrativo;
 
-	@NotNull
-	@Valid
-	@OneToOne(optional = true)
-	protected Diagnostico		diagnostico;
-
 	//un ingreso inicial se relaciona con N ingresos de proceso, un ingreso de proceso se relaciona con un ingreso inicial
 	//un ingreso inicial, tiene el valor de este atributo a el mismo
 	//un ingreso de proceso, tiene el valor del ingreso inicial en el que empezó todo el proceso
 
-	/*
-	 * @NotNull
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne(optional = false)
-	 * protected Ingreso ingresoInicial;
-	 */
+	//	@Valid
+	//	@ManyToOne(optional = true)
+	//	protected Ingreso			ingresoInicial;
 
 }

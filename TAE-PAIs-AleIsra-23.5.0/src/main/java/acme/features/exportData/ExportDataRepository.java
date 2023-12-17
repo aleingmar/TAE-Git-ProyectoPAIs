@@ -7,12 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.cuidados.Diagnostico;
+
+import acme.entities.asistencia.Ingreso;
 
 @Repository
-public interface ExportDataRepository extends CrudRepository<Diagnostico, Long> {
+public interface ExportDataRepository extends CrudRepository<Ingreso, Long> {
 
 	// Puedes agregar métodos personalizados de consulta si es necesario
-	@Query("select d from Diagnostico d")
-	Collection<Diagnostico> findAllDiagnosticos();
+
+	@Query("select i from Ingreso i")
+	Collection<Ingreso> findAllIngresos();
+
+
 }

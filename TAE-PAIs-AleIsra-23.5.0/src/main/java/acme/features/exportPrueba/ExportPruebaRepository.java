@@ -7,17 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import acme.roles.Administrativo;
+
+import acme.entities.asistencia.Ingreso;
 
 @Repository
-public interface ExportPruebaRepository extends CrudRepository<Administrativo, Long> {
+public interface ExportPruebaRepository extends CrudRepository<Ingreso, Long> {
 
 	// Puedes agregar métodos personalizados de consulta si es necesario
 
-	@Query("select a from Administrativo a")
-	Collection<Administrativo> findAllAdministrativos();
+	@Query("select i from Ingreso i")
+	Collection<Ingreso> findAllIngresos();
 
-	@Query("select a from Administrativo a")
-	Collection<Object> findAll3();
 
 }
