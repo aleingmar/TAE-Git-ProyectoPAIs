@@ -14,6 +14,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
+// ESTE ES UNA API PARA PRUEBAS, LA API DEFNITIVA ESTA EN EL PAQUETE EXPORTDATA
+
 import acme.entities.asistencia.Ingreso;
 
 @RestController
