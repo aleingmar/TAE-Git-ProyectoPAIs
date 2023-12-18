@@ -18,7 +18,9 @@ master.menu.sign-out = Salir
 # master.menu.paciente ###################################################
 
 master.menu.paciente = Paciente
-master.menu.paciente.citas = Citas
+master.menu.paciente.citas = Mis citas
+master.menu.paciente.pruebas = Mis pruebas
+master.menu.paciente.altas = Mis Altas
 
 # master.menu.medico ###################################################
 

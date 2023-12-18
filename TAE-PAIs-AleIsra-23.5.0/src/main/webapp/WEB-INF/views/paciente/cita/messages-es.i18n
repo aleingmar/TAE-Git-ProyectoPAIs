@@ -8,22 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.cita.list.label.fechaCita = Fecha cita
-administrator.cita.list.label.centroCita = Centro hospitalario
-administrator.cita.list.label.tipoCita = Tipo
-administrator.cita.list.label.indicacionesCita = Indicaciones
-administrator.cita.list.label.resultadoCita = Resultados
-administrator.cita.list.label.paciente = Paciente
-administrator.cita.list.label.medicoOrganiza = Medico organiza
-administrator.cita.list.label.medicoTrata = Medico trata
-administrator.cita.list.label.motivoIngreso = Motivo ingreso
+paciente.cita.list.label.fechaCita = Fecha cita
+paciente.cita.list.label.centroCita = Centro hospitalario
+paciente.cita.list.label.tipoCita = Tipo
+paciente.cita.list.label.indicacionesCita = Indicaciones
+paciente.cita.list.label.resultadoCita = Resultados
+paciente.cita.list.label.paciente = Paciente
+paciente.cita.list.label.medicoOrganiza = Medico organiza
+paciente.cita.list.label.medicoTrata = Medico trata
+paciente.cita.list.label.motivoIngreso = Motivo ingreso
 
-administrator.cita.form.label.fechaCita = Fecha cita
-administrator.cita.form.label.centroCita = Centro hospitalario
-administrator.cita.form.label.tipoCita = Tipo
-administrator.cita.form.label.indicacionesCita = Indicaciones
-administrator.cita.form.label.resultadoCita = Resultados
-administrator.cita.form.label.paciente = Paciente
-administrator.cita.form.label.medicoOrganiza = Medico organiza
-administrator.cita.form.label.medicoTrata = Medico trata
-administrator.cita.form.label.motivoIngreso = Motivo ingreso
+paciente.cita.form.label.fechaCita = Fecha cita
+paciente.cita.form.label.centroCita = Centro hospitalario
+paciente.cita.form.label.tipoCita = Tipo
+paciente.cita.form.label.indicacionesCita = Indicaciones
+paciente.cita.form.label.resultadoCita = Resultados
+paciente.cita.form.label.paciente = Paciente
+paciente.cita.form.label.medicoOrganiza = Medico organiza
+paciente.cita.form.label.medicoTrata = Medico trata
+paciente.cita.form.label.motivoIngreso = Motivo ingreso

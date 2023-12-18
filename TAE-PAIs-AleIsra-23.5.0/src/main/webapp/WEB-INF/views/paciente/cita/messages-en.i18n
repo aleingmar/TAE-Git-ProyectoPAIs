@@ -8,22 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.cita.list.label.fechaCita = Appointment date
-administrator.cita.list.label.centroCita = Hospital
-administrator.cita.list.label.tipoCita = Type
-administrator.cita.list.label.indicacionesCita = Indications
-administrator.cita.list.label.resultadoCita = Results
-administrator.cita.list.label.paciente = Patient
-administrator.cita.list.label.medicoOrganiza = Doctor organizes
-administrator.cita.list.label.medicoTrata = Doctor treats
-administrator.cita.list.label.motivoIngreso = Admission reason
+paciente.cita.list.label.fechaCita = Appointment date
+paciente.cita.list.label.centroCita = Hospital
+paciente.cita.list.label.tipoCita = Type
+paciente.cita.list.label.indicacionesCita = Indications
+paciente.cita.list.label.resultadoCita = Results
+paciente.cita.list.label.paciente = Patient
+paciente.cita.list.label.medicoOrganiza = Doctor organizes
+paciente.cita.list.label.medicoTrata = Doctor treats
+paciente.cita.list.label.motivoIngreso = Admission reason
 
-administrator.cita.form.label.fechaCita = Appointment date
-administrator.cita.form.label.centroCita = Hospital
-administrator.cita.form.label.tipoCita = Type
-administrator.cita.form.label.indicacionesCita = Indications
-administrator.cita.form.label.resultadoCita = Results
-administrator.cita.form.label.paciente = Patient
-administrator.cita.form.label.medicoOrganiza = Doctor organizes
-administrator.cita.form.label.medicoTrata = Doctor treats
-administrator.cita.form.label.motivoIngreso = Admission reason
+paciente.cita.form.label.fechaCita = Appointment date
+paciente.cita.form.label.centroCita = Hospital
+paciente.cita.form.label.tipoCita = Type
+paciente.cita.form.label.indicacionesCita = Indications
+paciente.cita.form.label.resultadoCita = Results
+paciente.cita.form.label.paciente = Patient
+paciente.cita.form.label.medicoOrganiza = Doctor organizes
+paciente.cita.form.label.medicoTrata = Doctor treats
+paciente.cita.form.label.motivoIngreso = Admission reason

@@ -18,15 +18,15 @@
 
 <acme:form>
 
-	<acme:input-textbox code="administrator.cita.form.label.paciente" path="paciente.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.fechaCita" path="fechaCita" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.centroCita" path="centroCita" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.tipoCita" path="tipoCita" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.indicacionesCita" path="indicacionesCita" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.resultadoCita" path="resultadoCita" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.medicoOrganiza" path="medicoOrganiza.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.medicoTrata" path="medicoTrata.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.motivoIngreso" path="ingreso.motivoIngreso" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.paciente" path="paciente.userAccount.username" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.fechaCita" path="fechaCita" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.centroCita" path="centroCita" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.tipoCita" path="tipoCita" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.indicacionesCita" path="indicacionesCita" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.resultadoCita" path="resultadoCita" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.medicoOrganiza" path="medicoOrganiza.userAccount.username" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.medicoTrata" path="medicoTrata.userAccount.username" readonly="true"/>
+	<acme:input-textbox code="paciente.cita.form.label.motivoIngreso" path="ingreso.motivoIngreso" readonly="true"/>
 
 </acme:form>
 

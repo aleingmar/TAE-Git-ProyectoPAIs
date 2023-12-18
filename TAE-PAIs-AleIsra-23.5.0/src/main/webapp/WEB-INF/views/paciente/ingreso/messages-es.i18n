@@ -1,0 +1,10 @@
+
+paciente.ingreso.list.label.motivoAlta = Motivo Alta
+paciente.ingreso.list.label.fechaAlta = Fecha Alta
+paciente.ingreso.list.label.paciente = Paciente
+paciente.ingreso.list.label.medico = Médico encargado
+
+paciente.ingreso.form.label.motivoAlta = Motivo Alta
+paciente.ingreso.form.label.fechaAlta = Fecha Alta
+paciente.ingreso.form.label.paciente = Paciente
+paciente.ingreso.form.label.medico = Médico encargado
