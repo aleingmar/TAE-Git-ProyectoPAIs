@@ -18,3 +18,8 @@ administrator.medico.list.label.especialidad = Speciality
 administrator.medico.list.label.tipoMedico = Tipo Medico
 administrator.medico.list.label.email= Email
 administrator.medico.list.label.text = Text
+
+administrator.medico.form.label.nombreUsuario = User Name
+administrator.medico.form.label.especialidad = Speciality
+administrator.medico.form.label.tipoMedico = Tipo Medico
+administrator.medico.form.label.email= Email

@@ -10,23 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.medico;
+package acme.features.administrator.cita;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.asistencia.Cita;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Medico;
 
 @Service
-public class AdministratorMedicoShowService extends AbstractService<Administrator, Medico> {
+public class AdministratorCitaShowService extends AbstractService<Administrator, Cita> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorMedicoRepository repository;
+	protected AdministratorCitaRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,31 +43,31 @@ public class AdministratorMedicoShowService extends AbstractService<Administrato
 	@Override
 	public void authorise() {
 		int id;
-		Medico Medico;
+		Cita Cita;
 		id = super.getRequest().getData("id", int.class);
-		Medico = this.repository.findOneMedicoById(id);
+		Cita = this.repository.findOneCitaById(id);
 
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Medico object;
+		Cita object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneMedicoById(id);
+		object = this.repository.findOneCitaById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Medico object) {
+	public void unbind(final Cita object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "userAccount.username", "userAccount.identity.email", "tipoMedico", "especialidad");
+		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso");
 
 		super.getResponse().setData(tuple);
 	}

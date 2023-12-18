@@ -10,23 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.medico;
+package acme.features.administrator.ingreso;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.asistencia.Ingreso;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Medico;
 
 @Service
-public class AdministratorMedicoShowService extends AbstractService<Administrator, Medico> {
+public class AdministratorIngresoShowService extends AbstractService<Administrator, Ingreso> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorMedicoRepository repository;
+	protected AdministratorIngresoRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,31 +43,31 @@ public class AdministratorMedicoShowService extends AbstractService<Administrato
 	@Override
 	public void authorise() {
 		int id;
-		Medico Medico;
+		Ingreso Ingreso;
 		id = super.getRequest().getData("id", int.class);
-		Medico = this.repository.findOneMedicoById(id);
+		Ingreso = this.repository.findOneIngresoById(id);
 
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Medico object;
+		Ingreso object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneMedicoById(id);
+		object = this.repository.findOneIngresoById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Medico object) {
+	public void unbind(final Ingreso object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "userAccount.username", "userAccount.identity.email", "tipoMedico", "especialidad");
+		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

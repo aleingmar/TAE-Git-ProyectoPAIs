@@ -23,12 +23,11 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.paciente" access="hasRole('Paciente')">
-			<acme:menu-suboption code="master.menu.paciente.cita" action="Views/authenticated/cita/list"/>
-		</acme:menu-option>
-		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.medicos" action="/administrator/medico/list"/>
+			<acme:menu-suboption code="master.menu.administrator.pacientes" action="/administrator/paciente/list"/>
+			<acme:menu-suboption code="master.menu.administrator.citas" action="/administrator/cita/list"/>
+			<acme:menu-suboption code="master.menu.administrator.ingresos" action="/administrator/ingreso/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>

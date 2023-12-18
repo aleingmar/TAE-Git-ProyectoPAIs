@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.ingreso.list.label.fechaIngreso = Date of admission
+administrator.ingreso.list.label.faseProceso = Process phase
+administrator.ingreso.list.label.motivoIngreso = Admission reason
+administrator.ingreso.list.label.centroIngreso = Admission center
+administrator.ingreso.list.label.fechaValoracion = Valuation date
+administrator.ingreso.list.label.resultadoValoracion = Valuation result
+administrator.ingreso.list.label.motivoAlta = Alta reason
+administrator.ingreso.list.label.fechaAlta = Alta date
+administrator.ingreso.list.label.paciente = Patient
+administrator.ingreso.list.label.medico = Doctor
+
+administrator.ingreso.form.label.fechaIngreso = Date of admission
+administrator.ingreso.form.label.faseProceso = Process phase
+administrator.ingreso.form.label.motivoIngreso = Admission reason
+administrator.ingreso.form.label.centroIngreso = Admission center
+administrator.ingreso.form.label.fechaValoracion = Valuation date
+administrator.ingreso.form.label.resultadoValoracion = Valuation result
+administrator.ingreso.form.label.motivoAlta = Alta reason
+administrator.ingreso.form.label.fechaAlta = Alta date
+administrator.ingreso.form.label.paciente = Patient
+administrator.ingreso.form.label.medico = Doctor

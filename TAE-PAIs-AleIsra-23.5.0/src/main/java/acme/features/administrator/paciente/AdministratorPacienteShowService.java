@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.medico;
+package acme.features.administrator.paciente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +18,15 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Service
-public class AdministratorMedicoShowService extends AbstractService<Administrator, Medico> {
+public class AdministratorPacienteShowService extends AbstractService<Administrator, Paciente> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorMedicoRepository repository;
+	protected AdministratorPacienteRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,31 +43,31 @@ public class AdministratorMedicoShowService extends AbstractService<Administrato
 	@Override
 	public void authorise() {
 		int id;
-		Medico Medico;
+		Paciente Paciente;
 		id = super.getRequest().getData("id", int.class);
-		Medico = this.repository.findOneMedicoById(id);
+		Paciente = this.repository.findOnePacienteById(id);
 
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Medico object;
+		Paciente object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneMedicoById(id);
+		object = this.repository.findOnePacienteById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Medico object) {
+	public void unbind(final Paciente object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "userAccount.username", "userAccount.identity.email", "tipoMedico", "especialidad");
+		tuple = super.unbind(object, "userAccount.username", "userAccount.identity.email", "telefono", "dni", "fechaNacimiento");
 
 		super.getResponse().setData(tuple);
 	}

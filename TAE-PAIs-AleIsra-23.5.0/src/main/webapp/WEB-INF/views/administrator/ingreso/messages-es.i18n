@@ -1,0 +1,21 @@
+administrator.ingreso.list.label.fechaIngreso = Fecha ingreso
+administrator.ingreso.list.label.faseProceso = Fase proceso
+administrator.ingreso.list.label.motivoIngreso = Motivo ingreso
+administrator.ingreso.list.label.centroIngreso = Centro ingreso
+administrator.ingreso.list.label.fechaValoracion = Fecha valoración
+administrator.ingreso.list.label.resultadoValoracion = Resultado valoración
+administrator.ingreso.list.label.motivoAlta = Motivo Alta
+administrator.ingreso.list.label.fechaAlta = Fecha Alta
+administrator.ingreso.list.label.paciente = Paciente
+administrator.ingreso.list.label.medico = Médico
+
+administrator.ingreso.form.label.fechaIngreso = Fecha ingreso
+administrator.ingreso.form.label.faseProceso = Fase proceso
+administrator.ingreso.form.label.motivoIngreso = Motivo ingreso
+administrator.ingreso.form.label.centroIngreso = Centro ingreso
+administrator.ingreso.form.label.fechaValoracion = Fecha valoración
+administrator.ingreso.form.label.resultadoValoracion = Resultado valoración
+administrator.ingreso.form.label.motivoAlta = Motivo Alta
+administrator.ingreso.form.label.fechaAlta = Fecha Alta
+administrator.ingreso.form.label.paciente = Paciente
+administrator.ingreso.form.label.medico = Médico
