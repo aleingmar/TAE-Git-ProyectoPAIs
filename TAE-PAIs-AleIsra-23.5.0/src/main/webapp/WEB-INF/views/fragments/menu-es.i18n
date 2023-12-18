@@ -22,6 +22,9 @@ master.menu.medico.pacientes = Pacientes
 
 # master.menu.administrator ###################################################
 
+master.menu.paciente = Paciente
+master.menu.paciente.cita = Cita
+
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario

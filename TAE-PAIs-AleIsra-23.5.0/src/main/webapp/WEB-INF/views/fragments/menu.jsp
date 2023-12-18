@@ -19,6 +19,14 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 
+		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.paciente" access="hasRole('Paciente')">
+			<acme:menu-suboption code="master.menu.paciente.cita" action="Views/authenticated/cita/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.medicos" action="/administrator/medico/list"/>
 			<acme:menu-separator/>
