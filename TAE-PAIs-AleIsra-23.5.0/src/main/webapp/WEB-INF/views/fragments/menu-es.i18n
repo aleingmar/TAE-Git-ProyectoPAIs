@@ -15,6 +15,11 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+# master.menu.paciente ###################################################
+
+master.menu.paciente = Paciente
+master.menu.paciente.citas = Citas
+
 # master.menu.medico ###################################################
 
 master.menu.medico = Médico
