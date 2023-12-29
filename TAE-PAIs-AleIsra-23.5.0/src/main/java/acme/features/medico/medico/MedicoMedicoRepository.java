@@ -10,26 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.paciente.cita;
+package acme.features.medico.medico;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.asistencia.Cita;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Medico;
 
 @Repository
-public interface PacienteCitaRepository extends AbstractRepository {
+public interface MedicoMedicoRepository extends AbstractRepository {
 
-	@Query("select c from Cita c where c.id = :id")
-	Cita findOneCitaById(int id);
+	@Query("select m from Medico m where m.id = :id")
+	Medico findOneMedicoById(int id);
 
-	@Query("select c from Cita c")
-	Collection<Cita> findCitas();
-
-	@Query("select c from Cita c where c.paciente.id = :id")
-	Collection<Cita> findCitasByPacienteId(int id);
+	@Query("select m from Medico m")
+	Collection<Medico> findMedicos();
 
 }

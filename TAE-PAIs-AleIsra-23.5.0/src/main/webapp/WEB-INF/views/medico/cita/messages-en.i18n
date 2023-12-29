@@ -1,0 +1,35 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+medico.historial.list.label.fechaCita = Appointment date
+medico.historial.list.label.centroCita = Hospital
+medico.historial.list.label.tipoCita = Type
+medico.historial.list.label.indicacionesCita = Indications
+medico.historial.list.label.resultadoCita = Results
+medico.historial.list.label.paciente = Patient
+medico.historial.list.label.medicoOrganiza = Doctor organizes
+medico.historial.list.label.medicoTrata = Doctor treats
+medico.historial.list.label.motivoIngreso = Admission reason
+medico.historial.list.label.fechaValoracion = Valoration Date
+medico.historial.list.label.resultadoValoracion = Valoration result
+medico.historial.form.button.crearValoracion = Create Valoration
+medico.historial.form.button.crearAlta = Create Alta
+
+medico.historial.form.label.fechaCita = Appointment date
+medico.historial.form.label.centroCita = Hospital
+medico.historial.form.label.tipoCita = Type
+medico.historial.form.label.indicacionesCita = Indications
+medico.historial.form.label.resultadoCita = Results
+medico.historial.form.label.paciente = Patient
+medico.historial.form.label.medicoOrganiza = Doctor organizes
+medico.historial.form.label.medicoTrata = Doctor treats
+medico.historial.form.label.motivoIngreso = Admission reason
+medico.historial.form.label.fechaValoracion = Valoration Date
+medico.historial.form.label.resultadoValoracion = Valoration result

@@ -26,6 +26,8 @@ master.menu.paciente.altas = Mis Altas
 
 master.menu.medico = Médico
 master.menu.medico.pacientes = Pacientes
+master.menu.medico.medicos = Médicos AH
+master.menu.medico.historiales = Ver historiales
 
 # master.menu.administrator ###################################################
 

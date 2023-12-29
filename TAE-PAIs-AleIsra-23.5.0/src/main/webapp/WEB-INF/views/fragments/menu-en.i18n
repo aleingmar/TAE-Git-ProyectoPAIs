@@ -44,6 +44,8 @@ master.menu.paciente.altas = My Altas
 
 master.menu.medico = Doctor
 master.menu.medico.pacientes = Patients
+master.menu.medico.medicos = Doctors HA
+master.menu.medico.historiales = View histories
 
 # master.menu.provider ########################################################
 

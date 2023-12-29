@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+medico.medico.form.label.title = Título:
+medico.medico.form.label.status = Estado:
+medico.medico.form.label.text = Texto:
+medico.medico.form.label.moreInfo = Más información: (Opcional)
+
+medico.medico.list.label.nombreUsuario = Nombre de usuario
+medico.medico.list.label.especialidad = Especialidad
+medico.medico.list.label.tipoMedico = Tipo Medico
+medico.medico.list.label.email= Email
+medico.medico.list.label.text = Texto
+medico.medico.form.button.crearCita = Crear cita
+
+medico.medico.form.label.nombreUsuario = Nombre de usuario
+medico.medico.form.label.especialidad = Especialidad
+medico.medico.form.label.tipoMedico = Tipo Medico
+medico.medico.form.label.email= Email

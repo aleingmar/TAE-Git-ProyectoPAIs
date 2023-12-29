@@ -44,6 +44,8 @@
 		
 		<acme:menu-option code="master.menu.medico" access="hasRole('Medico')">
 			<acme:menu-suboption code="master.menu.medico.pacientes" action="/medico/paciente/list"/>
+			<acme:menu-suboption code="master.menu.medico.medicos" action="/medico/medico/list"/>
+			<acme:menu-suboption code="master.menu.medico.historiales" action="/medico/cita/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

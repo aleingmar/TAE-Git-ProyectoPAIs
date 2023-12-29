@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.paciente.cita;
+package acme.features.medico.cita;
 
 import java.util.Collection;
 
@@ -21,15 +21,12 @@ import acme.entities.asistencia.Cita;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface PacienteCitaRepository extends AbstractRepository {
+public interface MedicoHistorialRepository extends AbstractRepository {
 
-	@Query("select c from Cita c where c.id = :id")
-	Cita findOneCitaById(int id);
+	@Query("select c from Cita c where c.id = :id") //Pasa todos los historiales, no solo los del paciente
+	Cita findOneHistorialById(int id);
 
 	@Query("select c from Cita c")
-	Collection<Cita> findCitas();
-
-	@Query("select c from Cita c where c.paciente.id = :id")
-	Collection<Cita> findCitasByPacienteId(int id);
+	Collection<Cita> findHistoriales();
 
 }

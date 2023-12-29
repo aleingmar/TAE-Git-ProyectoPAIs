@@ -23,6 +23,8 @@
 	<acme:input-textbox code="medico.paciente.form.label.fechaNacimiento" path="fechaNacimiento" readonly="true"/>
 	<acme:input-textbox code="medico.paciente.form.label.dni" path="dni" readonly="true"/>
 
+	<acme:button code="medico.paciente.form.button.verHistorial" action="/medico/cita/list"/>
+
 	<a href="<spring:url value='/generatePdf/${id}'/>" target="_blank">
         <button type="button">Generar PDF</button>
     </a>
