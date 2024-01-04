@@ -47,6 +47,7 @@
 			<acme:menu-suboption code="master.menu.administrator.ingresos" action="/administrativo/ingreso/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.crearPaciente" action="/administrativo/paciente/create"/>
+			<acme:menu-suboption code="master.menu.user-account.crearIngreso" action="/administrativo/ingreso/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.paciente" access="hasRole('Paciente')">

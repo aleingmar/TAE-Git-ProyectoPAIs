@@ -18,16 +18,35 @@
 
 <acme:form>
 
-	<acme:input-textbox code="administrator.ingreso.form.label.fechaIngreso" path="fechaIngreso" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.faseProceso" path="faseProceso" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.motivoIngreso" path="motivoIngreso" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.centroIngreso" path="centroIngreso" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.fechaValoracion" path="fechaValoracion" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.resultadoValoracion" path="resultadoValoracion" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.motivoAlta" path="motivoAlta" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.fechaAlta" path="fechaAlta" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.paciente" path="paciente.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="administrator.ingreso.form.label.medico" path="medico.userAccount.username" readonly="true"/>
+	<acme:input-moment code="administrativo.ingreso.form.label.fechaIngreso" path="fechaIngreso"/>
+	<acme:input-moment code="administrativo.ingreso.form.label.fechaValoracion" path="fechaValoracion"/>
+	
+	<acme:input-select  code="administrativo.ingreso.form.label.faseProceso" path="faseProceso" choices="${fasesProceso}"/>	
+	<acme:input-select  code="administrativo.ingreso.form.label.centroIngreso" path="centroIngreso" choices="${centrosIngreso}"/>
+	
+		
+	<acme:input-textbox code="administrativo.ingreso.form.label.paciente" path="paciente.userAccount.username"/>
+	<acme:input-textbox code="administrativo.ingreso.form.label.motivoIngreso" path="motivoIngreso"/>
+	<acme:input-textbox code="administrativo.ingreso.form.label.medico" path="medico.userAccount.username"/>
+	
+	<%--
+	<acme:input-textbox code="administrativo.ingreso.form.label.motivoAlta" path="motivoAlta" readonly="true"/>
+	<acme:input-moment code="administrativo.ingreso.form.label.fechaAlta" path="fechaAlta" readonly="true"/>
+	<acme:input-textbox code="administrativo.ingreso.form.label.resultadoValoracion" path="resultadoValoracion" readonly="true"/>
+	--%>
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="administrativo.ingreso.form.button.list" action="/administrativo/ingreso/list?masterId=${id}"/>			
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:button code="administrativo.ingreso.form.button.list" action="/administrativo/ingreso/list?masterId=${id}"/>
+			<acme:submit code="administrativo.ingreso.form.button.update" action="/employer/job/update"/>
+			<acme:submit code="administrativo.ingreso.form.button.delete" action="/employer/job/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrativo.ingreso.form.button.create" action="/employer/job/create"/>
+		</jstl:when>		
+	</jstl:choose>
 	
 </acme:form>
 

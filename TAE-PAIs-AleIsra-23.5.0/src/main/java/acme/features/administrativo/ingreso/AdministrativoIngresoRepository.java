@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.asistencia.Ingreso;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Administrativo;
 
 @Repository
 public interface AdministrativoIngresoRepository extends AbstractRepository {
@@ -28,5 +29,9 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 
 	@Query("select i from Ingreso i")
 	Collection<Ingreso> findIngresos();
+
+	//recupera el administrativo que esta logueado
+	@Query("select a from Administrativo a where a.id = :id")
+	Administrativo findOneAdministrativoById(int id);
 
 }
