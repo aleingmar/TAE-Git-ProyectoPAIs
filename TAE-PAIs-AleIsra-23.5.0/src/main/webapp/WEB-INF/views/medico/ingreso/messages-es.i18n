@@ -7,6 +7,8 @@ paciente.ingreso.list.label.fechaIngreso = Fecha de ingreso
 paciente.ingreso.list.label.faseProceso = Fase proceso
 paciente.ingreso.list.label.motivoIngreso = Motivo ingreso
 paciente.ingreso.list.label.centroIngreso = Centro ingreso
+medico.historial.form.button.crearAlta = Crear Alta
+medico.historial.form.button.crearValoracion = Crear valoración
 
 paciente.ingreso.form.label.motivoAlta = Motivo Alta
 paciente.ingreso.form.label.fechaAlta = Fecha Alta

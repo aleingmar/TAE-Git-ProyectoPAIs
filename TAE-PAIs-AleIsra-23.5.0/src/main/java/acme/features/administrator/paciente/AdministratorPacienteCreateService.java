@@ -10,65 +10,83 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.cita;
+package acme.features.administrator.paciente;
+
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.asistencia.Cita;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Service
-public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
+public class AdministratorPacienteCreateService extends AbstractService<Administrator, Paciente> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected MedicoCitaRepository repository;
+	protected AdministratorPacienteRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		int id;
-		Cita Cita;
-		id = super.getRequest().getData("id", int.class);
-		Cita = this.repository.findOneHistorialById(id);
 
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Cita object;
-		int id;
+		Paciente object;
+		Administrator administrator;
+		final Date moment = null;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneHistorialById(id);
+		administrator = this.repository.findOneAdministratorById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new Paciente();
+		object.setTelefono("");
+		object.setFechaNacimiento(moment);
+		object.setDni("");
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Cita object) {
+	public void bind(final Paciente object) {
 		assert object != null;
 
+		super.bind(object, "telefono", "fechaNacimiento", "dni");
+
+	}
+
+	@Override
+	public void validate(final Paciente object) {
+		assert object != null;
+
+	}
+
+	@Override
+	public void perform(final Paciente object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final Paciente object) {
+		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		tuple = super.unbind(object, "dni", "fechaNacimiento", "telefono");
 
 		super.getResponse().setData(tuple);
 	}

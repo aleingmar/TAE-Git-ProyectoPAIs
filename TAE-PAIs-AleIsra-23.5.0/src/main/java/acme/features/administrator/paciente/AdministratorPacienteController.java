@@ -34,6 +34,15 @@ public class AdministratorPacienteController extends AbstractController<Administ
 	@Autowired
 	protected AdministratorPacienteShowService	showService;
 
+	//	@Autowired
+	//	protected AdministratorPacienteUpdateService	updateService;
+	//
+	//	@Autowired
+	//	protected AdministratorPacienteCreateService	createService;
+
+	//@Autowired
+	//protected AdministratorPacienteDeleteService	deleteService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -41,6 +50,9 @@ public class AdministratorPacienteController extends AbstractController<Administ
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		//		super.addBasicCommand("update", this.updateService);
+		//		super.addBasicCommand("create", this.createService);
+		//		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

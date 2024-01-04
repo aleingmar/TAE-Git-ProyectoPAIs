@@ -23,5 +23,5 @@ public class Medico extends AbstractRole {
 
 	protected EspecialidadMedica	especialidad;
 
-	protected TipoMedico			tipoMedico;
+	public TipoMedico				tipoMedico;
 }

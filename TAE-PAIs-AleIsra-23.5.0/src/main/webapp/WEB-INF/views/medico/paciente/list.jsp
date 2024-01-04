@@ -16,3 +16,5 @@
 	<acme:list-column code="medico.paciente.list.label.dni" path="dni" width="10%"/>
 </acme:list>
 
+
+

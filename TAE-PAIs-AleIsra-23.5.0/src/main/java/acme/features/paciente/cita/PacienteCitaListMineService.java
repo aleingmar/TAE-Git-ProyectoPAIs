@@ -1,5 +1,5 @@
 /*
- * AdministratorMedicoShowService.java
+ * EmployerJobListMineService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,55 +10,49 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.cita;
+package acme.features.paciente.cita;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.asistencia.Cita;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Service
-public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
+public class PacienteCitaListMineService extends AbstractService<Paciente, Cita> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected MedicoCitaRepository repository;
+	protected PacienteCitaRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		int id;
-		Cita Cita;
-		id = super.getRequest().getData("id", int.class);
-		Cita = this.repository.findOneHistorialById(id);
-
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Cita object;
-		int id;
+		Collection<Cita> objects;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneHistorialById(id);
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findManyCitasByPacienteId(principal.getActiveRoleId());
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -67,8 +61,7 @@ public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso");
 
 		super.getResponse().setData(tuple);
 	}

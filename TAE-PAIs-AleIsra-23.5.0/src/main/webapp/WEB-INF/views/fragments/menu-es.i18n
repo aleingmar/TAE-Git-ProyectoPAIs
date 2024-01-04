@@ -26,13 +26,18 @@ master.menu.paciente.altas = Mis Altas
 
 master.menu.medico = Médico
 master.menu.medico.pacientes = Pacientes
-master.menu.medico.medicos = Médicos AH
-master.menu.medico.historiales = Ver historiales
+master.menu.medico.medicos = Médicos
+master.menu.medico.pruebas = Ver pruebas
+master.menu.paciente.my-pruebas = Ver mis pruebas
 
 # master.menu.administrator ###################################################
 
 master.menu.paciente = Paciente
 master.menu.paciente.cita = Cita
+master.menu.paciente.my-citas = Mis citas
+master.menu.paciente.my-ingresos = Mis Ingresos
+master.menu.paciente.my-altas = Mis Altas
+master.menu.medico.diagnosticos = Diagnósticos
 
 master.menu.administrator = Administrador
 master.menu.administrator.pacientes = Pacientes

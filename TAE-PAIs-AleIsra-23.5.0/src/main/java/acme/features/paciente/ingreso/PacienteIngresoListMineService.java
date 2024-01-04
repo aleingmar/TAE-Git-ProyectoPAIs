@@ -1,5 +1,5 @@
 /*
- * AdministratorMedicoShowService.java
+ * EmployerJobListMineService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,65 +10,58 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.cita;
+package acme.features.paciente.ingreso;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.asistencia.Cita;
+import acme.entities.asistencia.Ingreso;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Service
-public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
+public class PacienteIngresoListMineService extends AbstractService<Paciente, Ingreso> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected MedicoCitaRepository repository;
+	protected PacienteIngresoRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		int id;
-		Cita Cita;
-		id = super.getRequest().getData("id", int.class);
-		Cita = this.repository.findOneHistorialById(id);
-
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Cita object;
-		int id;
+		Collection<Ingreso> objects;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneHistorialById(id);
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findManyIngresosByPacienteId(principal.getActiveRoleId());
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Cita object) {
+	public void unbind(final Ingreso object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

@@ -29,4 +29,7 @@ public interface MedicoMedicoRepository extends AbstractRepository {
 	@Query("select m from Medico m")
 	Collection<Medico> findMedicos();
 
+	@Query("select m from Medico m where m.id = :medicoId")
+	Medico sacaMedicoLogueado(int medicoId);
+
 }

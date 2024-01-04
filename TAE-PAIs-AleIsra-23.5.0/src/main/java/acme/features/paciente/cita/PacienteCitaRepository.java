@@ -32,4 +32,7 @@ public interface PacienteCitaRepository extends AbstractRepository {
 	@Query("select c from Cita c where c.paciente.id = :id")
 	Collection<Cita> findCitasByPacienteId(int id);
 
+	@Query("select c from Cita c where c.paciente.id = :pacienteId")
+	Collection<Cita> findManyCitasByPacienteId(int pacienteId);
+
 }

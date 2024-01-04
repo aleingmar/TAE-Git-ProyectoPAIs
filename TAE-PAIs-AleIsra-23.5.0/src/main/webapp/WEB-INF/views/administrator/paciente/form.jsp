@@ -7,9 +7,9 @@
 <acme:form>
 	<acme:input-textbox code="administrator.paciente.form.label.nombreUsuario" path="userAccount.username" readonly="true"/>
 	<acme:input-email code="administrator.paciente.form.label.email" path="userAccount.identity.email" readonly="true"/>
-	<acme:input-textbox code="administrator.paciente.form.label.dni" path="dni" readonly="true"/>
-	<acme:input-textbox code="administrator.paciente.form.label.telefono" path="telefono" readonly="true"/>
-	<acme:input-textbox code="administrator.paciente.form.label.fechaNacimiento" path="fechaNacimiento" readonly="true"/>
+	<acme:input-textbox code="administrator.paciente.form.label.dni" path="dni"/>
+	<acme:input-textbox code="administrator.paciente.form.label.telefono" path="telefono"/>
+	<acme:input-textbox code="administrator.paciente.form.label.fechaNacimiento" path="fechaNacimiento"/>
 
 </acme:form>
 

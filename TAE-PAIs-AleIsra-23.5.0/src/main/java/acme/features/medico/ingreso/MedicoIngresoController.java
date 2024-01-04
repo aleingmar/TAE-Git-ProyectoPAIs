@@ -10,32 +10,37 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.paciente.ingreso;
+package acme.features.medico.ingreso;
+
+import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import acme.entities.asistencia.Ingreso;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Paciente;
+import acme.roles.Medico;
 
 @Controller
-public class PacienteIngresoController extends AbstractController<Paciente, Ingreso> {
+public class MedicoIngresoController extends AbstractController<Medico, Ingreso> {
 
 	// Internal state ---------------------------------------------------------
 	//para para que Spring se encargue de crear una instancia de la clase del servicio e inyectarlas 
 	//en las variables definidas.
 
 	@Autowired
-	protected PacienteIngresoListService		listService;
+	protected MedicoIngresoListService		listService;
 
 	@Autowired
-	protected PacienteIngresoShowService		showService;
+	protected MedicoIngresoShowService		showService;
 
 	@Autowired
-	protected PacienteIngresoListMineService	listMineService;
+	protected MedicoIngresoListMineService	listMineService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -47,6 +52,25 @@ public class PacienteIngresoController extends AbstractController<Paciente, Ingr
 
 		super.addCustomCommand("list-mine-ingresos", "list", this.listMineService);
 		super.addCustomCommand("list-mine-altas", "list", this.listMineService);
+
+		super.addCustomCommand("list-ingresos", "list", this.listService);
+		super.addCustomCommand("list-altas", "list", this.listService);
+	}
+
+	@GetMapping("/medico/ingreso/list-altas")
+	public String listAltas(@RequestParam("pacienteId") final Integer pacienteId, final Model model) {
+		final Collection<Ingreso> ingresos = this.listService.findManyIngresosByPacienteId(pacienteId);
+		model.addAttribute("altas", ingresos);
+		model.addAttribute("tipoLista", "altas");
+		return "medico/ingreso/list";
+	}
+
+	@GetMapping("/medico/ingreso/list-valoraciones")
+	public String listValoraciones(@RequestParam("pacienteId") final Integer pacienteId, final Model model) {
+		final Collection<Ingreso> ingresos = this.listService.findManyIngresosByPacienteId(pacienteId);
+		model.addAttribute("valoraciones", ingresos);
+		model.addAttribute("tipoLista", "valoraciones");
+		return "medico/ingreso/list";
 	}
 
 }

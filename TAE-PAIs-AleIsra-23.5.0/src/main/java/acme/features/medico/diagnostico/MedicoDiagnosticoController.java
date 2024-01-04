@@ -10,32 +10,36 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.paciente.ingreso;
+package acme.features.medico.diagnostico;
+
+import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import acme.entities.asistencia.Ingreso;
+import acme.entities.cuidados.Diagnostico;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Paciente;
+import acme.roles.Medico;
 
 @Controller
-public class PacienteIngresoController extends AbstractController<Paciente, Ingreso> {
+public class MedicoDiagnosticoController extends AbstractController<Medico, Diagnostico> {
 
 	// Internal state ---------------------------------------------------------
 	//para para que Spring se encargue de crear una instancia de la clase del servicio e inyectarlas 
 	//en las variables definidas.
 
 	@Autowired
-	protected PacienteIngresoListService		listService;
+	protected MedicoDiagnosticoListService	listService;
 
 	@Autowired
-	protected PacienteIngresoShowService		showService;
+	protected MedicoDiagnosticoShowService	showService;
 
-	@Autowired
-	protected PacienteIngresoListMineService	listMineService;
+	public MedicoDiagnosticoRepository		repository;
 
 	// Constructors -----------------------------------------------------------
 
@@ -44,9 +48,12 @@ public class PacienteIngresoController extends AbstractController<Paciente, Ingr
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-
-		super.addCustomCommand("list-mine-ingresos", "list", this.listMineService);
-		super.addCustomCommand("list-mine-altas", "list", this.listMineService);
 	}
 
+	@GetMapping("/medico/diagnostico/list-diagnosticos")
+	public String listDiagnosticos(@RequestParam("pacienteId") final Integer pacienteId, final Model model) {
+		final Collection<Diagnostico> diagnosticos = this.listService.findManyDiagnosticosByPacienteId(pacienteId);
+		model.addAttribute("diagnosticos", diagnosticos);
+		return "medico/diagnostico/list";
+	}
 }

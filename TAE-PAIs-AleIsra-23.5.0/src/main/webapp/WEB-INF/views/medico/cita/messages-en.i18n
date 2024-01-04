@@ -21,6 +21,7 @@ medico.historial.list.label.fechaValoracion = Valoration Date
 medico.historial.list.label.resultadoValoracion = Valoration result
 medico.historial.form.button.crearValoracion = Create Valoration
 medico.historial.form.button.crearAlta = Create Alta
+medico.historial.form.button.crearCita = Create appointment
 
 medico.historial.form.label.fechaCita = Appointment date
 medico.historial.form.label.centroCita = Hospital

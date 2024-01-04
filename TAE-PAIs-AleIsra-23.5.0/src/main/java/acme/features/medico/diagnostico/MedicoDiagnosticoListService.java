@@ -10,20 +10,20 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.cita;
+package acme.features.medico.diagnostico;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.asistencia.Cita;
+import acme.entities.cuidados.Diagnostico;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Medico;
 
 @Service
-public class MedicoCitaListService extends AbstractService<Medico, Cita> {
+public class MedicoDiagnosticoListService extends AbstractService<Medico, Diagnostico> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -31,7 +31,7 @@ public class MedicoCitaListService extends AbstractService<Medico, Cita> {
 	//que implemente el repositorio y a su vez cree un objeto de esa clase y lo inyecte 
 	//en las variables definidas.
 	@Autowired
-	protected MedicoCitaRepository repository;
+	protected MedicoDiagnosticoRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -54,9 +54,9 @@ public class MedicoCitaListService extends AbstractService<Medico, Cita> {
 	@Override
 	public void load() {
 
-		Collection<Cita> objects;
+		Collection<Diagnostico> objects;
 
-		objects = this.repository.findHistoriales();
+		objects = this.repository.findDiagnosticos();
 
 		super.getBuffer().setData(objects);
 	}
@@ -64,15 +64,18 @@ public class MedicoCitaListService extends AbstractService<Medico, Cita> {
 	//se encarga de preparar todos los objetos que se van a visualizar en una tupla y de ahí, 
 	//se incluyen en la respuesta a la petición. --> **pasa de objeto a texto**
 	@Override
-	public void unbind(final Cita object) {
+	public void unbind(final Diagnostico object) {
 
 		//verifica que el objeto no sea nulo
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		tuple = super.unbind(object, "ingreso.paciente.userAccount.username", "fechaDiagnostico", "confirmado", "estadio", "patologia", "detallesDiagnostico", "ingreso.medico.userAccount.username");
 
 		super.getResponse().setData(tuple);
+	}
+
+	public Collection<Diagnostico> findManyDiagnosticosByPacienteId(final int pacienteId) {
+		return this.repository.findManyDiagnosticosByPacienteId(pacienteId);
 	}
 
 }

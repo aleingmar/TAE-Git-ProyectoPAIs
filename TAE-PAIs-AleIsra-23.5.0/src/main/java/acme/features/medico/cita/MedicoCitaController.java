@@ -12,10 +12,15 @@
 
 package acme.features.medico.cita;
 
+import java.util.Collection;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import acme.entities.asistencia.Cita;
 import acme.framework.controllers.AbstractController;
@@ -29,10 +34,15 @@ public class MedicoCitaController extends AbstractController<Medico, Cita> {
 	//en las variables definidas.
 
 	@Autowired
-	protected MedicoCitaListService	listService;
+	protected MedicoCitaListService					listService;
 
 	@Autowired
-	protected MedicoCitaShowService	showService;
+	protected MedicoCitaShowService					showService;
+
+	@Autowired
+	public MedicoCitaListMinePacientePruebasService	listMineService;
+
+	public MedicoCitaRepository						repository;
 
 	// Constructors -----------------------------------------------------------
 
@@ -41,6 +51,16 @@ public class MedicoCitaController extends AbstractController<Medico, Cita> {
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+
+		super.addCustomCommand("list-pruebas", "list", this.listMineService);
 	}
 
+	@GetMapping("/medico/cita/list-pruebas")
+	public String listPruebas(@RequestParam("pacienteId") final Integer pacienteId, final Model model) {
+		System.out.println("pacienteId: " + pacienteId);  // registro de depuración
+		final Collection<Cita> citas = this.listMineService.findManyCitasByPacienteId(pacienteId);
+		System.out.println("citas: " + citas);  // registro de depuración
+		model.addAttribute("citas", citas);
+		return "medico/cita/list";
+	}
 }

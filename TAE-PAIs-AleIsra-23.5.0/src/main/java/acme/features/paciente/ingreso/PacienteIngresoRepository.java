@@ -29,4 +29,7 @@ public interface PacienteIngresoRepository extends AbstractRepository {
 	@Query("select i from Ingreso i")
 	Collection<Ingreso> findIngresos();
 
+	@Query("select i from Ingreso i where i.paciente.id = :pacienteId")
+	Collection<Ingreso> findManyIngresosByPacienteId(int pacienteId);
+
 }

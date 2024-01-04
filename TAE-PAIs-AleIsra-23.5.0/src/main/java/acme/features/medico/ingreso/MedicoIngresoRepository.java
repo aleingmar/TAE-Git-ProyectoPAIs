@@ -10,23 +10,29 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.cita;
+package acme.features.medico.ingreso;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.asistencia.Cita;
+import acme.entities.asistencia.Ingreso;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface MedicoHistorialRepository extends AbstractRepository {
+public interface MedicoIngresoRepository extends AbstractRepository {
 
-	@Query("select c from Cita c where c.id = :id") //Pasa todos los historiales, no solo los del paciente
-	Cita findOneHistorialById(int id);
+	@Query("select c from Ingreso c where c.id = :id") //Pasa todos los historiales, no solo los del paciente
+	Ingreso findOneIngresoById(int id);
 
-	@Query("select c from Cita c")
-	Collection<Cita> findHistoriales();
+	@Query("select c from Ingreso c")
+	Collection<Ingreso> findIngresos();
+
+	@Query("select c from Ingreso c where c.medico.id = :medicoId")
+	Collection<Ingreso> findManyIngresosByMedicoId(int medicoId);
+
+	@Query("select c from Ingreso c where c.paciente.id = :pacienteId")
+	Collection<Ingreso> findManyIngresosByPacienteId(int pacienteId);
 
 }

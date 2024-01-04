@@ -12,9 +12,11 @@
 
 <%@page language="java"%>
 
+<%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
@@ -38,14 +40,27 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.paciente" access="hasRole('Paciente')">
-			<acme:menu-suboption code="master.menu.paciente.citas" action="/paciente/cita/list"/>
-			<acme:menu-suboption code="master.menu.paciente.altas" action="/paciente/ingreso/list"/>
+			<acme:menu-suboption code="master.menu.paciente.my-citas" action="/paciente/cita/list-mine"/>
+			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/paciente/ingreso/list-mine-altas"/>
+			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/paciente/ingreso/list-mine-ingresos"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.medico" access="hasRole('Medico')">
+
 			<acme:menu-suboption code="master.menu.medico.pacientes" action="/medico/paciente/list"/>
 			<acme:menu-suboption code="master.menu.medico.medicos" action="/medico/medico/list"/>
-			<acme:menu-suboption code="master.menu.medico.historiales" action="/medico/cita/list"/>
+			<acme:menu-suboption code="master.menu.medico.pruebas" action="/medico/cita/list"/>
+			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/medico/ingreso/list-mine-ingresos"/>
+			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/medico/ingreso/list-mine-altas"/>
+			<acme:menu-suboption code="master.menu.medico.diagnosticos" action="/medico/diagnostico/list"/>
+			<%--
+			<acme:menu-suboption code="master.menu.medico.mimismo" action="/medico/medico/list-a-mi-mismo"/>
+			
+			<jstl:out value="${currentMedico.tipoMedico}"></jstl:out>
+			<jstl:if test="${currentMedico.tipoMedico == 'AH'}">
+  			<acme:menu-suboption code="master.menu.medico.historiales" action="/medico/cita/list"/>
+  			--%>
+    		
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

@@ -10,23 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.cita;
+package acme.features.medico.ingreso;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.asistencia.Cita;
+import acme.entities.asistencia.Ingreso;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Medico;
 
 @Service
-public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
+public class MedicoIngresoShowService extends AbstractService<Medico, Ingreso> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected MedicoCitaRepository repository;
+	protected MedicoIngresoRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,32 +43,31 @@ public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
 	@Override
 	public void authorise() {
 		int id;
-		Cita Cita;
+		Ingreso Ingreso;
 		id = super.getRequest().getData("id", int.class);
-		Cita = this.repository.findOneHistorialById(id);
+		Ingreso = this.repository.findOneIngresoById(id);
 
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Cita object;
+		Ingreso object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneHistorialById(id);
+		object = this.repository.findOneIngresoById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Cita object) {
+	public void unbind(final Ingreso object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

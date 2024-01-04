@@ -1,14 +1,3 @@
-<%--
-- form.jsp
--
-- Copyright (C) 2012-2023 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
 
 <%@page language="java"%>
 
@@ -23,7 +12,12 @@
 	<acme:input-textbox code="medico.paciente.form.label.fechaNacimiento" path="fechaNacimiento" readonly="true"/>
 	<acme:input-textbox code="medico.paciente.form.label.dni" path="dni" readonly="true"/>
 
-	<acme:button code="medico.paciente.form.button.verHistorial" action="/medico/cita/list"/>
+	<acme:button code="medico.paciente.form.button.verPruebas" action="/medico/cita/list-pruebas?pacienteId=${id}"/>
+	<acme:button code="medico.paciente.form.button.verValoraciones" action="/medico/ingreso/list-valoraciones?pacienteId=${id}"/>
+	<acme:button code="medico.paciente.form.button.verDiagnosticos" action="/medico/diagnostico/list-diagnosticos?pacienteId=${id}"/>
+	<acme:button code="medico.paciente.form.button.verAltas" action="/medico/ingreso/list-altas?pacienteId=${id}"/>
+
+
 
 	<a href="<spring:url value='/generatePdf/${id}'/>" target="_blank">
         <button type="button">Generar PDF</button>

@@ -23,6 +23,9 @@ public class PacienteCitaController extends AbstractController<Paciente, Cita> {
 	@Autowired
 	protected PacienteCitaShowService	showService;
 
+	@Autowired
+	public PacienteCitaListMineService	listMineService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -30,6 +33,11 @@ public class PacienteCitaController extends AbstractController<Paciente, Cita> {
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+
+		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("show-altas", "show", this.showService);
+		super.addCustomCommand("show-ingresos", "show", this.showService);
+
 	}
 
 }
