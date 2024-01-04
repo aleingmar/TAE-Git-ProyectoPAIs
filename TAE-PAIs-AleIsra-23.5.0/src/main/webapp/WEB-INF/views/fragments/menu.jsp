@@ -31,6 +31,7 @@
 			<acme:menu-suboption code="master.menu.administrator.citas" action="/administrator/cita/list"/>
 			<acme:menu-suboption code="master.menu.administrator.ingresos" action="/administrator/ingreso/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.user-account.crearPaciente" action="/administrator/paciente/create"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
@@ -39,10 +40,21 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.administrativo" access="hasRole('Administrativo')">
+			<acme:menu-suboption code="master.menu.administrator.medicos" action="/administrativo/medico/list"/>
+			<acme:menu-suboption code="master.menu.administrator.pacientes" action="/administrativo/paciente/list"/>
+			<acme:menu-suboption code="master.menu.administrator.citas" action="/administrativo/cita/list"/>
+			<acme:menu-suboption code="master.menu.administrator.ingresos" action="/administrativo/ingreso/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.user-account.crearPaciente" action="/administrativo/paciente/create"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.paciente" access="hasRole('Paciente')">
 			<acme:menu-suboption code="master.menu.paciente.my-citas" action="/paciente/cita/list-mine"/>
 			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/paciente/ingreso/list-mine-altas"/>
 			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/paciente/ingreso/list-mine-ingresos"/>
+			<acme:menu-suboption code="master.menu.paciente.my-diagnosticos" action="/paciente/diagnostico/list-mine-diagnosticos"/>
+			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.medico" access="hasRole('Medico')">
@@ -50,8 +62,10 @@
 			<acme:menu-suboption code="master.menu.medico.pacientes" action="/medico/paciente/list"/>
 			<acme:menu-suboption code="master.menu.medico.medicos" action="/medico/medico/list"/>
 			<acme:menu-suboption code="master.menu.medico.pruebas" action="/medico/cita/list"/>
+			<%--
 			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/medico/ingreso/list-mine-ingresos"/>
-			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/medico/ingreso/list-mine-altas"/>
+			--%>
+			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/medico/ingreso/list-altas-inicial"/>
 			<acme:menu-suboption code="master.menu.medico.diagnosticos" action="/medico/diagnostico/list"/>
 			<%--
 			<acme:menu-suboption code="master.menu.medico.mimismo" action="/medico/medico/list-a-mi-mismo"/>

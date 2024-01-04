@@ -10,38 +10,34 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.paciente;
+package acme.features.paciente.diagnostico;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.framework.components.accounts.Administrator;
+import acme.entities.cuidados.Diagnostico;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Paciente;
 
 @Controller
-public class AdministratorPacienteController extends AbstractController<Administrator, Paciente> {
+public class PacienteDiagnosticoController extends AbstractController<Paciente, Diagnostico> {
 
 	// Internal state ---------------------------------------------------------
 	//para para que Spring se encargue de crear una instancia de la clase del servicio e inyectarlas 
 	//en las variables definidas.
 
 	@Autowired
-	protected AdministratorPacienteListService		listService;
+	protected PacienteDiagnosticoListService		listService;
 
 	@Autowired
-	protected AdministratorPacienteShowService		showService;
+	protected PacienteDiagnosticoShowService		showService;
 
 	@Autowired
-	protected AdministratorPacienteUpdateService	updateService;
+	protected PacienteDiagnosticoListMineService	listMineService;
 
-	@Autowired
-	protected AdministratorPacienteCreateService	createService;
-
-	//@Autowired
-	//protected AdministratorPacienteDeleteService	deleteService;
+	public PacienteDiagnosticoRepository			repository;
 
 	// Constructors -----------------------------------------------------------
 
@@ -50,9 +46,8 @@ public class AdministratorPacienteController extends AbstractController<Administ
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("delete", this.deleteService);
+
+		super.addCustomCommand("list-mine-diagnosticos", "list", this.listMineService);
 	}
 
 }

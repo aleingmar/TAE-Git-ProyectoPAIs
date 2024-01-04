@@ -57,9 +57,7 @@ public class MedicoCitaController extends AbstractController<Medico, Cita> {
 
 	@GetMapping("/medico/cita/list-pruebas")
 	public String listPruebas(@RequestParam("pacienteId") final Integer pacienteId, final Model model) {
-		System.out.println("pacienteId: " + pacienteId);  // registro de depuración
 		final Collection<Cita> citas = this.listMineService.findManyCitasByPacienteId(pacienteId);
-		System.out.println("citas: " + citas);  // registro de depuración
 		model.addAttribute("citas", citas);
 		return "medico/cita/list";
 	}

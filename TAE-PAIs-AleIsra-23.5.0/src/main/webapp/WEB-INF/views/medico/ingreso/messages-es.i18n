@@ -18,3 +18,4 @@ paciente.ingreso.form.label.fechaIngreso = Fecha de ingreso
 paciente.ingreso.form.label.faseProceso = Fase proceso
 paciente.ingreso.form.label.motivoIngreso = Motivo ingreso
 paciente.ingreso.form.label.centroIngreso = Centro ingreso
+paciente.ingreso.list.label.faseProceso = Fase proceso

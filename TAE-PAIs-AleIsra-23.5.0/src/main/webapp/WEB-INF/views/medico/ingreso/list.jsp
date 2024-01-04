@@ -9,6 +9,16 @@
 	<jstl:if test="${_command == 'list-mine-altas'}">
 		<acme:list>
 			<acme:list-column code="paciente.ingreso.list.label.paciente" path="paciente.userAccount.username" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.faseProceso" path="faseProceso" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.motivoAlta" path="motivoAlta" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.fechaAlta" path="fechaAlta" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.medico" path="medico.userAccount.username" width="10%"/>
+		</acme:list>
+	</jstl:if>	
+	
+	<jstl:if test="${_command == 'list-altas-inicial'}">
+		<acme:list>
+			<acme:list-column code="paciente.ingreso.list.label.paciente" path="paciente.userAccount.username" width="10%"/>
 			<acme:list-column code="paciente.ingreso.list.label.motivoAlta" path="motivoAlta" width="10%"/>
 			<acme:list-column code="paciente.ingreso.list.label.fechaAlta" path="fechaAlta" width="10%"/>
 			<acme:list-column code="paciente.ingreso.list.label.medico" path="medico.userAccount.username" width="10%"/>

@@ -10,27 +10,26 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.paciente;
+package acme.features.administrativo.paciente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.accounts.Administrator;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
+import acme.roles.Administrativo;
 import acme.roles.Paciente;
 
 @Service
-public class AdministratorPacienteCreateService extends AbstractService<Administrator, Paciente> {
+public class AdministrativoPacienteUpdateService extends AbstractService<Administrativo, Paciente> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorPacienteRepository repository;
+	protected AdministrativoPacienteRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,8 +42,11 @@ public class AdministratorPacienteCreateService extends AbstractService<Administ
 
 	@Override
 	public void authorise() {
+		boolean status;
 
-		super.getResponse().setAuthorised(true);
+		status = super.getRequest().getPrincipal().hasRole(Administrativo.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -52,14 +54,10 @@ public class AdministratorPacienteCreateService extends AbstractService<Administ
 		Paciente object;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
-
-		object = new Paciente();
-		object.setUserAccount(userAccount);
+		object = this.repository.findOnePacienteByUserAccountId(userAccountId);
 
 		super.getBuffer().setData(object);
 	}
@@ -88,6 +86,7 @@ public class AdministratorPacienteCreateService extends AbstractService<Administ
 	@Override
 	public void unbind(final Paciente object) {
 		assert object != null;
+
 		Tuple tuple;
 
 		tuple = super.unbind(object, "dni", "fechaNacimiento", "telefono");

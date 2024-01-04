@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.medico.ingreso;
+package acme.features.administrativo.ingreso;
 
 import java.util.Collection;
 
@@ -21,21 +21,12 @@ import acme.entities.asistencia.Ingreso;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface MedicoIngresoRepository extends AbstractRepository {
+public interface AdministrativoIngresoRepository extends AbstractRepository {
 
-	@Query("select c from Ingreso c where c.id = :id") //Pasa todos los historiales, no solo los del paciente
+	@Query("select i from Ingreso i where i.id = :id")
 	Ingreso findOneIngresoById(int id);
 
-	@Query("select c from Ingreso c")
+	@Query("select i from Ingreso i")
 	Collection<Ingreso> findIngresos();
-
-	@Query("select c from Ingreso c where c.faseProceso = acme.entities.enumerados.TipoFaseProceso.INICIAL")
-	Collection<Ingreso> findAltasIngresos();
-
-	@Query("select c from Ingreso c where c.medico.id = :medicoId")
-	Collection<Ingreso> findManyIngresosByMedicoId(int medicoId);
-
-	@Query("select c from Ingreso c where c.paciente.id = :pacienteId")
-	Collection<Ingreso> findManyIngresosByPacienteId(int pacienteId);
 
 }

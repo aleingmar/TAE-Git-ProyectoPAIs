@@ -1,5 +1,5 @@
 
-package acme.features.administrator.paciente;
+package acme.features.administrativo.paciente;
 
 import java.util.Collection;
 
@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Paciente;
 
 @Repository
-public interface AdministratorPacienteRepository extends AbstractRepository {
+public interface AdministrativoPacienteRepository extends AbstractRepository {
 
 	@Query("select p from Paciente p where p.id = :id")
 	Paciente findOnePacienteById(int id);

@@ -18,6 +18,7 @@ paciente.ingreso.list.label.motivoIngreso = Reason for admission
 paciente.ingreso.list.label.centroIngreso = Admission center
 medico.historial.form.button.crearAlta = Create Alta
 medico.historial.form.button.crearValoracion = Create valoration
+paciente.ingreso.list.label.faseProceso= Process phase
 
 paciente.ingreso.form.label.motivoAlta = Alta reason
 paciente.ingreso.form.label.fechaAlta = Alta date

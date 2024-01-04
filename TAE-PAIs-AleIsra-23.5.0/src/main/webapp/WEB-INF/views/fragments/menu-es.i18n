@@ -21,13 +21,14 @@ master.menu.paciente = Paciente
 master.menu.paciente.citas = Mis citas
 master.menu.paciente.pruebas = Mis pruebas
 master.menu.paciente.altas = Mis Altas
+master.menu.paciente.my-diagnosticos = Mis diagnósticos
 
 # master.menu.medico ###################################################
 
 master.menu.medico = Médico
 master.menu.medico.pacientes = Pacientes
 master.menu.medico.medicos = Médicos
-master.menu.medico.pruebas = Ver pruebas
+master.menu.medico.pruebas = Ver citas/pruebas
 master.menu.paciente.my-pruebas = Ver mis pruebas
 
 # master.menu.administrator ###################################################
@@ -35,7 +36,7 @@ master.menu.paciente.my-pruebas = Ver mis pruebas
 master.menu.paciente = Paciente
 master.menu.paciente.cita = Cita
 master.menu.paciente.my-citas = Mis citas
-master.menu.paciente.my-ingresos = Mis Ingresos
+master.menu.paciente.my-ingresos = Mis ingresos
 master.menu.paciente.my-altas = Mis Altas
 master.menu.medico.diagnosticos = Diagnósticos
 
@@ -49,6 +50,11 @@ master.menu.administrator.ingresos = Ingresos
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+
+# master.menu.administrativo ###################################################
+
+master.menu.administrativo = Administrativo
+master.menu.user-account.crearPaciente = Crear paciente
 
 # master.menu.provider ########################################################
 

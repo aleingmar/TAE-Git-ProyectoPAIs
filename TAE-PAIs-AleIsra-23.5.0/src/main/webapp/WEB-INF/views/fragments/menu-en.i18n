@@ -33,6 +33,11 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
+# master.menu.administrativo ###################################################
+
+master.menu.administrativo = Administrator
+master.menu.user-account.crearPaciente = Create patient
+
 # master.menu.paciente ###################################################
 
 master.menu.paciente = Patient
@@ -41,13 +46,14 @@ master.menu.paciente.pruebas = My tests
 master.menu.paciente.my-citas = My appointments
 master.menu.paciente.my-ingresos = My admissions
 master.menu.paciente.my-altas = My Altas
+master.menu.paciente.my-diagnosticos = My diagnostics
 
 # master.menu.medico ###################################################
 
 master.menu.medico = Doctor
 master.menu.medico.pacientes = Patients
 master.menu.medico.medicos = Doctors
-master.menu.medico.pruebas = View tests
+master.menu.medico.pruebas = View appointments/tests
 master.menu.paciente.my-pruebas = View my tests
 master.menu.medico.diagnosticos = Diagnostics
 

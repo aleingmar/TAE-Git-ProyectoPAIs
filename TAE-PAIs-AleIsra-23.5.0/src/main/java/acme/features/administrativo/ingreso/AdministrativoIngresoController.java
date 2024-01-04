@@ -10,38 +10,29 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.paciente;
+package acme.features.administrativo.ingreso;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.framework.components.accounts.Administrator;
+import acme.entities.asistencia.Ingreso;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Paciente;
+import acme.roles.Administrativo;
 
 @Controller
-public class AdministratorPacienteController extends AbstractController<Administrator, Paciente> {
+public class AdministrativoIngresoController extends AbstractController<Administrativo, Ingreso> {
 
 	// Internal state ---------------------------------------------------------
 	//para para que Spring se encargue de crear una instancia de la clase del servicio e inyectarlas 
 	//en las variables definidas.
 
 	@Autowired
-	protected AdministratorPacienteListService		listService;
+	protected AdministrativoIngresoListService	listService;
 
 	@Autowired
-	protected AdministratorPacienteShowService		showService;
-
-	@Autowired
-	protected AdministratorPacienteUpdateService	updateService;
-
-	@Autowired
-	protected AdministratorPacienteCreateService	createService;
-
-	//@Autowired
-	//protected AdministratorPacienteDeleteService	deleteService;
+	protected AdministrativoIngresoShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -50,9 +41,6 @@ public class AdministratorPacienteController extends AbstractController<Administ
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

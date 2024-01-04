@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 	
 	<jstl:if test="${_command == 'list'}">
-		<acme:list>
+		<acme:list var = >
 
             <acme:list-column code="medico.historial.list.label.fechaCita" path="fechaCita" width="5%"/>
             <acme:list-column code="medico.historial.list.label.centroCita" path="centroCita" width="5%"/>
@@ -22,7 +22,7 @@
 
 	<jstl:forEach var="cita" items="${citas}">
 
-            <acme:list-column code="medico.historial.list.label.fechaCita" path=${cita.fechaCita} width="5%"/>
+            <acme:list-column code="medico.historial.list.label.fechaCita" path="{cita.fechaCita} width="5%"/>
             <acme:list-column code="medico.historial.list.label.centroCita" path="${cita.centroCita}" width="5%"/>
             <acme:list-column code="medico.historial.list.label.tipoCita" path="${cita.tipoCita}" width="10%"/>
             <acme:list-column code="medico.historial.list.label.indicacionesCita" path="${cita.indicacionesCita}" width="10%"/>

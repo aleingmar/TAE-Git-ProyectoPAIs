@@ -42,6 +42,9 @@ public class MedicoIngresoController extends AbstractController<Medico, Ingreso>
 	@Autowired
 	protected MedicoIngresoListMineService	listMineService;
 
+	@Autowired
+	protected MedicoIngresoListAltasService	listAltasService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -55,6 +58,8 @@ public class MedicoIngresoController extends AbstractController<Medico, Ingreso>
 
 		super.addCustomCommand("list-ingresos", "list", this.listService);
 		super.addCustomCommand("list-altas", "list", this.listService);
+
+		super.addCustomCommand("list-altas-inicial", "list", this.listAltasService);
 	}
 
 	@GetMapping("/medico/ingreso/list-altas")
