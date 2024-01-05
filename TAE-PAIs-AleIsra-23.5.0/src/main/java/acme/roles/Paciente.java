@@ -3,6 +3,7 @@ package acme.roles;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +38,7 @@ public class Paciente extends AbstractRole {
 
 	//@Length(min = 6, max = 12)
 	@NotBlank
+	@Column(unique = true)
 	protected String			dni;
 
 }

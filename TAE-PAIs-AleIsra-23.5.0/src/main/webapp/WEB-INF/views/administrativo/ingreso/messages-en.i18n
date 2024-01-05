@@ -8,24 +8,24 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.ingreso.list.label.fechaIngreso = Date of admission
-administrator.ingreso.list.label.faseProceso = Process phase
-administrator.ingreso.list.label.motivoIngreso = Admission reason
-administrator.ingreso.list.label.centroIngreso = Admission center
-administrator.ingreso.list.label.fechaValoracion = Valuation date
-administrator.ingreso.list.label.resultadoValoracion = Valuation result
-administrator.ingreso.list.label.motivoAlta = Alta reason
-administrator.ingreso.list.label.fechaAlta = Alta date
-administrator.ingreso.list.label.paciente = Patient
-administrator.ingreso.list.label.medico = Doctor
+administrativo.ingreso.list.label.fechaIngreso = Date of admission
+administrativo.ingreso.list.label.faseProceso = Process phase
+administrativo.ingreso.list.label.motivoIngreso = Admission reason
+administrativo.ingreso.list.label.centroIngreso = Admission center
+administrativo.ingreso.list.label.fechaValoracion = Valuation date
+administrativo.ingreso.list.label.resultadoValoracion = Valuation result
+administrativo.ingreso.list.label.motivoAlta = Alta reason
+administrativo.ingreso.list.label.fechaAlta = Alta date
+administrativo.ingreso.list.label.paciente = Patient
+administrativo.ingreso.list.label.medico = Doctor
 
-administrator.ingreso.form.label.fechaIngreso = Date of admission
-administrator.ingreso.form.label.faseProceso = Process phase
-administrator.ingreso.form.label.motivoIngreso = Admission reason
-administrator.ingreso.form.label.centroIngreso = Admission center
-administrator.ingreso.form.label.fechaValoracion = Valuation date
-administrator.ingreso.form.label.resultadoValoracion = Valuation result
-administrator.ingreso.form.label.motivoAlta = Alta reason
-administrator.ingreso.form.label.fechaAlta = Alta date
-administrator.ingreso.form.label.paciente = Patient
-administrator.ingreso.form.label.medico = Doctor
+administrativo.ingreso.form.label.fechaIngreso = Date of admission
+administrativo.ingreso.form.label.faseProceso = Process phase
+administrativo.ingreso.form.label.motivoIngreso = Admission reason
+administrativo.ingreso.form.label.centroIngreso = Admission center
+administrativo.ingreso.form.label.fechaValoracion = Valuation date
+administrativo.ingreso.form.label.resultadoValoracion = Valuation result
+administrativo.ingreso.form.label.motivoAlta = Alta reason
+administrativo.ingreso.form.label.fechaAlta = Alta date
+administrativo.ingreso.form.label.paciente = Patient
+administrativo.ingreso.form.label.medico = Doctor

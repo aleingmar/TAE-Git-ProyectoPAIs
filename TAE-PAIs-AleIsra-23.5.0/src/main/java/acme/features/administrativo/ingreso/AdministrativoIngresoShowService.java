@@ -67,7 +67,7 @@ public class AdministrativoIngresoShowService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
+		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.identity.email", "medico.userAccount.identity.email");
 
 		super.getResponse().setData(tuple);
 	}

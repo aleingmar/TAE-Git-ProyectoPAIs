@@ -19,32 +19,32 @@
 <acme:form>
 
 	<acme:input-moment code="administrativo.ingreso.form.label.fechaIngreso" path="fechaIngreso"/>
-	<acme:input-moment code="administrativo.ingreso.form.label.fechaValoracion" path="fechaValoracion"/>
+	
 	
 	<acme:input-select  code="administrativo.ingreso.form.label.faseProceso" path="faseProceso" choices="${fasesProceso}"/>	
 	<acme:input-select  code="administrativo.ingreso.form.label.centroIngreso" path="centroIngreso" choices="${centrosIngreso}"/>
 	
-		
-	<acme:input-textbox code="administrativo.ingreso.form.label.paciente" path="paciente.userAccount.username"/>
-	<acme:input-textbox code="administrativo.ingreso.form.label.motivoIngreso" path="motivoIngreso"/>
-	<acme:input-textbox code="administrativo.ingreso.form.label.medico" path="medico.userAccount.username"/>
+	<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente.userAccount.identity.email" choices="${pacientes}"/>
+	<acme:input-select code="administrativo.ingreso.form.label.motivoIngreso" path="motivoIngreso" choices="${motivosIngreso}"/>
+	<acme:input-select code="administrativo.ingreso.form.label.medico" path="medico.userAccount.identity.email" choices="${medicos}"/>
 	
 	<%--
+	<acme:input-moment code="administrativo.ingreso.form.label.fechaValoracion" path="fechaValoracion"/>
 	<acme:input-textbox code="administrativo.ingreso.form.label.motivoAlta" path="motivoAlta" readonly="true"/>
 	<acme:input-moment code="administrativo.ingreso.form.label.fechaAlta" path="fechaAlta" readonly="true"/>
 	<acme:input-textbox code="administrativo.ingreso.form.label.resultadoValoracion" path="resultadoValoracion" readonly="true"/>
 	--%>
+	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="administrativo.ingreso.form.button.list" action="/administrativo/ingreso/list?masterId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
-			<acme:button code="administrativo.ingreso.form.button.list" action="/administrativo/ingreso/list?masterId=${id}"/>
-			<acme:submit code="administrativo.ingreso.form.button.update" action="/employer/job/update"/>
-			<acme:submit code="administrativo.ingreso.form.button.delete" action="/employer/job/delete"/>
+			<acme:button code="administrativo.ingreso.form.button.list" action="/administrativo/ingreso/list"/>
+			<acme:submit code="administrativo.ingreso.form.button.update" action="/administrativo/ingreso/update"/>
+			<acme:submit code="administrativo.ingreso.form.button.delete" action="/administrado/ingreso/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="administrativo.ingreso.form.button.create" action="/employer/job/create"/>
+			<acme:submit code="administrativo.ingreso.form.button.create" action="/administrativo/ingreso/create"/>
 		</jstl:when>		
 	</jstl:choose>
 	

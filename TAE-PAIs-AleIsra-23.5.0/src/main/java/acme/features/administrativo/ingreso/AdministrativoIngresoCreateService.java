@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.asistencia.Ingreso;
 import acme.entities.enumerados.CentroClinico;
+import acme.entities.enumerados.MotivoIngreso;
+import acme.entities.enumerados.TipoFaseProceso;
 import acme.framework.services.AbstractService;
 import acme.roles.Administrativo;
+import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Service
 public class AdministrativoIngresoCreateService extends AbstractService<Administrativo, Ingreso> {
@@ -56,6 +60,7 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		object.setFechaAlta(null);
 		object.setMotivoAlta(null);
 		object.setResultadoValoracion(null);
+		object.setFechaValoracion(null);
 
 		super.getBuffer().setData(object);
 	}
@@ -66,16 +71,27 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 	//e indicada en la llamada al objeto Java “object”.
 
 	@Override
-	public void bind(final Administrativo object) {
+	public void bind(final Ingreso object) {
 		assert object != null;
 
-		contractorId = super.getRequest().getData("contractor", int.class);
+		final String pacienteDNI = super.getRequest().getData("paciente.dni", String.class);
+		final String medicoDNI = super.getRequest().getData("medico.dni", String.class);
+		//desplegables enumerados
+		final CentroClinico centroIngreso = super.getRequest().getData("centroIngreso", CentroClinico.class);
+		final MotivoIngreso motivoIngreso = super.getRequest().getData("motivoIngreso", MotivoIngreso.class);
+		final TipoFaseProceso faseProceso = super.getRequest().getData("faseProceso", TipoFaseProceso.class);
 
-		//le doy las opciones al desplegable
-		object.setCentroIngresoValues(CentroClinico.values());
+		final Paciente paciente = this.repository.findOnePacienteByDni(pacienteDNI);
+		final Medico medico = this.repository.findOneMedicoByDni(medicoDNI);
 
-		super.bind(object, "fechaIngreso", "title", "deadline", "salary", "score", "moreInfo", "description");
-		object.setContractor(contractor);
+		super.bind(object, "fechaIngreso");
+
+		object.setPaciente(paciente);
+		object.setMedico(medico);
+		object.setCentroIngreso(centroIngreso);
+		object.setMotivoIngreso(motivoIngreso);
+		object.setFaseProceso(faseProceso);
+
 	}
 
 }

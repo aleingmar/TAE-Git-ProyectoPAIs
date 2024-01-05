@@ -1,3 +1,3 @@
-key,key:userAccount,especialidad,tipoMedico
-medico-01,user-account-medico-01,ONCOLOGO,AP
-medico-02,user-account-medico-02,ONCOLOGO,AH
+key,key:userAccount,especialidad,tipoMedico,dni
+medico-01,user-account-medico-01,ONCOLOGO,AP,29506338J
+medico-02,user-account-medico-02,ONCOLOGO,AH,29509838B
