@@ -42,4 +42,10 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 	@Query("select m from Medico m where m.dni = :dni")
 	Medico findOneMedicoByDni(String dni);
 
+	@Query("select p from Paciente p")
+	Collection<Paciente> findAllPacientes();
+
+	@Query("select m from Medico m")
+	Collection<Medico> findAllMedicos();
+
 }
