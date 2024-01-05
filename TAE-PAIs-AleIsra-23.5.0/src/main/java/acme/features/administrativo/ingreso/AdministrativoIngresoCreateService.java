@@ -1,6 +1,8 @@
 
 package acme.features.administrativo.ingreso;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,8 @@ import acme.entities.asistencia.Ingreso;
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
 import acme.entities.enumerados.TipoFaseProceso;
+import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Administrativo;
 import acme.roles.Medico;
@@ -94,4 +98,81 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 
 	}
 
-}
+	@Override
+	public void validate(final Ingreso object) {
+		assert object != null;
+
+		/*
+		 * if (!super.getBuffer().getErrors().hasErrors("reference")) {
+		 * Ingreso existing;
+		 * existing = this.repository.findOneJobByReference(object.getReference());
+		 * super.state(existing == null, "reference", "employer.job.form.error.duplicated");
+		 * }
+		 * 
+		 * if (!super.getBuffer().getErrors().hasErrors("deadline")) {
+		 * Date minimumDeadline;
+		 * 
+		 * minimumDeadline = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
+		 * super.state(MomentHelper.isAfter(object.getDeadline(), minimumDeadline), "deadline", "employer.job.form.error.too-close");
+		 * }
+		 * 
+		 * if (!super.getBuffer().getErrors().hasErrors("salary"))
+		 * super.state(object.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
+		 * 
+		 */
+	}
+	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)
+	@Override
+	public void perform(final Ingreso object) {
+		assert object != null;
+		this.repository.save(object);
+	}
+
+	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)
+	@Override
+	public void unbind(final Ingreso object) {
+		assert object != null;
+
+		final Collection<Paciente> pacientes;
+		final Collection<Medico> medicos;
+		final Collection<TipoFaseProceso> faseProceso;
+		final Collection<CentroClinico> centroIngreso;
+		final Collection<MotivoIngreso> motivoIngreso;
+
+		SelectChoices choicesP, choicesM, choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
+		Tuple tuple;
+
+		pacientes = this.repository.findAllPacientes();
+		medicos = this.repository.findAllMedicos();
+
+		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
+		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
+
+		//enumerados
+		choicesFaseProceso = SelectChoices.from(TipoFaseProceso.class, object.getFaseProceso());
+		choicesCentroIngreso = SelectChoices.from(CentroClinico.class, object.getCentroIngreso());
+		choicesMotivoIngreso = SelectChoices.from(MotivoIngreso.class, object.getMotivoIngreso());
+
+		tuple = super.unbind(object, " fechaIngreso ");
+
+		//paso el paciente concreto
+		tuple.put("paciente", choicesP.getSelected().getKey());
+		tuple.put("pacientes", choicesP);
+
+		tuple.put("medico", choicesM.getSelected().getKey());
+		tuple.put("medicos", choicesM);
+
+		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());
+		tuple.put("fasesProceso", choicesFaseProceso);
+
+		tuple.put("centroIngresos", choicesCentroIngreso.getSelected().getKey());
+		tuple.put("centrosClinico", choicesCentroIngreso);
+
+		tuple.put("motivoIngreso", choicesMotivoIngreso.getSelected().getKey());
+		tuple.put("motivosIngreso", choicesMotivoIngreso);
+
+		//paso todos los pacientes
+
+		super.getResponse().setData(tuple);
+	}
+} //LLAVE FINAL
