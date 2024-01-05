@@ -24,9 +24,9 @@
 	<acme:input-select  code="administrativo.ingreso.form.label.faseProceso" path="faseProceso" choices="${fasesProceso}"/>	
 	<acme:input-select  code="administrativo.ingreso.form.label.centroIngreso" path="centroIngreso" choices="${centrosIngreso}"/>
 	
-	<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente.userAccount.identity.email" choices="${pacientes}"/>
+	<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente.dni" choices="${pacientes}"/>
 	<acme:input-select code="administrativo.ingreso.form.label.motivoIngreso" path="motivoIngreso" choices="${motivosIngreso}"/>
-	<acme:input-select code="administrativo.ingreso.form.label.medico" path="medico.userAccount.identity.email" choices="${medicos}"/>
+	<acme:input-select code="administrativo.ingreso.form.label.medico" path="medico.dni" choices="${medicos}"/>
 	
 	<%--
 	<acme:input-moment code="administrativo.ingreso.form.label.fechaValoracion" path="fechaValoracion"/>

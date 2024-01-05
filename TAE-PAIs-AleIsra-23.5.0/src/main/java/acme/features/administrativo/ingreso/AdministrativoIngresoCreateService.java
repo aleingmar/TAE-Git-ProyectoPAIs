@@ -78,12 +78,13 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 	public void bind(final Ingreso object) {
 		assert object != null;
 
-		final String pacienteDNI = super.getRequest().getData("paciente.dni", String.class);
-		final String medicoDNI = super.getRequest().getData("medico.dni", String.class);
 		//desplegables enumerados
 		final CentroClinico centroIngreso = super.getRequest().getData("centroIngreso", CentroClinico.class);
 		final MotivoIngreso motivoIngreso = super.getRequest().getData("motivoIngreso", MotivoIngreso.class);
 		final TipoFaseProceso faseProceso = super.getRequest().getData("faseProceso", TipoFaseProceso.class);
+
+		final String pacienteDNI = super.getRequest().getData("paciente.dni", String.class);
+		final String medicoDNI = super.getRequest().getData("medico.dni", String.class);
 
 		final Paciente paciente = this.repository.findOnePacienteByDni(pacienteDNI);
 		final Medico medico = this.repository.findOneMedicoByDni(medicoDNI);
