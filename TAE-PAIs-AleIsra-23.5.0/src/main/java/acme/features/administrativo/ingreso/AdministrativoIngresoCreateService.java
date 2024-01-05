@@ -101,6 +101,7 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 	@Override
 	public void validate(final Ingreso object) {
 		assert object != null;
+		//hay que pensar las validaciones
 
 		/*
 		 * if (!super.getBuffer().getErrors().hasErrors("reference")) {
@@ -153,7 +154,7 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		choicesCentroIngreso = SelectChoices.from(CentroClinico.class, object.getCentroIngreso());
 		choicesMotivoIngreso = SelectChoices.from(MotivoIngreso.class, object.getMotivoIngreso());
 
-		tuple = super.unbind(object, " fechaIngreso ");
+		tuple = super.unbind(object, "fechaIngreso");
 
 		//paso el paciente concreto
 		tuple.put("paciente", choicesP.getSelected().getKey());
@@ -165,8 +166,8 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());
 		tuple.put("fasesProceso", choicesFaseProceso);
 
-		tuple.put("centroIngresos", choicesCentroIngreso.getSelected().getKey());
-		tuple.put("centrosClinico", choicesCentroIngreso);
+		tuple.put("centroIngreso", choicesCentroIngreso.getSelected().getKey());
+		tuple.put("centrosIngreso", choicesCentroIngreso);
 
 		tuple.put("motivoIngreso", choicesMotivoIngreso.getSelected().getKey());
 		tuple.put("motivosIngreso", choicesMotivoIngreso);
