@@ -37,14 +37,11 @@ public class AdministrativoIngresoController extends AbstractController<Administ
 	@Autowired
 	protected AdministrativoIngresoCreateService	createService;
 
-	//	 @Autowired
-	//	 protected AdministrativoIngresoEditService editService;
-	//	 
-	//	 @Autowired
-	//	 protected AdministrativoIngresoDeleteService deleteService;
+	@Autowired
+	protected AdministrativoIngresoUpdateService	updateService;
 
-	//@Autowired
-	//protected AdministrativoIngresoPublishService publishService;
+	@Autowired
+	protected AdministrativoIngresoDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -54,8 +51,8 @@ public class AdministrativoIngresoController extends AbstractController<Administ
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("edit", this.editService);
-		//		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 
 	}
 

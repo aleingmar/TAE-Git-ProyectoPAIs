@@ -6,9 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.asistencia.Cita;
 import acme.entities.asistencia.Ingreso;
-import acme.entities.cuidados.Diagnostico;
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
 import acme.entities.enumerados.TipoFaseProceso;
@@ -20,7 +18,7 @@ import acme.roles.Medico;
 import acme.roles.Paciente;
 
 @Service
-public class AdministrativoIngresoDeleteService extends AbstractService<Administrativo, Ingreso> {
+public class AdministrativoIngresoUpdateService extends AbstractService<Administrativo, Ingreso> {
 
 	@Autowired
 	protected AdministrativoIngresoRepository repository;
@@ -29,7 +27,7 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 	@Override
 	public void check() {
 		boolean status;
-		System.out.println("check se ejecuta");
+
 		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
@@ -39,21 +37,6 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
 	}
-
-	//		boolean		status;
-	//		int			masterId;
-	//		Job			job;
-	//		Employer	employer;
-	//
-	//
-	//		masterId = super.getRequest().getData("id", int.class);
-	//		job = this.repository.findOneJobById(masterId);
-	//		employer = job == null ? null : job.getEmployer();
-	//		status = job != null && job.isDraftMode() && super.getRequest().getPrincipal().hasRole(employer);
-	//
-	//		super.getResponse().setAuthorised(status);
-
-	// 
 
 	@Override
 	public void load() {
@@ -93,26 +76,14 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 	@Override
 	public void validate(final Ingreso object) {
 		assert object != null;
+
 	}
 
 	@Override
 	public void perform(final Ingreso object) {
 		assert object != null;
 
-		Collection<Diagnostico> diagnosticos;
-		Collection<Cita> citas;
-
-		diagnosticos = this.repository.findManyDiagnosticosByJobId(object.getId());
-		citas = this.repository.findManyCitasByJobId(object.getId());
-		System.out.println(diagnosticos);
-		if (!diagnosticos.isEmpty())
-			this.repository.deleteAll(diagnosticos);
-
-		if (!citas.isEmpty()) // Comprobar si esta vacio
-			for (final Cita cita : citas)
-				cita.setIngreso(null);
-		this.repository.delete(object);
-
+		this.repository.save(object);
 	}
 
 	@Override
@@ -164,5 +135,4 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 
 		super.getResponse().setData(tuple);
 	}
-
 }

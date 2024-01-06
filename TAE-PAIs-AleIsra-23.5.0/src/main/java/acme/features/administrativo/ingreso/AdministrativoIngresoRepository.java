@@ -17,7 +17,9 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.asistencia.Cita;
 import acme.entities.asistencia.Ingreso;
+import acme.entities.cuidados.Diagnostico;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Administrativo;
 import acme.roles.Medico;
@@ -53,5 +55,11 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 
 	@Query("select c from Medico c where c.id = :medicoId")
 	Medico findOneMedicoById(int medicoId);
+
+	@Query("select d from Diagnostico d where d.ingreso.id = :ingresoId")
+	Collection<Diagnostico> findManyDiagnosticosByJobId(int ingresoId);
+
+	@Query("select c from Cita c where c.ingreso.id = :ingresoId")
+	Collection<Cita> findManyCitasByJobId(int ingresoId);
 
 }

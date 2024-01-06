@@ -24,7 +24,14 @@
 	<acme:input-select  code="administrativo.ingreso.form.label.faseProceso" path="faseProceso" choices="${fasesProceso}"/>	
 	<acme:input-select  code="administrativo.ingreso.form.label.centroIngreso" path="centroIngreso" choices="${centrosIngreso}"/>
 	
-	<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente" choices="${pacientes}"/>
+	<jstl:if test="${acme:anyOf(_command, 'update|show')}">
+		<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente" choices="${pacientes}" readonly="true"/>
+	</jstl:if>
+	
+	<jstl:if test="${acme:anyOf(_command, 'create|delete')}">
+		<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente" choices="${pacientes}"/>
+	</jstl:if>
+	
 	<acme:input-select code="administrativo.ingreso.form.label.motivoIngreso" path="motivoIngreso" choices="${motivosIngreso}"/>
 	<acme:input-select code="administrativo.ingreso.form.label.medico" path="medico" choices="${medicos}"/>
 	
@@ -36,12 +43,10 @@
 	--%>
 	
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show'}">
-		</jstl:when>
+		
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
-			<acme:button code="administrativo.ingreso.form.button.list" action="/administrativo/ingreso/list"/>
 			<acme:submit code="administrativo.ingreso.form.button.update" action="/administrativo/ingreso/update"/>
-			<acme:submit code="administrativo.ingreso.form.button.delete" action="/administrado/ingreso/delete"/>
+			<acme:submit code="administrativo.ingreso.form.button.delete" action="/administrativo/ingreso/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="administrativo.ingreso.form.button.create" action="/administrativo/ingreso/create"/>

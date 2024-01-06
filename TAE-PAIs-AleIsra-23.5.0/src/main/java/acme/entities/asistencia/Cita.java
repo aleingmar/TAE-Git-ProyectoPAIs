@@ -76,7 +76,6 @@ public class Cita extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Medico			medicoOrganiza;
 
-	@NotNull
 	@Valid
 	@OneToOne(optional = true)
 	protected Ingreso			ingreso;
