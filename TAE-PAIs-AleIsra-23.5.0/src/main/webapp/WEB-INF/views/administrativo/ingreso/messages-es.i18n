@@ -9,6 +9,8 @@ administrativo.ingreso.list.label.fechaAlta = Fecha Alta
 administrativo.ingreso.list.label.paciente = Paciente
 administrativo.ingreso.list.label.medico = Médico
 
+
+
 administrativo.ingreso.form.label.fechaIngreso = Fecha ingreso
 administrativo.ingreso.form.label.faseProceso = Fase proceso
 administrativo.ingreso.form.label.motivoIngreso = Motivo ingreso
@@ -19,3 +21,5 @@ administrativo.ingreso.form.label.motivoAlta = Motivo Alta
 administrativo.ingreso.form.label.fechaAlta = Fecha Alta
 administrativo.ingreso.form.label.paciente = Paciente
 administrativo.ingreso.form.label.medico = Médico
+
+administrativo.ingreso.form.button.create= Crear

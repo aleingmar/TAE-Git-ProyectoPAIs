@@ -33,6 +33,7 @@ import lombok.Setter;
 //para que persista en la BD como una tabla
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //si dejo esto, el controlador sin filtro no funciona
+
 @JsonFilter("miFiltro")
 public class Ingreso extends AbstractEntity {
 
@@ -77,7 +78,6 @@ public class Ingreso extends AbstractEntity {
 	protected String			motivoAlta;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
 	@PastOrPresent
 	protected Date				fechaValoracion;
 

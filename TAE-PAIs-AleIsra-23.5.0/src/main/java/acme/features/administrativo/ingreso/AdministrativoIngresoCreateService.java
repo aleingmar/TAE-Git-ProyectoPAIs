@@ -101,9 +101,12 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 
 	@Override
 	public void validate(final Ingreso object) {
+		System.out.println(object);
+		System.out.println(object.getCentroIngreso());
+
 		assert object != null;
 		//hay que pensar las validaciones
-
+		System.out.println("se ejecuta validate");
 		/*
 		 * if (!super.getBuffer().getErrors().hasErrors("reference")) {
 		 * Ingreso existing;
@@ -123,10 +126,14 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		 * 
 		 */
 	}
+
 	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)
 	@Override
 	public void perform(final Ingreso object) {
+		System.out.println(object);
+
 		assert object != null;
+		System.out.println("perform se ejecuta");
 		this.repository.save(object);
 	}
 
@@ -135,11 +142,13 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 	public void unbind(final Ingreso object) {
 		assert object != null;
 
+		System.out.println("unbind se ejecuta");
+
 		final Collection<Paciente> pacientes;
 		final Collection<Medico> medicos;
-		final Collection<TipoFaseProceso> faseProceso;
-		final Collection<CentroClinico> centroIngreso;
-		final Collection<MotivoIngreso> motivoIngreso;
+		//		final Collection<TipoFaseProceso> faseProceso;
+		//		final Collection<CentroClinico> centroIngreso;
+		//		final Collection<MotivoIngreso> motivoIngreso;
 
 		SelectChoices choicesP, choicesM, choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
 		Tuple tuple;
@@ -158,10 +167,11 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		tuple = super.unbind(object, "fechaIngreso");
 
 		//paso el paciente concreto
-		tuple.put("paciente", choicesP.getSelected().getKey());
+		tuple.put("paciente.dni", choicesP.getSelected().getKey());
+		//tuple.put("paciente.dni", object.getPaciente().getDni());
 		tuple.put("pacientes", choicesP);
 
-		tuple.put("medico", choicesM.getSelected().getKey());
+		tuple.put("medico.dni", choicesM.getSelected().getKey());
 		tuple.put("medicos", choicesM);
 
 		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());

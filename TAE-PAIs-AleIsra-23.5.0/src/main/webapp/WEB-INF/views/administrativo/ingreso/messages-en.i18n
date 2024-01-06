@@ -29,3 +29,4 @@ administrativo.ingreso.form.label.motivoAlta = Alta reason
 administrativo.ingreso.form.label.fechaAlta = Alta date
 administrativo.ingreso.form.label.paciente = Patient
 administrativo.ingreso.form.label.medico = Doctor
+administrativo.ingreso.form.button.create= Create
