@@ -135,6 +135,10 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		assert object != null;
 		System.out.println("perform se ejecuta");
 		this.repository.save(object);
+
+		//		final String view = "redirect:/administrativo/ingreso/list";
+		//
+		//		super.getResponse().setView(view);
 	}
 
 	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)
