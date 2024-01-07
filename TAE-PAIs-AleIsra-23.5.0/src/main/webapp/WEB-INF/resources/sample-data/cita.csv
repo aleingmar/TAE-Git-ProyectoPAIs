@@ -1,2 +1,2 @@
-key,fechaCita,centroCita,tipoCita,indicacionesCita,resultadoCita,key:paciente,key:medicoOrganiza,key:medicoTrata,key:ingreso
-cita-01,2002/06/30 14:00,HOSPITAL_VIRGEN_MACARENA,PRUEBA_DE_IMAGEN,null,null,paciente-01,medico-01,medico-02,ingreso-01
+key,fechaCita,centroCita,tipoCita,indicacionesCita,resultadoCita,key:paciente,key:medicoOrganiza,key:medicoTrata
+cita-01,2002/06/30 14:00,HOSPITAL_VIRGEN_MACARENA,PRUEBA_DE_IMAGEN,null,null,paciente-01,medico-01,medico-02

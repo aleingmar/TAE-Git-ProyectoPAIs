@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -103,6 +104,10 @@ public class Ingreso extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Administrativo	administrativo;
+
+	@Valid
+	@OneToOne(optional = true)
+	protected Cita				cita;
 
 	//un ingreso inicial se relaciona con N ingresos de proceso, un ingreso de proceso se relaciona con un ingreso inicial
 	//un ingreso inicial, tiene el valor de este atributo a el mismo

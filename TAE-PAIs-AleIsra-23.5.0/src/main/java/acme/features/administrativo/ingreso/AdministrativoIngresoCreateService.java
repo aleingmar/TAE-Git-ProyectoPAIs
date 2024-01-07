@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.asistencia.Cita;
 import acme.entities.asistencia.Ingreso;
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
@@ -65,6 +66,7 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		object.setMotivoAlta(null);
 		object.setResultadoValoracion(null);
 		object.setFechaValoracion(null);
+		//object.setCita(null);
 
 		super.getBuffer().setData(object);
 	}
@@ -85,9 +87,11 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 
 		final int pacienteId = super.getRequest().getData("paciente", int.class);
 		final int medicoId = super.getRequest().getData("medico", int.class);
+		final int citaId = super.getRequest().getData("cita", int.class);
 
 		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
 		final Medico medico = this.repository.findOneMedicoById(medicoId);
+		final Cita cita = this.repository.findOneCitaById(citaId);
 
 		super.bind(object, "fechaIngreso");
 
@@ -96,6 +100,7 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		object.setCentroIngreso(centroIngreso);
 		object.setMotivoIngreso(motivoIngreso);
 		object.setFaseProceso(faseProceso);
+		object.setCita(cita);
 
 	}
 
@@ -149,19 +154,26 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 
 		final Collection<Paciente> pacientes;
 		final Collection<Medico> medicos;
+		final Collection<Cita> citas;
 		//		final Collection<TipoFaseProceso> faseProceso;
 		//		final Collection<CentroClinico> centroIngreso;
 		//		final Collection<MotivoIngreso> motivoIngreso;
 
-		SelectChoices choicesP, choicesM, choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
+		SelectChoices choicesP, choicesM;
+		final SelectChoices choicesC;
+		SelectChoices choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
 		Tuple tuple;
 
 		pacientes = this.repository.findAllPacientes();
 		medicos = this.repository.findAllMedicos();
 
+		//solo las citas que no tengas ingresos asociados ya
+		citas = this.repository.findAllCitasSinIngresos();
+
 		System.out.println("El paciente es nulo ?" + object.getPaciente());
 		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
 		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
+		choicesC = SelectChoices.from(citas, "fechaCita", object.getCita());
 
 		//enumerados
 		choicesFaseProceso = SelectChoices.from(TipoFaseProceso.class, object.getFaseProceso());
@@ -177,6 +189,9 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 
 		tuple.put("medico.dni", choicesM.getSelected().getKey());
 		tuple.put("medicos", choicesM);
+
+		tuple.put("cita.fechaCita", choicesC.getSelected().getKey());
+		tuple.put("citas", choicesC);
 
 		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());
 		tuple.put("fasesProceso", choicesFaseProceso);

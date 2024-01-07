@@ -100,17 +100,13 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 		assert object != null;
 
 		Collection<Diagnostico> diagnosticos;
-		Collection<Cita> citas;
+		final Collection<Cita> citas;
 
 		diagnosticos = this.repository.findManyDiagnosticosByJobId(object.getId());
-		citas = this.repository.findManyCitasByJobId(object.getId());
 		System.out.println(diagnosticos);
 		if (!diagnosticos.isEmpty())
 			this.repository.deleteAll(diagnosticos);
 
-		if (!citas.isEmpty()) // Comprobar si esta vacio
-			for (final Cita cita : citas)
-				cita.setIngreso(null);
 		this.repository.delete(object);
 
 	}
@@ -123,18 +119,26 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 
 		final Collection<Paciente> pacientes;
 		final Collection<Medico> medicos;
+		final Collection<Cita> citas;
 		//		final Collection<TipoFaseProceso> faseProceso;
 		//		final Collection<CentroClinico> centroIngreso;
 		//		final Collection<MotivoIngreso> motivoIngreso;
 
-		SelectChoices choicesP, choicesM, choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
+		SelectChoices choicesP, choicesM;
+		final SelectChoices choicesC;
+		SelectChoices choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
 		Tuple tuple;
 
 		pacientes = this.repository.findAllPacientes();
 		medicos = this.repository.findAllMedicos();
 
+		//solo las citas que no tengas ingresos asociados ya
+		citas = this.repository.findAllCitasSinIngresos();
+
+		System.out.println("El paciente es nulo ?" + object.getPaciente());
 		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
 		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
+		choicesC = SelectChoices.from(citas, "fechaCita", object.getCita());
 
 		//enumerados
 		choicesFaseProceso = SelectChoices.from(TipoFaseProceso.class, object.getFaseProceso());
@@ -151,6 +155,9 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 		tuple.put("medico.dni", choicesM.getSelected().getKey());
 		tuple.put("medicos", choicesM);
 
+		tuple.put("cita.fechaCita", choicesC.getSelected().getKey());
+		tuple.put("citas", choicesC);
+
 		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());
 		tuple.put("fasesProceso", choicesFaseProceso);
 
@@ -163,6 +170,7 @@ public class AdministrativoIngresoDeleteService extends AbstractService<Administ
 		//paso todos los pacientes
 
 		super.getResponse().setData(tuple);
+
 	}
 
 }

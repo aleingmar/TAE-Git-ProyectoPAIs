@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.asistencia.Cita;
 import acme.entities.asistencia.Ingreso;
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
@@ -73,33 +74,48 @@ public class AdministrativoIngresoShowService extends AbstractService<Administra
 	public void unbind(final Ingreso object) {
 		assert object != null;
 
-		SelectChoices choicesPaciente;
-		SelectChoices choicesMedico;
-		final SelectChoices choicesFaseProceso;
-		final SelectChoices choicesCentroIngreso;
-		final SelectChoices choicesMotivoIngreso;
+		System.out.println("unbind se ejecuta");
 
 		final Collection<Paciente> pacientes;
 		final Collection<Medico> medicos;
+		final Collection<Cita> citas;
+		//		final Collection<TipoFaseProceso> faseProceso;
+		//		final Collection<CentroClinico> centroIngreso;
+		//		final Collection<MotivoIngreso> motivoIngreso;
+
+		SelectChoices choicesP, choicesM;
+		final SelectChoices choicesC;
+		SelectChoices choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
+		Tuple tuple;
 
 		pacientes = this.repository.findAllPacientes();
 		medicos = this.repository.findAllMedicos();
 
-		choicesPaciente = SelectChoices.from(pacientes, "dni", object.getPaciente());
-		choicesMedico = SelectChoices.from(medicos, "dni", object.getMedico());
+		//solo las citas que no tengas ingresos asociados ya
+		citas = this.repository.findAllCitasSinIngresos();
 
+		System.out.println("El paciente es nulo ?" + object.getPaciente());
+		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
+		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
+		choicesC = SelectChoices.from(citas, "fechaCita", object.getCita());
+
+		//enumerados
 		choicesFaseProceso = SelectChoices.from(TipoFaseProceso.class, object.getFaseProceso());
 		choicesCentroIngreso = SelectChoices.from(CentroClinico.class, object.getCentroIngreso());
 		choicesMotivoIngreso = SelectChoices.from(MotivoIngreso.class, object.getMotivoIngreso());
 
-		Tuple tuple;
-
 		tuple = super.unbind(object, "fechaIngreso");
-		tuple.put("paciente", choicesPaciente.getSelected().getKey());
-		tuple.put("pacientes", choicesPaciente);
 
-		tuple.put("medico", choicesMedico.getSelected().getKey());
-		tuple.put("medicos", choicesMedico);
+		//paso el paciente concreto
+		tuple.put("paciente.dni", choicesP.getSelected().getKey());
+		//tuple.put("paciente.dni", object.getPaciente().getDni());
+		tuple.put("pacientes", choicesP);
+
+		tuple.put("medico.dni", choicesM.getSelected().getKey());
+		tuple.put("medicos", choicesM);
+
+		tuple.put("cita.fechaCita", choicesC.getSelected().getKey());
+		tuple.put("citas", choicesC);
 
 		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());
 		tuple.put("fasesProceso", choicesFaseProceso);
@@ -110,23 +126,9 @@ public class AdministrativoIngresoShowService extends AbstractService<Administra
 		tuple.put("motivoIngreso", choicesMotivoIngreso.getSelected().getKey());
 		tuple.put("motivosIngreso", choicesMotivoIngreso);
 
+		//paso todos los pacientes
+
 		super.getResponse().setData(tuple);
+
 	}
-
-	//	@Override
-	//	public void unbind(final Application object) {
-	//		assert object != null;
-	//
-	//		SelectChoices	choices;
-	//		Tuple			tuple;
-	//
-	//		choices = SelectChoices.from(ApplicationStatus.class, object.getStatus());
-	//
-	//		tuple = super.unbind(object, "reference", "moment", "status", "statement", "skills", "qualifications");
-	//		tuple.put("masterId", object.getJob().getId());
-	//		tuple.put("statuses", choices);
-	//
-	//		super.getResponse().setData(tuple);
-	//	}
-
 }

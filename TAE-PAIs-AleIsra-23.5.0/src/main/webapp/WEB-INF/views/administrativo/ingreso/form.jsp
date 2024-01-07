@@ -23,6 +23,7 @@
 	
 	<acme:input-select  code="administrativo.ingreso.form.label.faseProceso" path="faseProceso" choices="${fasesProceso}"/>	
 	<acme:input-select  code="administrativo.ingreso.form.label.centroIngreso" path="centroIngreso" choices="${centrosIngreso}"/>
+	<acme:input-select  code="administrativo.ingreso.form.label.cita" path="cita" choices="${citas}"/>
 	
 	<jstl:if test="${acme:anyOf(_command, 'update|show')}">
 		<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente" choices="${pacientes}" readonly="true"/>

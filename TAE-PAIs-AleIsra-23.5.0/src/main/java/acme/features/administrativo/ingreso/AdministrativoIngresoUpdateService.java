@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.asistencia.Cita;
 import acme.entities.asistencia.Ingreso;
 import acme.entities.enumerados.CentroClinico;
 import acme.entities.enumerados.MotivoIngreso;
@@ -94,18 +95,26 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 
 		final Collection<Paciente> pacientes;
 		final Collection<Medico> medicos;
+		final Collection<Cita> citas;
 		//		final Collection<TipoFaseProceso> faseProceso;
 		//		final Collection<CentroClinico> centroIngreso;
 		//		final Collection<MotivoIngreso> motivoIngreso;
 
-		SelectChoices choicesP, choicesM, choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
+		SelectChoices choicesP, choicesM;
+		final SelectChoices choicesC;
+		SelectChoices choicesFaseProceso, choicesCentroIngreso, choicesMotivoIngreso;
 		Tuple tuple;
 
 		pacientes = this.repository.findAllPacientes();
 		medicos = this.repository.findAllMedicos();
 
+		//solo las citas que no tengas ingresos asociados ya
+		citas = this.repository.findAllCitasSinIngresos();
+
+		System.out.println("El paciente es nulo ?" + object.getPaciente());
 		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
 		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
+		choicesC = SelectChoices.from(citas, "fechaCita", object.getCita());
 
 		//enumerados
 		choicesFaseProceso = SelectChoices.from(TipoFaseProceso.class, object.getFaseProceso());
@@ -122,6 +131,9 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 		tuple.put("medico.dni", choicesM.getSelected().getKey());
 		tuple.put("medicos", choicesM);
 
+		tuple.put("cita.fechaCita", choicesC.getSelected().getKey());
+		tuple.put("citas", choicesC);
+
 		tuple.put("faseProceso", choicesFaseProceso.getSelected().getKey());
 		tuple.put("fasesProceso", choicesFaseProceso);
 
@@ -134,5 +146,6 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 		//paso todos los pacientes
 
 		super.getResponse().setData(tuple);
+
 	}
 }

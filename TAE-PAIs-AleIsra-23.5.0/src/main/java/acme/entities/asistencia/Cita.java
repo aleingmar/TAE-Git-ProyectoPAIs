@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -76,8 +75,8 @@ public class Cita extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Medico			medicoOrganiza;
 
-	@Valid
-	@OneToOne(optional = true)
-	protected Ingreso			ingreso;
+	//	@Valid
+	//	@OneToOne(optional = true)
+	//	protected Ingreso			ingreso;
 
 }

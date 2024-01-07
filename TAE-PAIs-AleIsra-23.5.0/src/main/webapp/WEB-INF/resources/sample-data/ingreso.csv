@@ -1,2 +1,2 @@
-key,fechaIngreso,faseProceso,motivoIngreso,centroIngreso,fechaValoracion,resultadoValoracion,motivoAlta,fechaAlta,key:paciente,key:administrativo,key:medico
-ingreso-01,2002/06/30 13:00,INICIAL,CÁNCER_PULMÓN,HOSPITAL_VIRGEN_MACARENA,2002/06/30 14:00,null,null,null,paciente-01,administrativo-01,medico-01
+key,fechaIngreso,faseProceso,motivoIngreso,centroIngreso,fechaValoracion,resultadoValoracion,motivoAlta,fechaAlta,key:paciente,key:administrativo,key:cita,key:medico
+ingreso-01,2002/06/30 13:00,INICIAL,CÁNCER_PULMÓN,HOSPITAL_VIRGEN_MACARENA,2002/06/30 14:00,null,null,null,paciente-01,administrativo-01,cita-01,medico-01

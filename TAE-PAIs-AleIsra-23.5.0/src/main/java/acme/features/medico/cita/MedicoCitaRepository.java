@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.asistencia.Cita;
+import acme.entities.asistencia.Ingreso;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Medico;
 import acme.roles.Paciente;
@@ -31,5 +32,17 @@ public interface MedicoCitaRepository extends AbstractRepository {
 
 	@Query("select a from Medico a where a.id = :id")
 	Medico findOneMedicoById(int id);
+
+	@Query("select a from Cita a where a.id = :id")
+	Cita findOneCitaById(int id);
+
+	@Query("select p from Paciente p")
+	Collection<Paciente> findAllPacientes();
+
+	@Query("select m from Medico m")
+	Collection<Medico> findAllMedicos();
+
+	@Query("select d from Ingreso d where d.cita.id = :citaId")
+	Collection<Ingreso> findManyIngresosByCitaId(int citaId);
 
 }

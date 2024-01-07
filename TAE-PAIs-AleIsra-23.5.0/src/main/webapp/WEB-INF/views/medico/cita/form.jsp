@@ -19,14 +19,12 @@ Es necesario que se pueda crear una valoracion de ESA CITA EN CONCRETO
 	<acme:input-select code="medico.historial.form.label.paciente" path="paciente" choices="${pacientes}"/>
 	<acme:input-textbox code="medico.historial.form.label.medicoOrganiza" path="medicoOrganiza" readonly="true"/>
 	<acme:input-select code="medico.historial.form.label.medicoTrata" path="medicoTrata" choices="${medicosTrata}"/>
-	<acme:input-select code="medico.historial.form.label.ingreso" path="ingreso" choices="${ingresos}"/>
-	
-	
+
 	<acme:input-textbox code="medico.historial.form.label.indicacionesCita" path="indicacionesCita"/>
 	<acme:input-textbox code="medico.historial.form.label.resultadoCita" path="resultadoCita"/>
 
 	
-	<acme:button code="medico.historial.form.button.crearCita" action="/medico/cita/create"/> 
+	<acme:submit code="medico.historial.form.button.crearCita" action="/medico/cita/create"/> 
 	
 
 </acme:form>

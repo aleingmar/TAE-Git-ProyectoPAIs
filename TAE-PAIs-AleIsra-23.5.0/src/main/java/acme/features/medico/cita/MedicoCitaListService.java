@@ -69,8 +69,7 @@ public class MedicoCitaListService extends AbstractService<Medico, Cita> {
 		//verifica que el objeto no sea nulo
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

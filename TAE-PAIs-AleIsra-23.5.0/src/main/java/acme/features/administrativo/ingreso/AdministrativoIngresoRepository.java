@@ -47,11 +47,20 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 	@Query("select p from Paciente p")
 	Collection<Paciente> findAllPacientes();
 
+	@Query("select p from Cita p")
+	Collection<Cita> findAllCitas();
+
+	@Query("select c from Cita c WHERE c.id NOT IN (select i.cita.id from Ingreso i)")
+	Collection<Cita> findAllCitasSinIngresos();
+
 	@Query("select m from Medico m")
 	Collection<Medico> findAllMedicos();
 
 	@Query("select c from Paciente c where c.id = :pacienteId")
 	Paciente findOnePacienteById(int pacienteId);
+
+	@Query("select c from Cita c where c.id = :citaId")
+	Cita findOneCitaById(int citaId);
 
 	@Query("select c from Medico c where c.id = :medicoId")
 	Medico findOneMedicoById(int medicoId);
@@ -59,7 +68,7 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 	@Query("select d from Diagnostico d where d.ingreso.id = :ingresoId")
 	Collection<Diagnostico> findManyDiagnosticosByJobId(int ingresoId);
 
-	@Query("select c from Cita c where c.ingreso.id = :ingresoId")
-	Collection<Cita> findManyCitasByJobId(int ingresoId);
+	//	@Query("select c from Cita c where c.ingreso.id = :ingresoId")
+	//	Collection<Cita> findManyCitasByJobId(int ingresoId);
 
 }
