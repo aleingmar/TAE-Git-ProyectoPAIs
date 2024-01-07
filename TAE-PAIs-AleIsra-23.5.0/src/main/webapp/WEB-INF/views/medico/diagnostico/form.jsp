@@ -6,14 +6,30 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="medico.diagnostico.form.label.paciente" path="ingreso.paciente.userAccount.username" readonly="true"/>
-	<acme:input-email code="medico.diagnostico.form.label.fechaDiagnostico" path="fechaDiagnostico" readonly="true"/>
-	<acme:input-textbox code="medico.diagnostico.form.label.confirmado" path="confirmado" readonly="true"/>
-	<acme:input-textbox code="medico.diagnostico.form.label.estadio" path="estadio" readonly="true"/>
-	<acme:input-textbox code="medico.diagnostico.form.label.patologia" path="patologia" readonly="true"/>
-	<acme:input-textbox code="medico.diagnostico.form.label.detallesDiagnostico" path="detallesDiagnostico" readonly="true"/>
-	<acme:input-textbox code="medico.diagnostico.form.label.medico" path="ingreso.medico.userAccount.username" readonly="true"/>
-
+	<acme:input-select code="medico.diagnostico.form.label.paciente" path="paciente" choices="${pacientes}"/>
+		
+	<acme:input-select code="medico.diagnostico.form.label.ingreso" path="ingreso" choices="${ingresos}"/>
+	
+	<acme:input-moment code="medico.diagnostico.form.label.fechaDiagnostico" path="fechaDiagnostico" />
+	
+	<acme:input-checkbox code="medico.diagnostico.form.label.confirmado" path="confirmado"/>
+	
+	<acme:input-textbox code="medico.diagnostico.form.label.estadio" path="estadio" />
+	
+	<acme:input-textbox code="medico.diagnostico.form.label.patologia" path="patologia" />
+	
+	<acme:input-textbox code="medico.diagnostico.form.label.detallesDiagnostico" path="detallesDiagnostico"/>
+	
+	<jstl:choose>	 
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="medico.diagnostico.form.button.update" action="/medico/diagnostico/update"/>
+			<acme:submit code="medico.diagnostico.form.button.delete" action="/medico/diagnostico/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="medico.diagnostico.form.button.create" action="/medico/diagnostico/create"/>
+		</jstl:when>		
+	</jstl:choose>
+	
 </acme:form>
 
 

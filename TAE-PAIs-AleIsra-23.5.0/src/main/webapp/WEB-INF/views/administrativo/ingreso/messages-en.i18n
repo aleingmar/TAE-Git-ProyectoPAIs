@@ -30,7 +30,7 @@ administrativo.ingreso.form.label.fechaAlta = Alta date
 administrativo.ingreso.form.label.paciente = Patient
 administrativo.ingreso.form.label.medico = Doctor
 
-administrativo.ingreso.form.button.delete = Delete patient
-administrativo.ingreso.form.button.update = Update patient
-administrativo.ingreso.form.button.create = Create patient
+administrativo.ingreso.form.button.delete = Delete ingreso
+administrativo.ingreso.form.button.update = Update ingreso
+administrativo.ingreso.form.button.create = Create ingreso
 

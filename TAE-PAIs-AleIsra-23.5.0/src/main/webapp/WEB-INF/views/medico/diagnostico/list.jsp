@@ -26,4 +26,4 @@
    		</jstl:forEach>
 	</ul>
 	
-	<acme:button code="medico.diagnostico.form.button.crearDiagnostico" action=""/> 
+	<acme:button code="medico.diagnostico.form.button.crearDiagnostico" action="/medico/diagnostico/create"/> 

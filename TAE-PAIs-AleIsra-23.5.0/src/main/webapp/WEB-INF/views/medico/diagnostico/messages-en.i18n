@@ -33,6 +33,10 @@ medico.diagnostico.form.label.detallesDiagnostico = Diagnostic details
 medico.diagnostico.form.label.medico = Doctor
 
 medico.diagnostico.form.button.crearDiagnostico = Create diagnostic
+master.menu.medico.crearDiagnostico = Create result
+medico.diagnostico.form.button.create= Create result
+medico.diagnostico.form.button.delete= Delete result
+medico.diagnostico.form.button.update= Update result
 	
 	
 	

@@ -34,3 +34,8 @@ medico.diagnostico.form.label.detallesDiagnostico = Detalles diagnóstico
 medico.diagnostico.form.label.medico = Médico
 
 medico.diagnostico.form.button.crearDiagnostico = Crear diagnóstico
+master.menu.medico.crearDiagnostico = Crear diagnóstico
+medico.diagnostico.form.button.create= Crear diagnóstico
+medico.diagnostico.form.button.delete= Borrar diagnostico
+medico.diagnostico.form.button.update= Actualizar diagnostico
+

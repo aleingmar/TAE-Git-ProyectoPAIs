@@ -1,14 +1,3 @@
-/*
- * AdministratorMedicoShowService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.medico.diagnostico;
 
@@ -26,7 +15,7 @@ import acme.roles.Medico;
 import acme.roles.Paciente;
 
 @Service
-public class MedicoDiagnosticoShowService extends AbstractService<Medico, Diagnostico> {
+public class MedicoDiagnosticoUpdateService extends AbstractService<Medico, Diagnostico> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -47,11 +36,6 @@ public class MedicoDiagnosticoShowService extends AbstractService<Medico, Diagno
 
 	@Override
 	public void authorise() {
-		int id;
-		Diagnostico Diagnostico;
-		id = super.getRequest().getData("id", int.class);
-		Diagnostico = this.repository.findOneDiagnosticoById(id);
-
 		super.getResponse().setAuthorised(true);
 	}
 
@@ -66,7 +50,39 @@ public class MedicoDiagnosticoShowService extends AbstractService<Medico, Diagno
 		super.getBuffer().setData(object);
 	}
 
-	//ALGO NO FUNCIONA
+	@Override
+	public void bind(final Diagnostico object) {
+		assert object != null;
+		final Medico medico;
+		medico = this.repository.findOneMedicoById(super.getRequest().getPrincipal().getActiveRoleId());
+
+		final int pacienteId = super.getRequest().getData("paciente", int.class);
+		final int ingresoId = super.getRequest().getData("ingreso", int.class);
+
+		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
+		final Ingreso ingreso = this.repository.findOneIngresoById(ingresoId);
+
+		super.bind(object, "fechaDiagnostico", "confirmado", "estadio", "patologia", "detallesDiagnostico");
+
+		object.setIngreso(ingreso);
+		object.getIngreso().setPaciente(paciente);
+		object.getIngreso().setMedico(medico);
+
+	}
+
+	@Override
+	public void validate(final Diagnostico object) {
+		assert object != null;
+
+	}
+
+	@Override
+	public void perform(final Diagnostico object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
 	@Override
 	public void unbind(final Diagnostico object) {
 		assert object != null;
@@ -98,5 +114,4 @@ public class MedicoDiagnosticoShowService extends AbstractService<Medico, Diagno
 		tuple.put("ingresos", choicesIngreso);
 
 	}
-
 }

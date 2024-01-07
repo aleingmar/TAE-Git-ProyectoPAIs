@@ -34,12 +34,21 @@ public class MedicoDiagnosticoController extends AbstractController<Medico, Diag
 	//en las variables definidas.
 
 	@Autowired
-	protected MedicoDiagnosticoListService	listService;
+	protected MedicoDiagnosticoListService		listService;
 
 	@Autowired
-	protected MedicoDiagnosticoShowService	showService;
+	protected MedicoDiagnosticoShowService		showService;
 
-	public MedicoDiagnosticoRepository		repository;
+	public MedicoDiagnosticoRepository			repository;
+
+	@Autowired
+	protected MedicoDiagnosticoCreateService	createService;
+
+	@Autowired
+	protected MedicoDiagnosticoUpdateService	updateService;
+	//
+	@Autowired
+	protected MedicoDiagnosticoDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -48,6 +57,9 @@ public class MedicoDiagnosticoController extends AbstractController<Medico, Diag
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 	@GetMapping("/medico/diagnostico/list-diagnosticos")

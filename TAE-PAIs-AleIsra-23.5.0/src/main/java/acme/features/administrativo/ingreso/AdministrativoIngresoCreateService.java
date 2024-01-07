@@ -141,7 +141,6 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		//		super.getResponse().setView(view);
 	}
 
-	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)
 	@Override
 	public void unbind(final Ingreso object) {
 		assert object != null;
@@ -160,6 +159,7 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		pacientes = this.repository.findAllPacientes();
 		medicos = this.repository.findAllMedicos();
 
+		System.out.println("El paciente es nulo ?" + object.getPaciente());
 		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
 		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
 

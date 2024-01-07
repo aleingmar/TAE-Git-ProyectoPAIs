@@ -68,6 +68,7 @@
 			--%>
 			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/medico/ingreso/list-altas-inicial"/>
 			<acme:menu-suboption code="master.menu.medico.diagnosticos" action="/medico/diagnostico/list"/>
+			<acme:menu-suboption code="master.menu.medico.crearDiagnostico" action="/medico/diagnostico/create"/>
 			<%--
 			<acme:menu-suboption code="master.menu.medico.mimismo" action="/medico/medico/list-a-mi-mismo"/>
 			
