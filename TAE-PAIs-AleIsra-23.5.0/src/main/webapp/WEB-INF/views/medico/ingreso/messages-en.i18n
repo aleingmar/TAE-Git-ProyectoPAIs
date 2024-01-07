@@ -28,3 +28,7 @@ paciente.ingreso.form.label.fechaIngreso = Admission date
 paciente.ingreso.form.label.faseProceso = Process phase
 paciente.ingreso.form.label.motivoIngreso = Reason for admission
 paciente.ingreso.form.label.centroIngreso = Admission center
+
+
+administrativo.alta.form.button.delete= Borrar alta
+administrativo.alta.form.button.update= Modificar Alta

@@ -45,6 +45,12 @@ public class MedicoIngresoController extends AbstractController<Medico, Ingreso>
 	@Autowired
 	protected MedicoIngresoListAltasService	listAltasService;
 
+	@Autowired
+	protected MedicoIngresoUpdateService	updateService;
+
+	//	@Autowired
+	//	protected MedicoIngresoDeleteService	deleteService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -52,6 +58,8 @@ public class MedicoIngresoController extends AbstractController<Medico, Ingreso>
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("update", this.updateService);
+		//super.addBasicCommand("delete", this.deleteService);
 
 		super.addCustomCommand("list-mine-ingresos", "list", this.listMineService);
 		super.addCustomCommand("list-mine-altas", "list", this.listMineService);

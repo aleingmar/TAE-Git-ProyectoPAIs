@@ -5,15 +5,15 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.paciente.form.label.nombreUsuario" path="userAccount.username" readonly="true"/>
-	<acme:input-email code="administrator.paciente.form.label.email" path="userAccount.identity.email" readonly="true"/>
+	<acme:input-textbox code="administrator.paciente.form.label.nombreUsuario" path="userAccount.username"/>
+	<acme:input-email code="administrator.paciente.form.label.email" path="userAccount.identity.email"/>
 	<acme:input-textbox code="administrator.paciente.form.label.dni" path="dni"/>
 	<acme:input-textbox code="administrator.paciente.form.label.telefono" path="telefono"/>
 	<acme:input-textbox code="administrator.paciente.form.label.fechaNacimiento" path="fechaNacimiento"/>
 
 </acme:form>
 
-	<acme:submit code="administrator.paciente.form.button.update" action="/administrator/paciente/update"/>
+<acme:submit code="administrator.paciente.form.button.update" action="/administrativo/paciente/create"/>
 	
 
 

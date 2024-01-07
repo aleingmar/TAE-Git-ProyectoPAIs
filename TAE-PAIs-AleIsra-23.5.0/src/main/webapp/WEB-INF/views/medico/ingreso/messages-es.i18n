@@ -19,3 +19,6 @@ paciente.ingreso.form.label.faseProceso = Fase proceso
 paciente.ingreso.form.label.motivoIngreso = Motivo ingreso
 paciente.ingreso.form.label.centroIngreso = Centro ingreso
 paciente.ingreso.list.label.faseProceso = Fase proceso
+
+administrativo.alta.form.button.delete= Borrar alta
+administrativo.alta.form.button.update= Modificar Alta

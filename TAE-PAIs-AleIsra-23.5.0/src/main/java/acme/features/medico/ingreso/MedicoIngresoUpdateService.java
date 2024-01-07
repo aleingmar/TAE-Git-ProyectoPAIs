@@ -1,14 +1,3 @@
-/*
- * AdministratorMedicoShowService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.medico.ingreso;
 
@@ -25,14 +14,10 @@ import acme.roles.Medico;
 import acme.roles.Paciente;
 
 @Service
-public class MedicoIngresoShowService extends AbstractService<Medico, Ingreso> {
-
-	// Internal state ---------------------------------------------------------
+public class MedicoIngresoUpdateService extends AbstractService<Medico, Ingreso> {
 
 	@Autowired
 	protected MedicoIngresoRepository repository;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -46,11 +31,6 @@ public class MedicoIngresoShowService extends AbstractService<Medico, Ingreso> {
 
 	@Override
 	public void authorise() {
-		int id;
-		Ingreso Ingreso;
-		id = super.getRequest().getData("id", int.class);
-		Ingreso = this.repository.findOneIngresoById(id);
-
 		super.getResponse().setAuthorised(true);
 	}
 
@@ -63,6 +43,36 @@ public class MedicoIngresoShowService extends AbstractService<Medico, Ingreso> {
 		object = this.repository.findOneIngresoById(id);
 
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final Ingreso object) {
+		assert object != null;
+
+		final int pacienteId = super.getRequest().getData("paciente", int.class);
+		final int medicoId = super.getRequest().getData("medico", int.class);
+
+		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
+		final Medico medico = this.repository.findOneMedicoById(medicoId);
+
+		super.bind(object, "fechaAlta", "motivoAlta");
+
+		object.setPaciente(paciente);
+		object.setMedico(medico);
+
+	}
+
+	@Override
+	public void validate(final Ingreso object) {
+		assert object != null;
+
+	}
+
+	@Override
+	public void perform(final Ingreso object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override

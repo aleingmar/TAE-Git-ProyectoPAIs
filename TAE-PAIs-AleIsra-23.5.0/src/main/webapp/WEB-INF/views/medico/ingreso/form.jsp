@@ -18,16 +18,12 @@
 
 <acme:form>
 
-	<acme:input-textbox code="paciente.ingreso.form.label.paciente" path="paciente.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="paciente.ingreso.form.label.motivoAlta" path="motivoAlta" readonly="true"/>
-	<acme:input-textbox code="paciente.ingreso.form.label.fechaAlta" path="fechaAlta" readonly="true"/>
-	<acme:input-textbox code="paciente.ingreso.form.label.medico" path="medico.userAccount.username" readonly="true"/>
+	<acme:input-select code="paciente.ingreso.form.label.paciente" path="paciente" choices="${pacientes}" readonly="true"/>
+	<acme:input-select code="paciente.ingreso.form.label.medico" path="medico" choices="${medicos}" readonly="true"/>
+	<acme:input-textbox code="paciente.ingreso.form.label.motivoAlta" path="motivoAlta"/>
+	<acme:input-moment code="paciente.ingreso.form.label.fechaAlta" path="fechaAlta"/>
 
-	<acme:input-textbox code="paciente.ingreso.form.label.fechaIngreso" path="fechaIngreso" readonly="true"/>
-	<acme:input-textbox code="paciente.ingreso.form.label.faseProceso" path="faseProceso" readonly="true"/>
-	<acme:input-textbox code="paciente.ingreso.form.label.motivoIngreso" path="motivoIngreso" readonly="true"/>
-	<acme:input-textbox code="paciente.ingreso.form.label.centroIngreso" path="centroIngreso" readonly="true"/>
-	
+	<acme:submit code="administrativo.alta.form.button.update" action="/medico/ingreso/update"/>
 </acme:form>
 
 

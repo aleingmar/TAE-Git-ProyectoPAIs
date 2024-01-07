@@ -41,6 +41,6 @@
        <li>Paciente: ${cita.paciente.userAccount.username} | Fecha prueba: ${cita.fechaCita} | Centro prueba: ${cita.centroCita} | Tipo prueba: ${cita.tipoCita} | Indicaciones: ${cita.indicacionesCita} | Resultado: ${cita.resultadoCita} | Medico que trata: ${cita.medicoTrata.userAccount.username}</li>
    </jstl:forEach>
 </ul>
-	<acme:button code="medico.historial.form.button.crearCita" action=""/> 
+	<acme:button code="medico.historial.form.button.crearCita" action="medico/cita/create"/> 
 
 

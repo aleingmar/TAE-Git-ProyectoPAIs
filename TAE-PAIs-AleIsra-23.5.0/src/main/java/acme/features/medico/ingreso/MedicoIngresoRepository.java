@@ -19,6 +19,8 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.asistencia.Ingreso;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Repository
 public interface MedicoIngresoRepository extends AbstractRepository {
@@ -37,5 +39,17 @@ public interface MedicoIngresoRepository extends AbstractRepository {
 
 	@Query("select c from Ingreso c where c.paciente.id = :pacienteId")
 	Collection<Ingreso> findManyIngresosByPacienteId(int pacienteId);
+
+	@Query("select c from Paciente c where c.id = :pacienteId")
+	Paciente findOnePacienteById(int pacienteId);
+
+	@Query("select c from Medico c where c.id = :medicoId")
+	Medico findOneMedicoById(int medicoId);
+
+	@Query("select p from Paciente p")
+	Collection<Paciente> findAllPacientes();
+
+	@Query("select m from Medico m")
+	Collection<Medico> findAllMedicos();
 
 }
