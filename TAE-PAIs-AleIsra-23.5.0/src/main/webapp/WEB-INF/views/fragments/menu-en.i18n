@@ -57,6 +57,7 @@ master.menu.medico.medicos = Doctors
 master.menu.medico.pruebas = View appointments/tests
 master.menu.paciente.my-pruebas = View my tests
 master.menu.medico.diagnosticos = Diagnostics
+master.menu.medico.crearCita= Create cita
 
 # master.menu.provider ########################################################
 

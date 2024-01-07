@@ -44,6 +44,15 @@ public class MedicoCitaController extends AbstractController<Medico, Cita> {
 
 	public MedicoCitaRepository						repository;
 
+	@Autowired
+	protected MedicoCitaCreateService				createService;
+
+	@Autowired
+	protected MedicoCitaUpdateService				updateService;
+
+	@Autowired
+	protected MedicoCitaDeleteService				deleteService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -51,6 +60,9 @@ public class MedicoCitaController extends AbstractController<Medico, Cita> {
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 
 		super.addCustomCommand("list-pruebas", "list", this.listMineService);
 	}

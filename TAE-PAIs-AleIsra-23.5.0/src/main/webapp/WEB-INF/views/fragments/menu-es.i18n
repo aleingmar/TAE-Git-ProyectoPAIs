@@ -30,6 +30,7 @@ master.menu.medico.pacientes = Pacientes
 master.menu.medico.medicos = Médicos
 master.menu.medico.pruebas = Ver citas/pruebas
 master.menu.paciente.my-pruebas = Ver mis pruebas
+master.menu.medico.crearCita = Crear cita
 
 # master.menu.administrator ###################################################
 

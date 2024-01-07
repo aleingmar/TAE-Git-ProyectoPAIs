@@ -12,23 +12,21 @@ Es necesario que se pueda crear una valoracion de ESA CITA EN CONCRETO
 
 
 <acme:form>
-	<acme:input-textbox code="medico.historial.form.label.fechaCita" path="fechaCita" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.centroCita" path="centroCita" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.tipoCita" path="tipoCita" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.indicacionesCita" path="indicacionesCita" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.resultadoCita" path="resultadoCita" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.paciente" path="paciente.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.medicoOrganiza" path="medicoOrganiza.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.medicoTrata" path="medicoTrata.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.motivoIngreso" path="ingreso.motivoIngreso" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.fechaValoracion" path="ingreso.fechaValoracion" readonly="true"/>
-	<acme:input-textbox code="medico.historial.form.label.resultadoValoracion" path="ingreso.resultadoValoracion" readonly="true"/>
+	<acme:input-moment code="medico.historial.form.label.fechaCita" path="fechaCita" />
 	
-	<acme:button code="medico.historial.form.button.crearValoracion" action=""/> 
+	<acme:input-select code="medico.historial.form.label.centroCita" path="centroCita" choices="${centros}"/>
+	<acme:input-select code="medico.historial.form.label.tipoCita" path="tipoCita" choices="${tipos}"/>
+	<acme:input-select code="medico.historial.form.label.paciente" path="paciente" choices="${pacientes}"/>
+	<acme:input-textbox code="medico.historial.form.label.medicoOrganiza" path="medicoOrganiza" readonly="true"/>
+	<acme:input-select code="medico.historial.form.label.medicoTrata" path="medicoTrata" choices="${medicosTrata}"/>
+	<acme:input-select code="medico.historial.form.label.ingreso" path="ingreso" choices="${ingresos}"/>
 	
-	<jstl:if test="${medico.tipoMedico eq AH}">
-        <acme:button code="medico.historial.form.button.crearAlta" action=""/> 
-    </jstl:if>
+	
+	<acme:input-textbox code="medico.historial.form.label.indicacionesCita" path="indicacionesCita"/>
+	<acme:input-textbox code="medico.historial.form.label.resultadoCita" path="resultadoCita"/>
+
+	
+	<acme:button code="medico.historial.form.button.crearCita" action="/medico/cita/create"/> 
 	
 
 </acme:form>
