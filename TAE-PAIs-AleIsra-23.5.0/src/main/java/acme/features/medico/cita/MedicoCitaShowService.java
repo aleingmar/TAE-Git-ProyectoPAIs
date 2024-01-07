@@ -12,13 +12,19 @@
 
 package acme.features.medico.cita;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.asistencia.Cita;
+import acme.entities.enumerados.CentroClinico;
+import acme.entities.enumerados.TipoCita;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Medico;
+import acme.roles.Paciente;
 
 @Service
 public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
@@ -65,10 +71,40 @@ public class MedicoCitaShowService extends AbstractService<Medico, Cita> {
 	public void unbind(final Cita object) {
 		assert object != null;
 
+		System.out.println("unbind se ejecuta");
+
+		final Collection<Paciente> pacientes;
+		final Collection<Medico> medicos;
+
+		SelectChoices choicesP, choicesM, choicesCentroCita, choicesTipoCita;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso",
-			"ingreso.fechaValoracion", "ingreso.resultadoValoracion");
+		pacientes = this.repository.findAllPacientes();
+		medicos = this.repository.findAllMedicos();
+
+		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
+		choicesM = SelectChoices.from(medicos, "dni", object.getMedicoTrata());
+
+		//enumerados
+		choicesTipoCita = SelectChoices.from(TipoCita.class, object.getTipoCita());
+		choicesCentroCita = SelectChoices.from(CentroClinico.class, object.getCentroCita());
+
+		tuple = super.unbind(object, "fechaCita", "indicacionesCita", "resultadoCita", "medicoOrganiza.userAccount.username");
+
+		//paso el paciente concreto
+		tuple.put("paciente.dni", choicesP.getSelected().getKey());
+		tuple.put("pacientes", choicesP);
+
+		tuple.put("medicoTrata", choicesM.getSelected().getKey());
+		tuple.put("medicosTrata", choicesM);
+
+		tuple.put("tipoCita", choicesTipoCita.getSelected().getKey());
+		tuple.put("tipos", choicesTipoCita);
+
+		tuple.put("centroCita", choicesCentroCita.getSelected().getKey());
+		tuple.put("centros", choicesCentroCita);
+
+		//paso todos los pacientes
 
 		super.getResponse().setData(tuple);
 	}

@@ -57,6 +57,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrativo = Administrativo
 master.menu.user-account.crearPaciente = Crear paciente
 master.menu.user-account.crearIngreso= Crear ingreso
+master.menu.administrativo.creacionCuentas = Creación de cuentas
 
 # master.menu.provider ########################################################
 

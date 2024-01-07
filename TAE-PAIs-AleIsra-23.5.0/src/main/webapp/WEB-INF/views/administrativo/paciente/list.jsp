@@ -19,4 +19,4 @@
 
 	<acme:submit test="${_command == 'create'}" code="administrator.paciente.form.button.create" action="/administrator/paciente/create"/>
 
-	<acme:button code="medico.diagnostico.form.button.crearPaciente" action="/administrativo/paciente/create"/> 
+	<acme:submit code="medico.diagnostico.form.button.crearPaciente" action="/administrativo/paciente/create"/> 

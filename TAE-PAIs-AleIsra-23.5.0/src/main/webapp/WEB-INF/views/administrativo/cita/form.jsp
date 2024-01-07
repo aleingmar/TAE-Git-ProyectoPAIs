@@ -25,7 +25,6 @@
 	<acme:input-textbox code="administrator.cita.form.label.paciente" path="paciente.userAccount.username" readonly="true"/>
 	<acme:input-textbox code="administrator.cita.form.label.medicoOrganiza" path="medicoOrganiza.userAccount.username" readonly="true"/>
 	<acme:input-textbox code="administrator.cita.form.label.medicoTrata" path="medicoTrata.userAccount.username" readonly="true"/>
-	<acme:input-textbox code="administrator.cita.form.label.motivoIngreso" path="ingreso.motivoIngreso" readonly="true"/>
 
 </acme:form>
 

@@ -111,7 +111,7 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 		//solo las citas que no tengas ingresos asociados ya
 		citas = this.repository.findAllCitasSinIngresos();
 
-		System.out.println("El paciente es nulo ?" + object.getPaciente());
+		System.out.println("El paciente es nulo ?" + object.getCita());
 		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());
 		choicesM = SelectChoices.from(medicos, "dni", object.getMedico());
 		choicesC = SelectChoices.from(citas, "fechaCita", object.getCita());

@@ -8,29 +8,32 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-medico.historial.list.label.fechaCita = Fecha cita
-medico.historial.list.label.centroCita = Centro hospitalario
-medico.historial.list.label.tipoCita = Tipo
-medico.historial.list.label.indicacionesCita = Indicaciones
-medico.historial.list.label.resultadoCita = Resultados
-medico.historial.list.label.paciente = Paciente
-medico.historial.list.label.medicoOrganiza = Medico organiza
-medico.historial.list.label.medicoTrata = Medico trata
-medico.historial.list.label.motivoIngreso = Motivo ingreso
-medico.historial.list.label.fechaValoracion = Fecha valoración
-medico.historial.list.label.resultadoValoracion = Resultado valoración
-medico.historial.form.button.crearValoracion = Crear valoración
-medico.historial.form.button.crearAlta = Crear Alta
-medico.historial.form.button.crearCita = Crear cita
+medico.cita.list.label.fechaCita = Fecha cita
+medico.cita.list.label.centroCita = Centro hospitalario
+medico.cita.list.label.tipoCita = Tipo
+medico.cita.list.label.indicacionesCita = Indicaciones
+medico.cita.list.label.resultadoCita = Resultados
+medico.cita.list.label.paciente = Paciente
+medico.cita.list.label.medicoOrganiza = Medico organiza
+medico.cita.list.label.medicoTrata = Medico trata
+medico.cita.list.label.motivoIngreso = Motivo ingreso
+medico.cita.list.label.fechaValoracion = Fecha valoración
+medico.cita.list.label.resultadoValoracion = Resultado valoración
+medico.cita.form.button.crearValoracion = Crear valoración
+medico.cita.form.button.crearAlta = Crear Alta
+medico.cita.form.button.crearCita = Crear cita
 
-medico.historial.form.label.fechaCita = Fecha cita
-medico.historial.form.label.centroCita = Centro hospitalario
-medico.historial.form.label.tipoCita = Tipo
-medico.historial.form.label.indicacionesCita = Indicaciones
-medico.historial.form.label.resultadoCita = Resultados
-medico.historial.form.label.paciente = Paciente
-medico.historial.form.label.medicoOrganiza = Medico organiza
-medico.historial.form.label.medicoTrata = Medico trata
-medico.historial.form.label.motivoIngreso = Motivo ingreso
-medico.historial.form.label.fechaValoracion = Fecha valoración
-medico.historial.form.label.resultadoValoracion = Resultado valoración
+medico.cita.form.label.fechaCita = Fecha cita
+medico.cita.form.label.centroCita = Centro hospitalario
+medico.cita.form.label.tipoCita = Tipo
+medico.cita.form.label.indicacionesCita = Indicaciones
+medico.cita.form.label.resultadoCita = Resultados
+medico.cita.form.label.paciente = Paciente
+medico.cita.form.label.medicoOrganiza = Medico organiza
+medico.cita.form.label.medicoTrata = Medico trata
+medico.cita.form.label.motivoIngreso = Motivo ingreso
+medico.cita.form.label.fechaValoracion = Fecha valoración
+medico.cita.form.label.resultadoValoracion = Resultado valoración
+
+medico.cita.form.button.updateCita = Actualizar
+medico.cita.form.button.deleteCita = Borrar

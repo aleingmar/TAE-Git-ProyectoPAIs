@@ -63,7 +63,7 @@ public class MedicoCitaUpdateService extends AbstractService<Medico, Cita> {
 		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
 		final Medico medicoTrata = this.repository.findOneMedicoById(medicoTrataId);
 
-		super.bind(object, "fechaCita", "indicacionesCita", "resultadoCita");
+		super.bind(object, "fechaCita", "indicacionesCita", "resultadoCita", "medicoOrganiza");
 
 		object.setPaciente(paciente);
 		object.setMedicoTrata(medicoTrata);
@@ -111,7 +111,7 @@ public class MedicoCitaUpdateService extends AbstractService<Medico, Cita> {
 		choicesTipoCita = SelectChoices.from(TipoCita.class, object.getTipoCita());
 		choicesCentroCita = SelectChoices.from(CentroClinico.class, object.getCentroCita());
 
-		tuple = super.unbind(object, "fechaCita", "indicacionesCita", "resultadoCita");
+		tuple = super.unbind(object, "fechaCita", "indicacionesCita", "resultadoCita", "medicoOrganiza");
 
 		//paso el paciente concreto
 		tuple.put("paciente.dni", choicesP.getSelected().getKey());
