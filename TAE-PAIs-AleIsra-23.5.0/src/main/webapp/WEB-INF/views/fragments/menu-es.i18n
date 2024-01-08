@@ -21,6 +21,7 @@ master.menu.paciente.citas = Mis citas
 master.menu.paciente.pruebas = Mis pruebas
 master.menu.paciente.altas = Mis Altas
 master.menu.paciente.my-diagnosticos = Mis diagnósticos
+master.menu.paciente.my-resultados = Mis resultados
 
 # master.menu.medico ###################################################
 
@@ -28,8 +29,9 @@ master.menu.medico = Médico
 master.menu.medico.pacientes = Pacientes
 master.menu.medico.medicos = Médicos
 master.menu.medico.pruebas = Citas/pruebas
-master.menu.paciente.my-pruebas = Ver mis pruebas
+master.menu.medico.my-pruebas = Ver mis pruebas
 master.menu.medico.crearCita = Crear cita
+master.menu.medico.altas = Mis Altas
 
 # master.menu.administrator ###################################################
 

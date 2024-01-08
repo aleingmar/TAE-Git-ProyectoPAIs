@@ -49,6 +49,7 @@ master.menu.paciente.my-ingresos = My admissions
 master.menu.paciente.my-altas = My Altas
 master.menu.paciente.altas = Altas
 master.menu.paciente.my-diagnosticos = My diagnostics
+master.menu.paciente.my-resultados = My results
 
 # master.menu.medico ###################################################
 
@@ -56,9 +57,10 @@ master.menu.medico = Doctor
 master.menu.medico.pacientes = Patients
 master.menu.medico.medicos = Doctors
 master.menu.medico.pruebas = Appointments/tests
-master.menu.paciente.my-pruebas = View my tests
+master.menu.medico.my-pruebas = View my tests
 master.menu.medico.diagnosticos = Diagnostics
 master.menu.medico.crearCita= Create cita
+master.menu.medico.altas = My Altas
 
 # master.menu.provider ########################################################
 

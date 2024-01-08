@@ -19,14 +19,20 @@ administrativo.paciente.list.label.fechaNacimiento = Bithdate
 administrativo.paciente.list.label.email= Email
 administrativo.paciente.list.label.text = Text
 administrativo.paciente.list.label.telefono = Phone number
+administrativo.paciente.list.label.userAccount = User account
 
 administrativo.paciente.form.label.nombreUsuario = User Name
 administrativo.paciente.form.label.dni = DNI
 administrativo.paciente.form.label.fechaNacimiento = Bithdate
 administrativo.paciente.form.label.email= Email
 administrativo.paciente.form.label.telefono = Phone number
-
-administrativo.paciente.form.button.update = Update
 administrativo.paciente.form.label.userAccount = User account
-administrativo.paciente.list.label.userAccount = User account
+
+administrativo.paciente.form.button.create = Create patient
+administrativo.paciente.form.button.update = Update
+
+
+
+
+
 

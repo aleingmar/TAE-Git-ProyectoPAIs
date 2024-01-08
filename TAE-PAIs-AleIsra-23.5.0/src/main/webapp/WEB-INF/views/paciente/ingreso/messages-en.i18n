@@ -16,6 +16,8 @@ paciente.ingreso.list.label.fechaIngreso = Admission date
 paciente.ingreso.list.label.faseProceso = Process phase
 paciente.ingreso.list.label.motivoIngreso = Reason for admission
 paciente.ingreso.list.label.centroIngreso = Admission center
+paciente.ingreso.list.label.resultadoValoracion = Valoration result
+paciente.ingreso.list.label.fechaValoracion = Valoration date
 
 paciente.ingreso.form.label.motivoAlta = Alta reason
 paciente.ingreso.form.label.fechaAlta = Alta date
@@ -25,3 +27,5 @@ paciente.ingreso.form.label.fechaIngreso = Admission date
 paciente.ingreso.form.label.faseProceso = Process phase
 paciente.ingreso.form.label.motivoIngreso = Reason for admission
 paciente.ingreso.form.label.centroIngreso = Admission center
+paciente.ingreso.form.label.resultadoValoracion = Valoration result
+paciente.ingreso.form.label.resultadoValoracion = Valoration date

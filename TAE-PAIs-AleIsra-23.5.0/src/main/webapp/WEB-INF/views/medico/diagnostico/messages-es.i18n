@@ -24,6 +24,7 @@ medico.diagnostico.list.label.estadio = Estadio
 medico.diagnostico.list.label.patologia = Patología
 medico.diagnostico.list.label.detallesDiagnostico = Detalles diagnóstico
 medico.diagnostico.list.label.medico = Médico
+medico.diagnostico.list.label.ingreso = Admission
 
 medico.diagnostico.form.label.paciente = Paciente
 medico.diagnostico.form.label.fechaDiagnostico = Fecha diagnóstico
@@ -32,6 +33,7 @@ medico.diagnostico.form.label.estadio = Estadio
 medico.diagnostico.form.label.patologia = Patología
 medico.diagnostico.form.label.detallesDiagnostico = Detalles diagnóstico
 medico.diagnostico.form.label.medico = Médico
+medico.diagnostico.form.label.ingreso = Ingreso
 
 medico.diagnostico.form.button.crearDiagnostico = Crear diagnóstico
 master.menu.medico.crearDiagnostico = Crear diagnóstico

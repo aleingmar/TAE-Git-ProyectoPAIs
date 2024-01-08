@@ -55,6 +55,7 @@
 			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/paciente/ingreso/list-mine-altas"/>
 			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/paciente/ingreso/list-mine-ingresos"/>
 			<acme:menu-suboption code="master.menu.paciente.my-diagnosticos" action="/paciente/diagnostico/list-mine-diagnosticos"/>
+			<acme:menu-suboption code="master.menu.paciente.my-resultados" action="/paciente/ingreso/list-mine-resultados"/>
 			
 		</acme:menu-option>
 		
@@ -66,7 +67,7 @@
 			<%--
 			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/medico/ingreso/list-mine-ingresos"/>
 			--%>
-			<acme:menu-suboption code="master.menu.paciente.altas" action="/medico/ingreso/list-altas-inicial"/>
+			<acme:menu-suboption code="master.menu.medico.altas" action="/medico/ingreso/list-altas-inicial"/>
 			<acme:menu-suboption code="master.menu.medico.diagnosticos" action="/medico/diagnostico/list"/>
 			<%--
 			<acme:menu-suboption code="master.menu.medico.mimismo" action="/medico/medico/list-a-mi-mismo"/>

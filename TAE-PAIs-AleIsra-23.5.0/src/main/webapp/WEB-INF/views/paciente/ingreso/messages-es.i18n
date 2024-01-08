@@ -7,6 +7,8 @@ paciente.ingreso.list.label.fechaIngreso = Fecha de ingreso
 paciente.ingreso.list.label.faseProceso = Fase proceso
 paciente.ingreso.list.label.motivoIngreso = Motivo ingreso
 paciente.ingreso.list.label.centroIngreso = Centro ingreso
+paciente.ingreso.list.label.resultadoValoracion = Resultado valoración
+paciente.ingreso.list.label.fechaValoracion = Fecha valoración
 
 paciente.ingreso.form.label.motivoAlta = Motivo Alta
 paciente.ingreso.form.label.fechaAlta = Fecha Alta
@@ -16,3 +18,5 @@ paciente.ingreso.form.label.fechaIngreso = Fecha de ingreso
 paciente.ingreso.form.label.faseProceso = Fase proceso
 paciente.ingreso.form.label.motivoIngreso = Motivo ingreso
 paciente.ingreso.form.label.centroIngreso = Centro ingreso
+paciente.ingreso.form.label.resultadoValoracion = Resultado valoración
+paciente.ingreso.form.label.fechaValoracion = Fecha valoración

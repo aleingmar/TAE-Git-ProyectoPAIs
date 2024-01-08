@@ -35,6 +35,7 @@ public class PacienteCitaController extends AbstractController<Paciente, Cita> {
 		super.addBasicCommand("show", this.showService);
 
 		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("list-mine-pruebas", "list", this.listMineService);
 		super.addCustomCommand("show-altas", "show", this.showService);
 		super.addCustomCommand("show-ingresos", "show", this.showService);
 

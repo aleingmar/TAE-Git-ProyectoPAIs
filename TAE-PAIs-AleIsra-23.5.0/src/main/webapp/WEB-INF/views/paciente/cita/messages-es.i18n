@@ -17,6 +17,7 @@ paciente.cita.list.label.paciente = Paciente
 paciente.cita.list.label.medicoOrganiza = Medico organiza
 paciente.cita.list.label.medicoTrata = Medico trata
 paciente.cita.list.label.motivoIngreso = Motivo ingreso
+paciente.cita.list.label.fechaPrueba = Fecha prueba
 
 paciente.cita.form.label.fechaCita = Fecha cita
 paciente.cita.form.label.centroCita = Centro hospitalario
@@ -27,3 +28,4 @@ paciente.cita.form.label.paciente = Paciente
 paciente.cita.form.label.medicoOrganiza = Medico organiza
 paciente.cita.form.label.medicoTrata = Medico trata
 paciente.cita.form.label.motivoIngreso = Motivo ingreso
+paciente.cita.form.label.fechaPrueba = Fecha prueba

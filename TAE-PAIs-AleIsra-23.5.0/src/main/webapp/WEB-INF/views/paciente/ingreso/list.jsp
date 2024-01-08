@@ -25,6 +25,15 @@
 		
 		</jstl:if>
 		
+		<jstl:if test="${_command == 'list-mine-resultados'}">
+
+		<acme:list-column code="paciente.ingreso.list.label.paciente" path="paciente.userAccount.username" width="10%"/>
+		<acme:list-column code="paciente.ingreso.list.label.fechaValoracion" path="fechaValoracion" width="10%"/>
+		<acme:list-column code="paciente.ingreso.list.label.resultadoValoracion" path="resultadoValoracion" width="10%"/>
+		<acme:list-column code="paciente.ingreso.list.label.medico" path="medico.userAccount.username" width="10%"/>
+		
+		</jstl:if>
+		
 		
 		
 </acme:list>

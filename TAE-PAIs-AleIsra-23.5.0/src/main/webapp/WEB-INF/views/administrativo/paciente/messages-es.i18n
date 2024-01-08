@@ -18,15 +18,17 @@ administrativo.paciente.list.label.dni = DNI
 administrativo.paciente.list.label.fechaNacimiento = Fecha de nacimiento
 administrativo.paciente.list.label.email= Email
 administrativo.paciente.list.label.text = Text
-administrativo.paciente.form.label.telefono = Teléfono
+administrativo.paciente.list.label.telefono = Teléfono
+administrativo.paciente.list.label.userAccount = Cuenta de usuario
 
 administrativo.paciente.form.label.nombreUsuario = Nombre de usuario
 administrativo.paciente.form.label.dni = DNI
 administrativo.paciente.form.label.fechaNacimiento = Fecha de nacimiento
 administrativo.paciente.form.label.email= Email
 administrativo.paciente.form.label.telefono = Teléfono
-
-administrativo.paciente.form.button.update = Actualizar
-
 administrativo.paciente.form.label.userAccount = Cuenta de usuario
-administrativo.paciente.list.label.userAccount = Cuenta de usuario
+
+administrativo.paciente.form.button.create = Crear paciente
+administrativo.paciente.form.button.update = Actualizar paciente
+
+

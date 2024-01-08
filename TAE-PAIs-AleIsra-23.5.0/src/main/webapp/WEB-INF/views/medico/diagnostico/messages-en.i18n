@@ -23,6 +23,7 @@ medico.diagnostico.list.label.estadio = Stadium
 medico.diagnostico.list.label.patologia = Pathology
 medico.diagnostico.list.label.detallesDiagnostico = Diagnostic details
 medico.diagnostico.list.label.medico = Doctor
+medico.diagnostico.list.label.ingreso = Admission
 	
 medico.diagnostico.form.label.paciente = Patient
 medico.diagnostico.form.label.fechaDiagnostico = Diagnostic date
@@ -31,6 +32,7 @@ medico.diagnostico.form.label.estadio = Stadium
 medico.diagnostico.form.label.patologia = Pathology
 medico.diagnostico.form.label.detallesDiagnostico = Diagnostic details
 medico.diagnostico.form.label.medico = Doctor
+medico.diagnostico.form.label.ingreso = Admission
 
 medico.diagnostico.form.button.crearDiagnostico = Create diagnostic
 master.menu.medico.crearDiagnostico = Create result

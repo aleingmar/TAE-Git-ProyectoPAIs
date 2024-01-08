@@ -28,7 +28,7 @@ Es necesario que se pueda crear una valoracion de ESA CITA EN CONCRETO
 		
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 				<acme:submit code="medico.cita.form.button.updateCita" action="/medico/cita/update"/>
-				<acme:submit code="medico.cita.form.button.delete" action="/medico/cita/delete"/>
+				<acme:submit code="medico.cita.form.button.deleteCita" action="/medico/cita/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="medico.cita.form.button.create" action="/medico/cita/create"/>

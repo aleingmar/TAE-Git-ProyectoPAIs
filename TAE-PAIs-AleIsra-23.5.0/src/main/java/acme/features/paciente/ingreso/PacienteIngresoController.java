@@ -47,6 +47,7 @@ public class PacienteIngresoController extends AbstractController<Paciente, Ingr
 
 		super.addCustomCommand("list-mine-ingresos", "list", this.listMineService);
 		super.addCustomCommand("list-mine-altas", "list", this.listMineService);
+		super.addCustomCommand("list-mine-resultados", "list", this.listMineService);
 	}
 
 }

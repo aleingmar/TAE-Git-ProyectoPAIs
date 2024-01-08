@@ -45,4 +45,7 @@ public interface MedicoCitaRepository extends AbstractRepository {
 	@Query("select d from Ingreso d where d.cita.id = :citaId")
 	Collection<Ingreso> findManyIngresosByCitaId(int citaId);
 
+	@Query("select d from Cita d where d.paciente.id = :masterId")
+	Collection<Cita> findManyCitasByMasterId(int masterId);
+
 }
