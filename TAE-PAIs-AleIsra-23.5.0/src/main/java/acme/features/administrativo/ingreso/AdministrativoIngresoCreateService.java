@@ -133,6 +133,16 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("faseProceso")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
+
+			final Collection<Ingreso> ingresoInicialPrevio = this.repository.findingresoInicialPrevio(object.getFechaIngreso(), object.getMotivoIngreso(), object.getPaciente());
+			if ("PROCESO".equals(object.getFaseProceso().name()))
+				super.state(!ingresoInicialPrevio.isEmpty(), "faseProceso", "Debe de existir un ingreso inicial del proceso que sea anterior");
+		}
+
 	}
 
 	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)

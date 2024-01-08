@@ -1,7 +1,9 @@
 
 package acme.features.medico.diagnostico;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,6 +75,11 @@ public class MedicoDiagnosticoUpdateService extends AbstractService<Medico, Diag
 	@Override
 	public void validate(final Diagnostico object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("fechaIngreso")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaDiagnostico().after(currentDate), "fechaDiagnostico", "La fecha no puede ser futuro");
+		}
 
 	}
 

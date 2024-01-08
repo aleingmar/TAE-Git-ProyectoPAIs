@@ -13,6 +13,7 @@
 package acme.features.administrativo.ingreso;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.asistencia.Cita;
 import acme.entities.asistencia.Ingreso;
 import acme.entities.cuidados.Diagnostico;
+import acme.entities.enumerados.MotivoIngreso;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Administrativo;
 import acme.roles.Medico;
@@ -70,5 +72,8 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 
 	//	@Query("select c from Cita c where c.ingreso.id = :ingresoId")
 	//	Collection<Cita> findManyCitasByJobId(int ingresoId);
+
+	@Query("select i from Ingreso i where i.fechaIngreso < :fechaIngreso and i.motivoIngreso = :motivoIngreso and i.paciente = :paciente and i.faseProceso = acme.entities.enumerados.TipoFaseProceso.INICIAL")
+	Collection<Ingreso> findingresoInicialPrevio(Date fechaIngreso, MotivoIngreso motivoIngreso, Paciente paciente);
 
 }

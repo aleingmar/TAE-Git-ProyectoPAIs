@@ -1,7 +1,9 @@
 
 package acme.features.administrativo.ingreso;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,6 +80,21 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 	public void validate(final Ingreso object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("fechaIngreso")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("faseProceso")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
+
+			final Collection<Ingreso> ingresoInicialPrevio = this.repository.findingresoInicialPrevio(object.getFechaIngreso(), object.getMotivoIngreso(), object.getPaciente());
+			if ("PROCESO".equals(object.getFaseProceso().name()))
+				super.state(!ingresoInicialPrevio.isEmpty(), "faseProceso", "Debe de existir un ingreso inicial del proceso que sea anterior");
+		}
 	}
 
 	@Override
