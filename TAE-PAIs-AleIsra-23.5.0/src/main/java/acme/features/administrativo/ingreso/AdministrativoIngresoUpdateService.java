@@ -65,7 +65,7 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
 		final Medico medico = this.repository.findOneMedicoById(medicoId);
 
-		super.bind(object, "fechaIngreso");
+		//super.bind(object, "fechaIngreso");
 
 		object.setPaciente(paciente);
 		object.setMedico(medico);

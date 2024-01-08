@@ -64,7 +64,7 @@ public class Ingreso extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@PastOrPresent
+	//@PastOrPresent
 	protected Date				fechaIngreso;
 
 	protected MotivoIngreso		motivoIngreso;

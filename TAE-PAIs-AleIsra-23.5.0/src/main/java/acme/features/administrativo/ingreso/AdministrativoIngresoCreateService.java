@@ -1,7 +1,9 @@
 
 package acme.features.administrativo.ingreso;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,8 +95,18 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		final Medico medico = this.repository.findOneMedicoById(medicoId);
 		final Cita cita = this.repository.findOneCitaById(citaId);
 
-		super.bind(object, "fechaIngreso");
+		//super.bind(object, "fechaIngreso");
 
+		//		Date moment;
+		//		moment = MomentHelper.getCurrentMoment();
+		//@Past or present -> la fecha se quedo en 2022
+
+		final Calendar calendar = Calendar.getInstance();
+		final Date currentDate = calendar.getTime();
+
+		System.out.println("fecha" + currentDate);
+
+		object.setFechaIngreso(currentDate);
 		object.setPaciente(paciente);
 		object.setMedico(medico);
 		object.setCentroIngreso(centroIngreso);
@@ -112,24 +124,15 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 		assert object != null;
 		//hay que pensar las validaciones
 		System.out.println("se ejecuta validate");
-		/*
-		 * if (!super.getBuffer().getErrors().hasErrors("reference")) {
-		 * Ingreso existing;
-		 * existing = this.repository.findOneJobByReference(object.getReference());
-		 * super.state(existing == null, "reference", "employer.job.form.error.duplicated");
-		 * }
-		 * 
-		 * if (!super.getBuffer().getErrors().hasErrors("deadline")) {
-		 * Date minimumDeadline;
-		 * 
-		 * minimumDeadline = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-		 * super.state(MomentHelper.isAfter(object.getDeadline(), minimumDeadline), "deadline", "employer.job.form.error.too-close");
-		 * }
-		 * 
-		 * if (!super.getBuffer().getErrors().hasErrors("salary"))
-		 * super.state(object.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
-		 * 
-		 */
+
+		//@Past or present -> la fecha se quedo en 2022 -> por versiones de java
+		//compruebo aquí que la fecha es presente o pasado
+		if (!super.getBuffer().getErrors().hasErrors("fechaIngreso")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
+		}
+
 	}
 
 	//guarda el ingreso en la bd si todo esta bien (si pasa la validacion)

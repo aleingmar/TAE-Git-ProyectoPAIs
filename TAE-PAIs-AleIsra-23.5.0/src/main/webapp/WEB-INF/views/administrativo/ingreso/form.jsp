@@ -18,16 +18,16 @@
 
 <acme:form>
 
-	<acme:input-moment code="administrativo.ingreso.form.label.fechaIngreso" path="fechaIngreso"/>
-	
 	
 	<acme:input-select  code="administrativo.ingreso.form.label.faseProceso" path="faseProceso" choices="${fasesProceso}"/>	
 	<acme:input-select  code="administrativo.ingreso.form.label.centroIngreso" path="centroIngreso" choices="${centrosIngreso}"/>
 	
 	
 	<jstl:if test="${acme:anyOf(_command, 'update|show')}">
+		<acme:input-moment code="administrativo.ingreso.form.label.fechaIngreso" path="fechaIngreso" readonly="true"/>
 		<acme:input-select code="administrativo.ingreso.form.label.paciente" path="paciente" choices="${pacientes}" readonly="true"/>
 		<acme:input-select  code="administrativo.ingreso.form.label.cita" path="cita" choices="${citas}" readonly="true"/>
+		
 	</jstl:if>
 	
 	<jstl:if test="${acme:anyOf(_command, 'create|delete')}">
