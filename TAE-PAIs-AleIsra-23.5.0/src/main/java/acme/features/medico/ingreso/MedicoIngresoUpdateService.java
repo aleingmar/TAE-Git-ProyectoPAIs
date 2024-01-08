@@ -1,7 +1,9 @@
 
 package acme.features.medico.ingreso;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,8 +57,14 @@ public class MedicoIngresoUpdateService extends AbstractService<Medico, Ingreso>
 		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
 		final Medico medico = this.repository.findOneMedicoById(medicoId);
 
-		super.bind(object, "fechaAlta", "motivoAlta");
+		super.bind(object, "motivoAlta");
 
+		final Calendar calendar = Calendar.getInstance();
+		final Date currentDate = calendar.getTime();
+
+		//System.out.println("fecha" + currentDate);
+
+		object.setFechaAlta(currentDate);
 		object.setPaciente(paciente);
 		object.setMedico(medico);
 
@@ -65,6 +73,19 @@ public class MedicoIngresoUpdateService extends AbstractService<Medico, Ingreso>
 	@Override
 	public void validate(final Ingreso object) {
 		assert object != null;
+
+		//@Past or present -> la fecha se quedo en 2022 -> por versiones de java
+		//compruebo aquí que la fecha es presente o pasado
+		if (!super.getBuffer().getErrors().hasErrors("fechaAlta")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaAlta().after(currentDate), "fechaAlta", "La fecha de alta no puede ser futuro");
+			super.state(object.getFechaAlta().after(object.getFechaIngreso()), "fechaAlta", "La fecha de alta debe ser posterior a la del comienzo del PAI");
+			super.state("INICIAL".equals(object.getFaseProceso().name().trim()), "fechaAlta", "El ingreso debe de ser inicial de PAI");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("motivoAlta"))
+			super.state("INICIAL".equals(object.getFaseProceso().name().trim()), "motivoAlta", "El ingreso debe de ser inicial de PAI");
 
 	}
 

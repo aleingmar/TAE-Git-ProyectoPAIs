@@ -1,7 +1,9 @@
 
 package acme.features.medico.diagnostico;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,8 +58,14 @@ public class MedicoDiagnosticoCreateService extends AbstractService<Medico, Diag
 		final Paciente paciente = this.repository.findOnePacienteById(pacienteId);
 		final Ingreso ingreso = this.repository.findOneIngresoById(ingresoId);
 
-		super.bind(object, "fechaDiagnostico", "confirmado", "estadio", "patologia", "detallesDiagnostico");
+		super.bind(object, "confirmado", "estadio", "patologia", "detallesDiagnostico");
 
+		final Calendar calendar = Calendar.getInstance();
+		final Date currentDate = calendar.getTime();
+
+		System.out.println("fecha" + currentDate);
+
+		object.setFechaDiagnostico(currentDate);
 		object.setIngreso(ingreso);
 		object.getIngreso().setPaciente(paciente);
 		object.getIngreso().setMedico(medico);
@@ -71,6 +79,13 @@ public class MedicoDiagnosticoCreateService extends AbstractService<Medico, Diag
 		//hay que pensar las validaciones
 		System.out.println("se ejecuta validate");
 
+		//@Past or present -> la fecha se quedo en 2022 -> por versiones de java
+		//compruebo aquí que la fecha es presente o pasado
+		if (!super.getBuffer().getErrors().hasErrors("fechaIngreso")) {
+			final Calendar calendar = Calendar.getInstance();
+			final Date currentDate = calendar.getTime();
+			super.state(!object.getFechaDiagnostico().after(currentDate), "fechaDiagnostico", "La fecha no puede ser futuro");
+		}
 	}
 
 	//guarda el diagnostico en la bd si todo esta bien (si pasa la validacion)

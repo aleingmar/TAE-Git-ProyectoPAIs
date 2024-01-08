@@ -10,7 +10,6 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -37,7 +36,7 @@ public class Diagnostico extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@PastOrPresent
+	//@PastOrPresent
 	protected Date				fechaDiagnostico;
 
 	@NotNull

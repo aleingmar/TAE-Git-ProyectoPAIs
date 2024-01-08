@@ -1,7 +1,9 @@
 
 package acme.features.medico.cita;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,10 +74,35 @@ public class MedicoCitaUpdateService extends AbstractService<Medico, Cita> {
 
 	}
 
+	// Consultas ->  Registrarlas con 24 horas de antelación minimas
+	// Cirugias ->  Registrarlas con 4 días de antelación minimas
+	// Prueba -> Registrarlas con 6 horas de antelación minimas
 	@Override
 	public void validate(final Cita object) {
 
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("fechaCita")) {
+			final Calendar calendarConsulta = Calendar.getInstance();
+			calendarConsulta.add(Calendar.HOUR_OF_DAY, 24);
+			final Date minDate = calendarConsulta.getTime();
+			//
+			final Calendar calendarCirugia = Calendar.getInstance();
+			calendarCirugia.add(Calendar.HOUR_OF_DAY, 96);
+			final Date minDate2 = calendarCirugia.getTime();
+			//
+			final Calendar calendarPrueba = Calendar.getInstance();
+			calendarPrueba.add(Calendar.HOUR_OF_DAY, 6);
+			final Date minDate3 = calendarPrueba.getTime();
+
+			if ("CONSULTA".equals(object.getTipoCita().name()))
+				super.state(object.getFechaCita().after(minDate), "fechaCita", "Las consultas debe registrarse con 24 horas de antelación minimas");
+			if ("CIRUGÍA".equals(object.getTipoCita().name()))
+				super.state(object.getFechaCita().after(minDate2), "fechaCita", "Las cirugía debe registrarse con 4 días de antelación minimas");
+			if (object.getTipoCita().name().length() >= 7)
+				if ("PRUEBA_".equals(object.getTipoCita().name().substring(0, 7)))
+					super.state(object.getFechaCita().after(minDate3), "fechaCita", "Las pruebas debe registrarse con 6 horas de antelación minimas");
+		}
 
 	}
 

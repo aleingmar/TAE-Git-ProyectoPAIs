@@ -10,8 +10,9 @@
 		
 	<acme:input-select code="medico.diagnostico.form.label.ingreso" path="ingreso" choices="${ingresos}"/>
 	
-	<acme:input-moment code="medico.diagnostico.form.label.fechaDiagnostico" path="fechaDiagnostico" />
-	
+	<jstl:if test="${acme:anyOf(_command, 'update|show')}">
+	<acme:input-moment code="medico.diagnostico.form.label.fechaDiagnostico" path="fechaDiagnostico" readonly="true"/>
+	</jstl:if>
 	<acme:input-checkbox code="medico.diagnostico.form.label.confirmado" path="confirmado"/>
 	
 	<acme:input-textbox code="medico.diagnostico.form.label.estadio" path="estadio" />
