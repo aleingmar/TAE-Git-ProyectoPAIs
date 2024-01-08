@@ -46,6 +46,18 @@
 			<acme:list-column code="paciente.ingreso.list.label.medico" path="medico.userAccount.username" width="10%"/>
 		</acme:list>
 	</jstl:if>
+	
+	<jstl:if test="${_command == 'list-resultado'}">
+		<acme:list>
+			<acme:list-column code="paciente.ingreso.list.label.paciente" path="paciente.userAccount.username" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.faseProceso" path="fechaValoracion" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.motivoAlta" path="resultadoValoracion" width="10%"/>
+			<acme:list-column code="paciente.ingreso.list.label.medico" path="medico.userAccount.username" width="10%"/>
+		</acme:list>
+		
+		<acme:button code="medico.historial.form.button.crearValoracion" action="medico/ingreso/update-resultado"/>
+	</jstl:if>	
+		
 		
 
 	<ul>
@@ -61,13 +73,5 @@
        		<li>Paciente: ${valoracion.paciente.userAccount.username} | Fecha valoración: ${valoracion.fechaValoracion} | Resultado valoración: ${valoracion.resultadoValoracion} | Medico que da la valoración: ${valoracion.medico.userAccount.username}</li>
    		</jstl:forEach>
 	</ul>
-	
-	<jstl:choose>
-    <jstl:when test="${tipoLista eq 'altas'}">
-        <acme:button code="medico.historial.form.button.crearAlta" action=""/>
-    </jstl:when>
-    <jstl:when test="${tipoLista eq 'valoraciones'}">
-        <acme:button code="medico.historial.form.button.crearValoracion" action=""/>
-    </jstl:when>
-</jstl:choose>
+
 	

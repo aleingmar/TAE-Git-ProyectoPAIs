@@ -32,3 +32,4 @@ paciente.ingreso.form.label.centroIngreso = Admission center
 
 administrativo.alta.form.button.delete= Borrar alta
 administrativo.alta.form.button.update= Modificar Alta
+administrativo.alta.form.button.update-resultado = Create result

@@ -70,6 +70,9 @@
 			<acme:menu-suboption code="master.menu.medico.altas" action="/medico/ingreso/list-altas-inicial"/>
 			<acme:menu-suboption code="master.menu.medico.diagnosticos" action="/medico/diagnostico/list"/>
 			<%--
+			<acme:menu-suboption code="master.menu.medico.resultados" action="/medico/ingreso/list-resultado"/>
+			<acme:menu-suboption code="master.menu.medico.crearResultado" action="/medico/ingreso/create"/>
+			
 			<acme:menu-suboption code="master.menu.medico.mimismo" action="/medico/medico/list-a-mi-mismo"/>
 			
 			<jstl:out value="${currentMedico.tipoMedico}"></jstl:out>

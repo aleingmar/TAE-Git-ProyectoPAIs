@@ -60,7 +60,7 @@ master.menu.medico.pruebas = Appointments/tests
 master.menu.medico.my-pruebas = View my tests
 master.menu.medico.diagnosticos = Diagnostics
 master.menu.medico.crearCita= Create cita
-master.menu.medico.altas = My Altas
+master.menu.medico.altas = Altas
 
 # master.menu.provider ########################################################
 

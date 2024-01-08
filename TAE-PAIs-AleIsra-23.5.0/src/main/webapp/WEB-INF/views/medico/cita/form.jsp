@@ -21,7 +21,6 @@ Es necesario que se pueda crear una valoracion de ESA CITA EN CONCRETO
 	<acme:input-select code="medico.cita.form.label.medicoTrata" path="medicoTrata" choices="${medicosTrata}"/>
 
 	<acme:input-textbox code="medico.cita.form.label.indicacionesCita" path="indicacionesCita"/>
-	<acme:input-textbox code="medico.cita.form.label.resultadoCita" path="resultadoCita"/>
 	
 
 <jstl:choose>	 
