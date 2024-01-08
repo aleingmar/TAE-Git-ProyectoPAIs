@@ -1,2 +1,3 @@
 key,fechaDiagnostico,confirmado,estadio,patologia,detallesDiagnostico,key:ingreso
-diagnostico-01,2002/06/30 13:20,true,2,Cáncer de piel,Muy claro,ingreso-01
+diagnostico-01,2022/06/30 14:20,true,2,Cáncer de pulmón,Muy claro,ingreso-01
+diagnostico-02,2023/02/16 11:30,true,2,Cáncer colorrectal,Muy claro,ingreso-02

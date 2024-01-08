@@ -7,3 +7,4 @@ user-account-paciente-01,true,"UserIdentity{name: 'Ale', surname: 'Paciente', em
 user-account-medico-01,true,"UserIdentity{name: 'Rafa', surname: 'Medico1', email: 'rafa@acme.com'}",medico1,medico1
 user-account-medico-02,true,"UserIdentity{name: 'Miguel', surname: 'Medico2', email: 'miguel@acme.com'}",medico2,medico2
 user-account-administrativo-01,true,"UserIdentity{name: 'Roti', surname: 'Administrativo1', email: 'roti@acme.com'}",administrativo1,administrativo1
+user-account-paciente-02,true,"UserIdentity{name: 'Rocio', surname: 'Paciente2', email: 'rocio@acme.com'}",paciente2,paciente2

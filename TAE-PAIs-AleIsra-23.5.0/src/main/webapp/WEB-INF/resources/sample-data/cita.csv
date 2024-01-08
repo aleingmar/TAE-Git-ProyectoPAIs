@@ -1,2 +1,3 @@
 key,fechaCita,centroCita,tipoCita,indicacionesCita,resultadoCita,key:paciente,key:medicoOrganiza,key:medicoTrata
-cita-01,2002/06/30 14:00,HOSPITAL_VIRGEN_MACARENA,PRUEBA_DE_IMAGEN,null,null,paciente-01,medico-01,medico-02
+cita-01,2022/06/30 13:00,HOSPITAL_VIRGEN_MACARENA,PRUEBA_DE_IMAGEN,null,null,paciente-01,medico-01,medico-02
+cita-02,2023/02/16 09:30,HOSPITAL_VIRGEN_MACARENA,PRUEBA_COLONOSCOPIA,null,null,paciente-02,medico-02,medico-01
