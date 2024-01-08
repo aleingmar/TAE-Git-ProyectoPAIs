@@ -10,7 +10,6 @@
             <acme:list-column code="medico.cita.list.label.centroCita" path="centroCita" width="5%"/>
             <acme:list-column code="medico.cita.list.label.tipoCita" path="tipoCita" width="10%"/>
             <acme:list-column code="medico.cita.list.label.indicacionesCita" path="indicacionesCita" width="10%"/>
-            <acme:list-column code="medico.cita.list.label.resultadoCita" path="resultadoCita" width="10%"/>
             <acme:list-column code="medico.cita.list.label.paciente" path="paciente.userAccount.username" width="10%"/>
             <acme:list-column code="medico.cita.list.label.medicoOrganiza" path="medicoOrganiza.userAccount.username" width="10%"/>
             <acme:list-column code="medico.cita.list.label.medicoTrata" path="medicoTrata.userAccount.username" width="10%"/>

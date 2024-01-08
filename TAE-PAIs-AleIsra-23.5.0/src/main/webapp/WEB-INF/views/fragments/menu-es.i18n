@@ -31,7 +31,7 @@ master.menu.medico.medicos = Médicos
 master.menu.medico.pruebas = Citas/pruebas
 master.menu.medico.my-pruebas = Ver mis pruebas
 master.menu.medico.crearCita = Crear cita
-master.menu.medico.altas = Mis Altas
+master.menu.medico.altas = Altas
 
 # master.menu.administrator ###################################################
 

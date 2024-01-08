@@ -22,3 +22,4 @@ paciente.ingreso.list.label.faseProceso = Fase proceso
 
 administrativo.alta.form.button.delete= Borrar alta
 administrativo.alta.form.button.update= Modificar Alta
+administrativo.alta.form.button.update-resultado = Crear resultado

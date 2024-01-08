@@ -52,4 +52,7 @@ public interface MedicoIngresoRepository extends AbstractRepository {
 	@Query("select m from Medico m")
 	Collection<Medico> findAllMedicos();
 
+	@Query("select m from Ingreso m")
+	Collection<Ingreso> findAllIngresos();
+
 }
