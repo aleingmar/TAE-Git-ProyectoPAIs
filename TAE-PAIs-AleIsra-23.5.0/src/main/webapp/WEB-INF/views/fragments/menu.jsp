@@ -20,10 +20,6 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
-
-		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.medicos" action="/administrator/medico/list"/>
@@ -48,8 +44,10 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.administrativo.creacionCuentas" access="hasRole('Administrativo')">
+			<acme:menu-suboption code="master.menu.sign-up" action="/administrativo/user-account/create"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.crearPaciente" action="/administrativo/paciente/create"/>
-			<acme:menu-suboption code="master.menu.user-account.crearIngreso" action="/administrativo/ingreso/create"/>
+			<acme:menu-suboption code="master.menu.user-account.crearMedico" action="/administrativo/medico/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.paciente" access="hasRole('Paciente')">
@@ -68,10 +66,8 @@
 			<%--
 			<acme:menu-suboption code="master.menu.paciente.my-ingresos" action="/medico/ingreso/list-mine-ingresos"/>
 			--%>
-			<acme:menu-suboption code="master.menu.paciente.my-altas" action="/medico/ingreso/list-altas-inicial"/>
+			<acme:menu-suboption code="master.menu.paciente.altas" action="/medico/ingreso/list-altas-inicial"/>
 			<acme:menu-suboption code="master.menu.medico.diagnosticos" action="/medico/diagnostico/list"/>
-			<acme:menu-suboption code="master.menu.medico.crearDiagnostico" action="/medico/diagnostico/create"/>
-			<acme:menu-suboption code="master.menu.medico.crearCita" action="/medico/cita/create"/>
 			<%--
 			<acme:menu-suboption code="master.menu.medico.mimismo" action="/medico/medico/list-a-mi-mismo"/>
 			
@@ -82,25 +78,13 @@
     		
 		</acme:menu-option>
 
-		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
-			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
-			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
-		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
-		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
-			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
-			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
-			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
-			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

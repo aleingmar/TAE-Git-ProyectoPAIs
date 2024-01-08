@@ -11,7 +11,6 @@
 # master.menu #################################################################
 
 master.menu.home = Home
-master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
@@ -38,6 +37,7 @@ master.menu.administrator.shut-down = Shut down
 master.menu.administrativo = Administrator
 master.menu.user-account.crearPaciente = Create patient
 master.menu.user-account.crearIngreso= Create access
+master.menu.user-account.crearMedico = Create doctor
 
 # master.menu.paciente ###################################################
 
@@ -47,6 +47,7 @@ master.menu.paciente.pruebas = My tests
 master.menu.paciente.my-citas = My appointments
 master.menu.paciente.my-ingresos = My admissions
 master.menu.paciente.my-altas = My Altas
+master.menu.paciente.altas = Altas
 master.menu.paciente.my-diagnosticos = My diagnostics
 
 # master.menu.medico ###################################################
@@ -54,7 +55,7 @@ master.menu.paciente.my-diagnosticos = My diagnostics
 master.menu.medico = Doctor
 master.menu.medico.pacientes = Patients
 master.menu.medico.medicos = Doctors
-master.menu.medico.pruebas = View appointments/tests
+master.menu.medico.pruebas = Appointments/tests
 master.menu.paciente.my-pruebas = View my tests
 master.menu.medico.diagnosticos = Diagnostics
 master.menu.medico.crearCita= Create cita
@@ -82,3 +83,4 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
 master.menu.administrativo.creacionCuentas = UserAccount creation
+master.menu.sign-up = Create userAccount

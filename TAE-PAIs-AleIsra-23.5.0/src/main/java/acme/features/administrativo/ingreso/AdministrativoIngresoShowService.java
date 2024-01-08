@@ -92,7 +92,7 @@ public class AdministrativoIngresoShowService extends AbstractService<Administra
 		medicos = this.repository.findAllMedicos();
 
 		//solo las citas que no tengas ingresos asociados ya
-		citas = this.repository.findAllCitasSinIngresos();
+		citas = this.repository.findAllCitas();
 
 		System.out.println("El paciente es nulo ?" + object.getPaciente());
 		choicesP = SelectChoices.from(pacientes, "dni", object.getPaciente());

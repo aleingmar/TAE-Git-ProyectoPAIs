@@ -67,7 +67,7 @@ public class PacienteIngresoShowService extends AbstractService<Paciente, Ingres
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
+		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

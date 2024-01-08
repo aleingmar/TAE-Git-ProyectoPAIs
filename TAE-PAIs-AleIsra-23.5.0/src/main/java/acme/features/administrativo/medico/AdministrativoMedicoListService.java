@@ -69,7 +69,7 @@ public class AdministrativoMedicoListService extends AbstractService<Administrat
 		//verifica que el objeto no sea nulo
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "especialidad", "tipoMedico", "userAccount.username", "userAccount.identity.email");
+		tuple = super.unbind(object, "especialidad", "tipoMedico", "dni", "userAccount.username", "userAccount.identity.email");
 
 		super.getResponse().setData(tuple);
 	}

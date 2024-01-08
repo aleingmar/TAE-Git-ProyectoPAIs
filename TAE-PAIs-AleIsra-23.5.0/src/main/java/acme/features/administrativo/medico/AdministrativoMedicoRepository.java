@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Medico;
 
@@ -37,5 +38,17 @@ public interface AdministrativoMedicoRepository extends AbstractRepository {
 	//evitar la carga perezosa (lazy loading) y traer de una vez toda la información necesaria en la consulta original. 
 	@Query("select m from Medico m left join fetch m.userAccount ua ")
 	Collection<Medico> findMedicos3();
+
+	@Query("select ua from UserAccount ua where ua.id = :id")
+	UserAccount findOneUserAccountById(int id);
+
+	@Query("select m from Medico m where m.userAccount.id = :id")
+	Medico findOneMedicoByUserAccountId(int id);
+
+	@Query("select ua from UserAccount ua")
+	Collection<UserAccount> findAllCuentas();
+
+	@Query("SELECT ua FROM UserAccount ua WHERE ua.id NOT IN (SELECT p.userAccount.id FROM Paciente p) AND ua.id NOT IN (SELECT m.userAccount.id FROM Medico m)")
+	Collection<UserAccount> findAllCuentasSinPacienteNiMedicoAsociado();
 
 }

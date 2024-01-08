@@ -8,7 +8,7 @@ administrativo.ingreso.list.label.motivoAlta = Motivo Alta
 administrativo.ingreso.list.label.fechaAlta = Fecha Alta
 administrativo.ingreso.list.label.paciente = Paciente
 administrativo.ingreso.list.label.medico = Médico
-
+administrativo.ingreso.list.label.cita = Cita
 
 
 administrativo.ingreso.form.label.fechaIngreso = Fecha ingreso
@@ -21,6 +21,9 @@ administrativo.ingreso.form.label.motivoAlta = Motivo Alta
 administrativo.ingreso.form.label.fechaAlta = Fecha Alta
 administrativo.ingreso.form.label.paciente = Paciente
 administrativo.ingreso.form.label.medico = Médico
+administrativo.ingreso.form.label.cita = Cita
+
+medico.ingreso.form.button.crearIngreso = Crear ingreso
 
 administrativo.ingreso.form.button.delete = Eliminar ingreso
 administrativo.ingreso.form.button.update = Actualizar ingreso

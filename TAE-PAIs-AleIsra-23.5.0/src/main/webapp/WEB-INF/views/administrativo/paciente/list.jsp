@@ -10,13 +10,9 @@
 
 <acme:list>
 
-	<acme:list-column code="administrator.paciente.list.label.nombreUsuario" path="userAccount.username" width="10%"/>
-	<acme:list-column code="administrator.paciente.list.label.email" path="userAccount.identity.email" width="10%"/>
-	<acme:list-column code="administrator.paciente.list.label.dni" path="dni" width="10%"/>
-	<acme:list-column code="administrator.paciente.list.label.telefono" path="telefono" width="10%"/>
-	<acme:list-column code="administrator.paciente.list.label.fechaNacimiento" path="fechaNacimiento" width="10%"/>
+	<acme:list-column code="administrativo.paciente.list.label.userAccount" path="userAccount.username" width="10%"/>
+	<acme:list-column code="administrativo.paciente.list.label.dni" path="dni" width="10%"/>
+	<acme:list-column code="administrativo.paciente.list.label.telefono" path="telefono" width="10%"/>
+	<acme:list-column code="administrativo.paciente.list.label.fechaNacimiento" path="fechaNacimiento" width="10%"/>
 </acme:list>
-
-	<acme:submit test="${_command == 'create'}" code="administrator.paciente.form.button.create" action="/administrator/paciente/create"/>
-
-	<acme:submit code="medico.diagnostico.form.button.crearPaciente" action="/administrativo/paciente/create"/> 
+ 

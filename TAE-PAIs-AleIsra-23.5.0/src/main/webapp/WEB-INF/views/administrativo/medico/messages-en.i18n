@@ -8,18 +8,28 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.medico.form.label.title = Title:
-administrator.medico.form.label.status = Status:
-administrator.medico.form.label.text = Text:
-administrator.medico.form.label.moreInfo = More info: (Optional)
+administrativo.medico.form.label.title = Title:
+administrativo.medico.form.label.status = Status:
+administrativo.medico.form.label.text = Text:
+administrativo.medico.form.label.moreInfo = More info: (Optional)
 
-administrator.medico.list.label.nombreUsuario = User Name
-administrator.medico.list.label.especialidad = Speciality
-administrator.medico.list.label.tipoMedico = Tipo Medico
-administrator.medico.list.label.email= Email
-administrator.medico.list.label.text = Text
+administrativo.medico.list.label.nombreUsuario = User Name
+administrativo.medico.list.label.especialidad = Speciality
+administrativo.medico.list.label.tipoMedico = Doctor type
+administrativo.medico.list.label.email= Email
+administrativo.medico.list.label.text = Text
+administrativo.medico.list.label.dni = Dni
+administrativo.medico.list.label.userAccount = User Name
 
-administrator.medico.form.label.nombreUsuario = User Name
-administrator.medico.form.label.especialidad = Speciality
-administrator.medico.form.label.tipoMedico = Tipo Medico
-administrator.medico.form.label.email= Email
+
+administrativo.medico.form.label.nombreUsuario = User Name
+administrativo.medico.form.label.especialidad = Speciality
+administrativo.medico.form.label.tipoMedico = Doctor type
+administrativo.medico.form.label.email= Email
+administrativo.medico.form.label.dni = Dni
+administrativo.medico.form.label.tipoMedico = Doctor type
+administrativo.medico.form.label.especialidad = Speciality
+administrativo.medico.form.label.userAccount = User Name
+
+administrativo.medico.form.button.create = Create doctor
+administrativo.medico.form.button.update = Update doctor

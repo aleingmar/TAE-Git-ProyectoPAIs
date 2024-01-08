@@ -61,7 +61,7 @@ public class PacienteCitaListMineService extends AbstractService<Paciente, Cita>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username", "ingreso.motivoIngreso");
+		tuple = super.unbind(object, "fechaCita", "centroCita", "tipoCita", "indicacionesCita", "resultadoCita", "paciente.userAccount.username", "medicoOrganiza.userAccount.username", "medicoTrata.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

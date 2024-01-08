@@ -13,7 +13,6 @@
 	<acme:list-column code="paciente.cita.list.label.resultadoCita" path="resultadoCita" width="10%"/>
 	<acme:list-column code="paciente.cita.list.label.medicoOrganiza" path="medicoOrganiza.userAccount.username" width="10%"/>
 	<acme:list-column code="paciente.cita.list.label.medicoTrata" path="medicoTrata.userAccount.username" width="10%"/>
-	<acme:list-column code="paciente.cita.list.label.motivoIngreso" path="ingreso.motivoIngreso" width="10%"/>
 	
 </acme:list>
 

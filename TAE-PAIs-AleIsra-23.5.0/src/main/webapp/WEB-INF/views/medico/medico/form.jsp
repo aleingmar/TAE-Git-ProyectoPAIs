@@ -22,6 +22,5 @@
 	<acme:input-textbox code="medico.medico.form.label.especialidad" path="especialidad" readonly="true"/>
 	<acme:input-textbox code="medico.medico.form.label.tipoMedico" path="tipoMedico" readonly="true"/>
 
-	<acme:button code="medico.medico.form.button.crearCita" action=""/>
 </acme:form>
 

@@ -8,22 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.paciente.form.label.title = Title:
-administrator.paciente.form.label.status = Status:
-administrator.paciente.form.label.text = Text:
-administrator.paciente.form.label.moreInfo = More info: (Optional)
+administrativo.paciente.form.label.title = Title:
+administrativo.paciente.form.label.status = Status:
+administrativo.paciente.form.label.text = Text:
+administrativo.paciente.form.label.moreInfo = More info: (Optional)
 
-administrator.paciente.list.label.nombreUsuario = User Name
-administrator.paciente.list.label.dni = DNI
-administrator.paciente.list.label.fechaNacimiento = Bithdate
-administrator.paciente.list.label.email= Email
-administrator.paciente.list.label.text = Text
-administrator.paciente.list.label.telefono = Phone number
+administrativo.paciente.list.label.nombreUsuario = User Name
+administrativo.paciente.list.label.dni = DNI
+administrativo.paciente.list.label.fechaNacimiento = Bithdate
+administrativo.paciente.list.label.email= Email
+administrativo.paciente.list.label.text = Text
+administrativo.paciente.list.label.telefono = Phone number
 
-administrator.paciente.form.label.nombreUsuario = User Name
-administrator.paciente.form.label.dni = DNI
-administrator.paciente.form.label.fechaNacimiento = Bithdate
-administrator.paciente.form.label.email= Email
-administrator.paciente.form.label.telefono = Phone number
+administrativo.paciente.form.label.nombreUsuario = User Name
+administrativo.paciente.form.label.dni = DNI
+administrativo.paciente.form.label.fechaNacimiento = Bithdate
+administrativo.paciente.form.label.email= Email
+administrativo.paciente.form.label.telefono = Phone number
 
-administrator.paciente.form.button.update = Update
+administrativo.paciente.form.button.update = Update
+administrativo.paciente.form.label.userAccount = User account
+administrativo.paciente.list.label.userAccount = User account
+

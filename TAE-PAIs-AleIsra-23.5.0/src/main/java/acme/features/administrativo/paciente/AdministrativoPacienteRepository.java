@@ -29,4 +29,10 @@ public interface AdministrativoPacienteRepository extends AbstractRepository {
 	@Query("select p from Paciente p where p.userAccount.id = :id")
 	Paciente findOnePacienteByUserAccountId(int id);
 
+	@Query("select ua from UserAccount ua")
+	Collection<UserAccount> findAllCuentas();
+
+	@Query("SELECT ua FROM UserAccount ua WHERE ua.id NOT IN (SELECT p.userAccount.id FROM Paciente p) AND ua.id NOT IN (SELECT m.userAccount.id FROM Medico m)")
+	Collection<UserAccount> findAllCuentasSinPacienteNiMedicoAsociado();
+
 }

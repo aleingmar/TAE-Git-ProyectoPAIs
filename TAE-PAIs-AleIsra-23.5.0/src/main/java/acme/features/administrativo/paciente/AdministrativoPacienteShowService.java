@@ -12,9 +12,13 @@
 
 package acme.features.administrativo.paciente;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.framework.components.accounts.UserAccount;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Administrativo;
@@ -65,9 +69,21 @@ public class AdministrativoPacienteShowService extends AbstractService<Administr
 	public void unbind(final Paciente object) {
 		assert object != null;
 
+		final Collection<UserAccount> cuentas;
+		final SelectChoices choicesCuentas;
+
+		//Solo cuentas de usuario sin pacientes asociados
+
+		cuentas = this.repository.findAllCuentas();
+
+		choicesCuentas = SelectChoices.from(cuentas, "username", object.getUserAccount());
+
 		Tuple tuple;
 
-		tuple = super.unbind(object, "userAccount.username", "userAccount.identity.email", "telefono", "dni", "fechaNacimiento");
+		tuple = super.unbind(object, "telefono", "dni", "fechaNacimiento");
+
+		tuple.put("userAccount.username", choicesCuentas.getSelected().getKey());
+		tuple.put("userAccounts", choicesCuentas);
 
 		super.getResponse().setData(tuple);
 	}

@@ -11,7 +11,6 @@
 ﻿# master.menu #################################################################
 
 master.menu.home = Inicio
-master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
@@ -28,7 +27,7 @@ master.menu.paciente.my-diagnosticos = Mis diagnósticos
 master.menu.medico = Médico
 master.menu.medico.pacientes = Pacientes
 master.menu.medico.medicos = Médicos
-master.menu.medico.pruebas = Ver citas/pruebas
+master.menu.medico.pruebas = Citas/pruebas
 master.menu.paciente.my-pruebas = Ver mis pruebas
 master.menu.medico.crearCita = Crear cita
 
@@ -39,6 +38,7 @@ master.menu.paciente.cita = Cita
 master.menu.paciente.my-citas = Mis citas
 master.menu.paciente.my-ingresos = Mis ingresos
 master.menu.paciente.my-altas = Mis Altas
+master.menu.paciente.altas = Altas
 master.menu.medico.diagnosticos = Diagnósticos
 
 master.menu.administrator = Administrador
@@ -51,6 +51,7 @@ master.menu.administrator.ingresos = Ingresos
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.sign-up = Crear cuenta de usuario
 
 # master.menu.administrativo ###################################################
 
@@ -58,6 +59,7 @@ master.menu.administrativo = Administrativo
 master.menu.user-account.crearPaciente = Crear paciente
 master.menu.user-account.crearIngreso= Crear ingreso
 master.menu.administrativo.creacionCuentas = Creación de cuentas
+master.menu.user-account.crearMedico = Crear médico
 
 # master.menu.provider ########################################################
 

@@ -18,6 +18,7 @@ administrativo.ingreso.list.label.motivoAlta = Alta reason
 administrativo.ingreso.list.label.fechaAlta = Alta date
 administrativo.ingreso.list.label.paciente = Patient
 administrativo.ingreso.list.label.medico = Doctor
+administrativo.ingreso.list.label.cita = Appointment
 
 administrativo.ingreso.form.label.fechaIngreso = Date of admission
 administrativo.ingreso.form.label.faseProceso = Process phase
@@ -29,6 +30,9 @@ administrativo.ingreso.form.label.motivoAlta = Alta reason
 administrativo.ingreso.form.label.fechaAlta = Alta date
 administrativo.ingreso.form.label.paciente = Patient
 administrativo.ingreso.form.label.medico = Doctor
+administrativo.ingreso.form.label.cita = Appointment
+
+medico.ingreso.form.button.crearIngreso = Create admission
 
 administrativo.ingreso.form.button.delete = Delete ingreso
 administrativo.ingreso.form.button.update = Update ingreso

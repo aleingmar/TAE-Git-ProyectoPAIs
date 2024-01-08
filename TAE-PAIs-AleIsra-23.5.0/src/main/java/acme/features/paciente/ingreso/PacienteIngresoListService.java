@@ -69,7 +69,7 @@ public class PacienteIngresoListService extends AbstractService<Paciente, Ingres
 		//verifica que el objeto no sea nulo
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
+		tuple = super.unbind(object, "fechaIngreso", "faseProceso", "motivoIngreso", "centroIngreso", "fechaValoracion", "resultadoValoracion", "motivoAlta", "fechaAlta", "paciente.userAccount.username", "medico.userAccount.username");
 
 		super.getResponse().setData(tuple);
 	}

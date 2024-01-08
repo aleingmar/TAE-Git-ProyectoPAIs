@@ -17,5 +17,6 @@
 	<acme:list-column code="administrativo.ingreso.list.label.medico" path="medico.userAccount.username" width="10%"/>
 	
 </acme:list>
-<acme:button code="medico.diagnostico.form.button.crearIngreso" action="/administrativo/ingreso/create"/> 
+
+<acme:button code="medico.ingreso.form.button.crearIngreso" action="/administrativo/ingreso/create"/> 
 

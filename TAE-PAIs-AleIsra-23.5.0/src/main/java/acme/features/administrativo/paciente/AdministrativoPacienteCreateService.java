@@ -12,14 +12,14 @@
 
 package acme.features.administrativo.paciente;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.accounts.UserAccount;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Administrativo;
 import acme.roles.Paciente;
@@ -50,16 +50,8 @@ public class AdministrativoPacienteCreateService extends AbstractService<Adminis
 	@Override
 	public void load() {
 		Paciente object;
-		Principal principal;
-		int userAccountId;
-		UserAccount userAccount;
-
-		principal = super.getRequest().getPrincipal();
-		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
 		object = new Paciente();
-		object.setUserAccount(userAccount);
 
 		super.getBuffer().setData(object);
 	}
@@ -68,7 +60,13 @@ public class AdministrativoPacienteCreateService extends AbstractService<Adminis
 	public void bind(final Paciente object) {
 		assert object != null;
 
+		final int userAccountId = super.getRequest().getData("userAccount", int.class);
+
+		final UserAccount userAccount = this.repository.findOneUserAccountById(userAccountId);
+
 		super.bind(object, "telefono", "fechaNacimiento", "dni");
+
+		object.setUserAccount(userAccount);
 
 	}
 
@@ -88,17 +86,23 @@ public class AdministrativoPacienteCreateService extends AbstractService<Adminis
 	@Override
 	public void unbind(final Paciente object) {
 		assert object != null;
+
+		final Collection<UserAccount> cuentas;
+		final SelectChoices choicesCuentas;
+
+		//Solo cuentas de usuario sin pacientes asociados
+		cuentas = this.repository.findAllCuentasSinPacienteNiMedicoAsociado();
+		choicesCuentas = SelectChoices.from(cuentas, "username", object.getUserAccount());
+
 		Tuple tuple;
 
-		tuple = super.unbind(object, "dni", "fechaNacimiento", "telefono");
+		tuple = super.unbind(object, "telefono", "dni", "fechaNacimiento");
+
+		tuple.put("userAccount.username", choicesCuentas.getSelected().getKey());
+		//tuple.put("paciente.dni", object.getPaciente().getDni());
+		tuple.put("userAccounts", choicesCuentas);
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }

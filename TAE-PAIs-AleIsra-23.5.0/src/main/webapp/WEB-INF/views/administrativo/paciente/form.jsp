@@ -5,15 +5,33 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.paciente.form.label.nombreUsuario" path="userAccount.username"/>
-	<acme:input-email code="administrator.paciente.form.label.email" path="userAccount.identity.email"/>
-	<acme:input-textbox code="administrator.paciente.form.label.dni" path="dni"/>
-	<acme:input-textbox code="administrator.paciente.form.label.telefono" path="telefono"/>
-	<acme:input-textbox code="administrator.paciente.form.label.fechaNacimiento" path="fechaNacimiento"/>
 
+	<jstl:if test="${acme:anyOf(_command, 'update|show')}">
+		<acme:input-select code="administrativo.paciente.form.label.userAccount" path="userAccount" choices="${userAccounts}" readonly="true"/>
+	</jstl:if>
+	
+	<jstl:if test="${acme:anyOf(_command, 'create|delete')}">
+		<acme:input-select code="administrativo.paciente.form.label.userAccount" path="userAccount" choices="${userAccounts}"/>
+	</jstl:if>
+	
+	<acme:input-textbox code="administrativo.paciente.form.label.dni" path="dni"/>
+	<acme:input-textbox code="administrativo.paciente.form.label.telefono" path="telefono"/>
+	<acme:input-textbox code="administrativo.paciente.form.label.fechaNacimiento" path="fechaNacimiento"/>
+
+
+	<jstl:choose>	 
+		
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="administrativo.paciente.form.button.update" action="/administrativo/paciente/update"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrativo.paciente.form.button.create" action="/administrativo/paciente/create"/>
+		</jstl:when>		
+	</jstl:choose>
+	
 </acme:form>
 
-<acme:submit code="administrator.paciente.form.button.update" action="/administrativo/paciente/create"/>
+
 	
 
 

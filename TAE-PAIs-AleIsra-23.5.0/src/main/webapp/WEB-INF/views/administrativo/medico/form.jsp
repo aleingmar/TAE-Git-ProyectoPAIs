@@ -17,10 +17,29 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.medico.form.label.nombreUsuario" path="userAccount.username" readonly="true"/>
-	<acme:input-email code="administrator.medico.form.label.email" path="userAccount.identity.email" readonly="true"/>
-	<acme:input-textbox code="administrator.medico.form.label.especialidad" path="especialidad" readonly="true"/>
-	<acme:input-textbox code="administrator.medico.form.label.tipoMedico" path="tipoMedico" readonly="true"/>
+	<jstl:if test="${acme:anyOf(_command, 'update|show')}">
+		<acme:input-select code="administrativo.medico.form.label.userAccount" path="userAccount" choices="${userAccounts}" readonly="true"/>
+	</jstl:if>
+	
+	<jstl:if test="${acme:anyOf(_command, 'create|delete')}">
+		<acme:input-select code="administrativo.medico.form.label.userAccount" path="userAccount" choices="${userAccounts}"/>
+	</jstl:if>
+	
+	<acme:input-textbox code="administrativo.medico.form.label.dni" path="dni"/>
+	
+	<acme:input-select  code="administrativo.medico.form.label.tipoMedico" path="tipoMedico" choices="${tiposMedico}"/>	
+	<acme:input-select  code="administrativo.medico.form.label.especialidad" path="especialidad" choices="${especialidades}"/>
+	
+	<jstl:choose>	 
+		
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="administrativo.medico.form.button.update" action="/administrativo/medico/update"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrativo.medico.form.button.create" action="/administrativo/medico/create"/>
+		</jstl:when>		
+	</jstl:choose>
+	
 
 </acme:form>
 

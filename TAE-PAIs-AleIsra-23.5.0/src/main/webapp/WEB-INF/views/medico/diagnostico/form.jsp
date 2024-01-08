@@ -10,6 +10,8 @@
 		
 	<acme:input-select code="medico.diagnostico.form.label.ingreso" path="ingreso" choices="${ingresos}"/>
 	
+		<acme:input-select code="medico.diagnostico.form.label.medico" path="medico" choices="${medicos}"/>
+	
 	<acme:input-moment code="medico.diagnostico.form.label.fechaDiagnostico" path="fechaDiagnostico" />
 	
 	<acme:input-checkbox code="medico.diagnostico.form.label.confirmado" path="confirmado"/>

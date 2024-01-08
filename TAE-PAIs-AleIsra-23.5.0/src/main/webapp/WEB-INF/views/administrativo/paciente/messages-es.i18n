@@ -8,22 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.medico.form.label.title = Título:
-administrator.medico.form.label.status = Estado:
-administrator.medico.form.label.text = Texto:
-administrator.medico.form.label.moreInfo = Más información: (Opcional)
+administrativo.medico.form.label.title = Título:
+administrativo.medico.form.label.status = Estado:
+administrativo.medico.form.label.text = Texto:
+administrativo.medico.form.label.moreInfo = Más información: (Opcional)
 
-administrator.paciente.list.label.nombreUsuario = Nombre de usuario
-administrator.paciente.list.label.dni = DNI
-administrator.paciente.list.label.fechaNacimiento = Fecha de nacimiento
-administrator.paciente.list.label.email= Email
-administrator.paciente.list.label.text = Text
-administrator.paciente.form.label.telefono = Teléfono
+administrativo.paciente.list.label.nombreUsuario = Nombre de usuario
+administrativo.paciente.list.label.dni = DNI
+administrativo.paciente.list.label.fechaNacimiento = Fecha de nacimiento
+administrativo.paciente.list.label.email= Email
+administrativo.paciente.list.label.text = Text
+administrativo.paciente.form.label.telefono = Teléfono
 
-administrator.paciente.form.label.nombreUsuario = Nombre de usuario
-administrator.paciente.form.label.dni = DNI
-administrator.paciente.form.label.fechaNacimiento = Fecha de nacimienti
-administrator.paciente.form.label.email= Email
-administrator.paciente.form.label.telefono = Teléfono
+administrativo.paciente.form.label.nombreUsuario = Nombre de usuario
+administrativo.paciente.form.label.dni = DNI
+administrativo.paciente.form.label.fechaNacimiento = Fecha de nacimiento
+administrativo.paciente.form.label.email= Email
+administrativo.paciente.form.label.telefono = Teléfono
 
-administrator.paciente.form.button.update = Actualizar
+administrativo.paciente.form.button.update = Actualizar
+
+administrativo.paciente.form.label.userAccount = Cuenta de usuario
+administrativo.paciente.list.label.userAccount = Cuenta de usuario
