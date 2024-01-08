@@ -138,9 +138,14 @@ public class AdministrativoIngresoCreateService extends AbstractService<Administ
 			final Date currentDate = calendar.getTime();
 			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
 
-			final Collection<Ingreso> ingresoInicialPrevio = this.repository.findingresoInicialPrevio(object.getFechaIngreso(), object.getMotivoIngreso(), object.getPaciente());
-			if ("PROCESO".equals(object.getFaseProceso().name()))
+			if ("PROCESO".equals(object.getFaseProceso().name())) {
+				final Collection<Ingreso> ingresoInicialPrevio = this.repository.findingresoInicialPrevio(object.getFechaIngreso(), object.getMotivoIngreso(), object.getPaciente());
 				super.state(!ingresoInicialPrevio.isEmpty(), "faseProceso", "Debe de existir un ingreso inicial del proceso que sea anterior");
+			}
+			if ("INICIAL".equals(object.getFaseProceso().name())) {
+				final Collection<Ingreso> ingresoInicialPrevio2 = this.repository.findingresoInicialPrevio2(object.getMotivoIngreso(), object.getPaciente());
+				super.state(ingresoInicialPrevio2.isEmpty(), "faseProceso", "Ya existe un ingreso inicial relacionado con ese PAI");
+			}
 		}
 
 	}

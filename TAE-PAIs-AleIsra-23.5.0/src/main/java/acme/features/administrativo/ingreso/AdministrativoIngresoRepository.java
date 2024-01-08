@@ -76,4 +76,7 @@ public interface AdministrativoIngresoRepository extends AbstractRepository {
 	@Query("select i from Ingreso i where i.fechaIngreso < :fechaIngreso and i.motivoIngreso = :motivoIngreso and i.paciente = :paciente and i.faseProceso = acme.entities.enumerados.TipoFaseProceso.INICIAL")
 	Collection<Ingreso> findingresoInicialPrevio(Date fechaIngreso, MotivoIngreso motivoIngreso, Paciente paciente);
 
+	@Query("select i from Ingreso i where i.motivoIngreso = :motivoIngreso and i.paciente = :paciente and i.faseProceso = acme.entities.enumerados.TipoFaseProceso.INICIAL")
+	Collection<Ingreso> findingresoInicialPrevio2(MotivoIngreso motivoIngreso, Paciente paciente);
+
 }

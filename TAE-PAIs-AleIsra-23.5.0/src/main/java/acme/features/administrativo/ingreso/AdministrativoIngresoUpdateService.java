@@ -78,8 +78,15 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 
 	@Override
 	public void validate(final Ingreso object) {
-		assert object != null;
+		System.out.println(object);
+		System.out.println(object.getCentroIngreso());
 
+		assert object != null;
+		//hay que pensar las validaciones
+		System.out.println("se ejecuta validate");
+
+		//@Past or present -> la fecha se quedo en 2022 -> por versiones de java
+		//compruebo aquí que la fecha es presente o pasado
 		if (!super.getBuffer().getErrors().hasErrors("fechaIngreso")) {
 			final Calendar calendar = Calendar.getInstance();
 			final Date currentDate = calendar.getTime();
@@ -91,10 +98,16 @@ public class AdministrativoIngresoUpdateService extends AbstractService<Administ
 			final Date currentDate = calendar.getTime();
 			super.state(!object.getFechaIngreso().after(currentDate), "fechaIngreso", "La fecha no puede ser futuro");
 
-			final Collection<Ingreso> ingresoInicialPrevio = this.repository.findingresoInicialPrevio(object.getFechaIngreso(), object.getMotivoIngreso(), object.getPaciente());
-			if ("PROCESO".equals(object.getFaseProceso().name()))
+			if ("PROCESO".equals(object.getFaseProceso().name())) {
+				final Collection<Ingreso> ingresoInicialPrevio = this.repository.findingresoInicialPrevio(object.getFechaIngreso(), object.getMotivoIngreso(), object.getPaciente());
 				super.state(!ingresoInicialPrevio.isEmpty(), "faseProceso", "Debe de existir un ingreso inicial del proceso que sea anterior");
+			}
+			if ("INICIAL".equals(object.getFaseProceso().name())) {
+				final Collection<Ingreso> ingresoInicialPrevio2 = this.repository.findingresoInicialPrevio2(object.getMotivoIngreso(), object.getPaciente());
+				super.state(ingresoInicialPrevio2.isEmpty(), "faseProceso", "Ya existe un ingreso inicial relacionado con ese PAI");
+			}
 		}
+
 	}
 
 	@Override
